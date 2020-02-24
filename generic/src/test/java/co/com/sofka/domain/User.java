@@ -28,12 +28,10 @@ public  class User extends AggregateRoot {
         appendChange(new UserCreated(userName, userPassword)).apply(createUser);
     }
 
-
     private User(AggregateRootId aggregateRootId){
         super(aggregateRootId);
         registerActions(createUser, updatePassword);
     }
-
 
     public static User from(AggregateRootId aggregateRootId, List<DomainEvent> eventList){
         User user = new User(aggregateRootId);
