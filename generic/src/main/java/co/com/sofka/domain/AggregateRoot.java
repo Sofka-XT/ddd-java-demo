@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public abstract class AggregateRoot extends Entity<AggregateRootId> {
+public abstract class AggregateRoot<T extends  AggregateRootId> extends Entity<T> {
     private final List<DomainEvent> changes;
     private final List<Consumer<? super DomainEvent>> handleActions;
 
-    public AggregateRoot(AggregateRootId entityId) {
+    public AggregateRoot(T entityId) {
         super(entityId);
         this.changes = new LinkedList<>();
         this.handleActions = new LinkedList<>();
@@ -49,7 +49,7 @@ public abstract class AggregateRoot extends Entity<AggregateRootId> {
     }
 
     public void markChangesAsCommitted(){
-        changes.clear();;
+        changes.clear();
     }
 
 }
