@@ -8,6 +8,7 @@
 
 .idea/
 pet.iml
+core/core.iml
 
 # User-specific stuff
 .idea/**/workspace.xml

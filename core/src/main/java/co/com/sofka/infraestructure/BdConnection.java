@@ -1,4 +1,4 @@
-package co.com.sofka.usecases;
+package co.com.sofka.infraestructure;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
@@ -13,7 +13,6 @@ import java.io.IOException;
 public class BdConnection {
 
     public static Firestore firebaseInstance() throws IOException {
-        //conexion con firebase
         FileInputStream serviceAccount = new FileInputStream("D:\\lisbey.urrea\\Documents\\SpringBootProject\\firebase-ddd-key\\event-soucing-demo-firebase-adminsdk-iqrs0-ff0b4b6e2c.json");
 
         FirebaseOptions options = new FirebaseOptions.Builder()
