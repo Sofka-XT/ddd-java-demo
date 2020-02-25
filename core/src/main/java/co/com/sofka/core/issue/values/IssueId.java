@@ -1,5 +1,7 @@
 package co.com.sofka.core.issue.values;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 import static co.com.sofka.generic.DomainAssertions.checkNonNullForIssue;
@@ -8,7 +10,7 @@ public class IssueId {
 
     private final String uuid;
 
-    public IssueId(String uuid) {
+    public IssueId(@JsonProperty("uuid") String uuid) {
         checkNonNullForIssue(uuid,"ID Issue can´t be null");
         this.uuid = uuid;
     }

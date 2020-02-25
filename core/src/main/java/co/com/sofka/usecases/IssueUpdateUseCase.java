@@ -3,7 +3,7 @@ package co.com.sofka.usecases;
 import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.AggregateRootRepository;
+import co.com.sofka.infraestructure.FirestoreRepository;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
@@ -15,8 +15,8 @@ public class IssueUpdateUseCase {
 
     public static void main( String[] args ) throws IOException {
         //Crear un issue
-        AggregateRootRepository aggregateRootRepository = new AggregateRootRepository(firebaseInstance());
-        AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
+        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
+        AggregateRootId anAggregateRootId = new AggregateRootId("lis");
         IssueList issueList = new IssueList(anAggregateRootId);
 
         //accionar el comportamiento
@@ -24,18 +24,17 @@ public class IssueUpdateUseCase {
 
         var changes = issueList.getUncommittedChanges();
         var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes);
-        aggregateRootRepository.getDomainEventList();
+        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
         //issueList.markChangesAsCommitted();
 
         //actualizar estado
-        IssueList issueSaved = IssueList.from(anAggregateRootId, aggregateRootRepository.getEventsBy(anAggregateRootId));
+        IssueList issueSaved = IssueList.from(anAggregateRootId, firestoreRepository.getEventsBy(anAggregateRootId));
         issueSaved.updateIssueStatusBy(issueId, StatusProperty.CLOSE);
         var changes2 = issueSaved.getUncommittedChanges();
-        aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes2);
+        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes2);
         //issueSaved.markChangesAsCommitted();
 
-        System.out.println(aggregateRootRepository.getDomainEventList());
+        System.out.println(firestoreRepository.getDomainEventList());
 
 /*
 new ObjectMapper()

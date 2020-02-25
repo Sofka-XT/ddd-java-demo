@@ -5,7 +5,7 @@ import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.core.label.LabelList;
 import co.com.sofka.core.label.values.LabelListId;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.AggregateRootRepository;
+import co.com.sofka.infraestructure.FirestoreRepository;
 import co.com.sofka.generic.values.BasicInformationProperty;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ import static co.com.sofka.infraestructure.BdConnection.firebaseInstance;
 public class LabelAddToIssueUseCase {
     public static void main( String[] args ) throws IOException {
         //Crear un issue
-        AggregateRootRepository aggregateRootRepository = new AggregateRootRepository(firebaseInstance());
+        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
         AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
         IssueList issueList = new IssueList(anAggregateRootId);
         final LabelListId labelListId = new LabelListId(UUID.randomUUID().toString());
@@ -30,10 +30,10 @@ public class LabelAddToIssueUseCase {
         LabelList labelList = new LabelList(labelListId);
         labelList.createLabel("Black", "Fixes");
         issueList.updateLabelListBy(issueId, labelList);
-        aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes);
+        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
         //issueList.markChangesAsCommitted();
 
-        System.out.println(aggregateRootRepository.getDomainEventList());
+        System.out.println(firestoreRepository.getDomainEventList());
 
 
     }
