@@ -25,14 +25,15 @@ public class IssueUpdateUseCase {
         var changes = issueList.getUncommittedChanges();
         var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
         aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes);
-        issueList.markChangesAsCommitted();
+        aggregateRootRepository.getDomainEventList();
+        //issueList.markChangesAsCommitted();
 
         //actualizar estado
         IssueList issueSaved = IssueList.from(anAggregateRootId, aggregateRootRepository.getEventsBy(anAggregateRootId));
         issueSaved.updateIssueStatusBy(issueId, StatusProperty.CLOSE);
         var changes2 = issueSaved.getUncommittedChanges();
         aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes2);
-        issueSaved.markChangesAsCommitted();
+        //issueSaved.markChangesAsCommitted();
 
         System.out.println(aggregateRootRepository.getDomainEventList());
 
