@@ -1,6 +1,8 @@
 package co.com.sofka.generic.values;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import static co.com.sofka.generic.DomainAssertions.checkNonNullForBasicInformationProperties;
 
 public class BasicInformationProperty {
@@ -8,7 +10,7 @@ public class BasicInformationProperty {
     private final String title;
     private final String description;
 
-    public BasicInformationProperty(String title, String description) {
+    public BasicInformationProperty(@JsonProperty("title") String title, @JsonProperty("description") String description) {
         checkNonNullForBasicInformationProperties(title,"title can't be null");
         checkNonNullForBasicInformationProperties(description,"Description can't be null");
         this.title = title;

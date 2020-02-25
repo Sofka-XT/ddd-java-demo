@@ -4,7 +4,7 @@ import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.core.issue.values.PersonProperty;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.AggregateRootRepository;
+import co.com.sofka.infraestructure.FirestoreRepository;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
@@ -18,7 +18,7 @@ public class IssueCreateAndUpdateUseCase {
 
     public static void main( String[] args ) throws IOException {
         //Crear un issue
-        AggregateRootRepository aggregateRootRepository = new AggregateRootRepository(firebaseInstance());
+        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
         AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
         IssueList issueList = new IssueList(anAggregateRootId);
 
@@ -28,20 +28,20 @@ public class IssueCreateAndUpdateUseCase {
 
         var changes = issueList.getUncommittedChanges();
         var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes);
+        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
         //issueList.markChangesAsCommitted();
 
         //actualizar la información del issue
-        IssueList issueSaved = IssueList.from(anAggregateRootId, aggregateRootRepository.getEventsBy(anAggregateRootId));
+        IssueList issueSaved = IssueList.from(anAggregateRootId, firestoreRepository.getEventsBy(anAggregateRootId));
         issueSaved.updateFullIssueWithoutBasicInformation(issueId,
                 new PeriodProperty(new Date(), new Date()),
                 new PersonProperty("Juanpa is sick"),
                 StatusProperty.OPEN);
 
         var changes2 = issueSaved.getUncommittedChanges();
-        aggregateRootRepository.saveEventsWithAn(anAggregateRootId, changes2);
+        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes2);
         //issueSaved.markChangesAsCommitted();
 
-        System.out.println(aggregateRootRepository.getDomainEventList());
+        System.out.println(firestoreRepository.getDomainEventList());
     }
 }
