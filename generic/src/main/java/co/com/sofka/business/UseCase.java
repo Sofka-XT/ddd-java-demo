@@ -9,23 +9,23 @@ public abstract class UseCase<Q extends UseCase.RequestValues, P extends UseCase
     private Q mRequestValues;
     private UseCaseFormat<P> mUseCaseFormat;
 
-    public Q getRequestValues() {
+    protected Q getRequestValues() {
         return mRequestValues;
     }
 
-    public void setRequestValues(Q mRequestValues) {
+    protected void setRequestValues(Q mRequestValues) {
         this.mRequestValues = mRequestValues;
     }
 
-    public UseCaseFormat<P> emit(){
+    protected UseCaseFormat<P> emit(){
         return mUseCaseFormat;
     }
 
-    public void setUseCaseCallback(UseCaseFormat<P> useCaseFormat) {
+    protected void setUseCaseCallback(UseCaseFormat<P> useCaseFormat) {
         mUseCaseFormat = useCaseFormat;
     }
 
-    public void run(){
+    protected void run(){
         try {
             executeUseCase(mRequestValues);
         }catch (RuntimeException e){

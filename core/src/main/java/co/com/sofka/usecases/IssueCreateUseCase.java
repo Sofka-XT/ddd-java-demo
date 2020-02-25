@@ -1,30 +1,49 @@
 package co.com.sofka.usecases;
 
+import co.com.sofka.business.UseCase;
 import co.com.sofka.core.issue.IssueList;
-import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.domain.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 
-import java.io.IOException;
+import java.util.List;
 
-import static co.com.sofka.infraestructure.BdConnection.firebaseInstance;
+public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, IssueCreateUseCase.Response> {
 
-public class IssueCreateUseCase {
-    public static void main( String[] args ) throws IOException {
+    @Override
+    protected void executeUseCase(Request requestValues) {
 
-
-        //Crear un issue
-        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
-        AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
+        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
 
-        //accionar el comportamiento
-        issueList.createIssueWithBasicInformation(new BasicInformationProperty("title", "test"));
-        var changes = issueList.getUncommittedChanges();
-        var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
+        issueList.createIssueWithBasicInformation(requestValues.basicInformation);
+        emit().onSuccess(new Response(issueList.getUncommittedChanges()));
         issueList.markChangesAsCommitted();
 
     }
+
+    public static class Request implements UseCase.RequestValues {
+        private String uuid;
+        private BasicInformationProperty basicInformation;
+
+        public Request(String uuid, BasicInformationProperty basicInformation) {
+            this.uuid = uuid;
+            this.basicInformation = basicInformation;
+        }
+    }
+
+    public static class Response implements UseCase.ResponseEvents {
+        private List<DomainEvent> domainEvents;
+        public Response(List<DomainEvent> domainEvents) {
+            this.domainEvents = List.copyOf(domainEvents);
+        }
+
+        @Override
+        public List<DomainEvent> getDomainEvents() {
+            return domainEvents;
+        }
+    }
+
+
+
 }

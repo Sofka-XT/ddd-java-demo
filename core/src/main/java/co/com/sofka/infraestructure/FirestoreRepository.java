@@ -31,7 +31,7 @@ public class FirestoreRepository implements EventStoreRepository {
     }
 
     @Override
-    public List<DomainEvent> getEventsBy(AggregateRootId aggregateRootId) throws QueryFaultException {
+    public List<DomainEvent> getEventsBy(AggregateRootId aggregateRootId) {
         List<QueryDocumentSnapshot> query  = getQuerySnapshotApiFuture(aggregateRootId);
         return query.stream().map(document -> {
                 final ObjectMapper mapper = new ObjectMapper();
@@ -46,7 +46,7 @@ public class FirestoreRepository implements EventStoreRepository {
 
     }
 
-    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(AggregateRootId aggregateRootId) throws QueryFaultException {
+    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(AggregateRootId aggregateRootId) {
         ApiFuture<QuerySnapshot> query = db.collection(aggregateRootId.toString())
                 .orderBy("occurredOn")
                 .get();
