@@ -7,9 +7,11 @@ import co.com.sofka.infraestructure.SubscriberFirestoreRepository;
 import com.google.cloud.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -24,9 +26,10 @@ public class CommandRest {
         this.useCaseFactory = useCaseFactory;
     }
 
-    @PostMapping("command")
+    @PostMapping(value="command", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Map<String, Object>> setCommand(@RequestBody IssueDTO body) {
+        Map<String, Object> respose = new HashMap<>();
         Tuple<UseCase, UseCase.RequestValues> useCase = useCaseFactory.getUseCase(body);
 
         UseCaseHandler.SimplePublisher pub = UseCaseHandler.getInstance()
@@ -34,7 +37,7 @@ public class CommandRest {
 
         pub.subscribe(new SubscriberFirestoreRepository(body.uuid));
 
-        return new ResponseEntity<Map<String, Object>>((Map<String, Object>) null, HttpStatus.OK);
+        return new ResponseEntity<Map<String, Object>>(respose, HttpStatus.OK);
     }
 
 }
