@@ -43,7 +43,4 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Issu
             return domainEvents;
         }
     }
-
-
-
 }
