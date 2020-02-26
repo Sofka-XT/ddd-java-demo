@@ -11,7 +11,7 @@ import java.util.concurrent.Flow;
 public class IssueCreateUseCaseExecutorTest {
 
     @Test
-    public void createIssue(){
+    public void createIssue() {
 
         UseCaseHandler.SimplePublisher pub = UseCaseHandler.getInstance()
                 .execute(new IssueCreateUseCase(),
