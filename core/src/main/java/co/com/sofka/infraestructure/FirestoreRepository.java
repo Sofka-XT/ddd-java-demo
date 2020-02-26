@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.Tuple;
 import com.google.cloud.firestore.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,17 +16,17 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FirestoreRepository implements EventStoreRepository {
+
     private static final Logger logger = LoggerFactory.getLogger(FirestoreRepository.class);
 
 
-    private final Firestore db;
+    private final Firestore database;
 
-    public FirestoreRepository(Firestore db){
-        this.db = db;
+    public FirestoreRepository(Firestore database){
+        this.database = database;
     }
 
     @Override
@@ -40,14 +39,14 @@ public class FirestoreRepository implements EventStoreRepository {
                     Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
                     return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
                 } catch (IOException | ClassNotFoundException e) {
-                   throw new EventMapperException();
+                   throw new EventMapperException(e.getMessage());
                 }
             }).collect(Collectors.toList());
 
     }
 
     private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(AggregateRootId aggregateRootId) {
-        ApiFuture<QuerySnapshot> query = db.collection(aggregateRootId.toString())
+        ApiFuture<QuerySnapshot> query = database.collection(aggregateRootId.toString())
                 .orderBy("occurredOn")
                 .get();
         try {
@@ -59,41 +58,27 @@ public class FirestoreRepository implements EventStoreRepository {
     }
 
     @Override
-    public void saveEventsWithAn(final AggregateRootId aggregateRootId, final List<DomainEvent> events) {
+    public void saveEventsWithAn(final AggregateRootId aggregateRootId, final DomainEvent event) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        events.stream()
-                .map(getDomainEventTupleFunction(mapper))
-                .map(getTupleApiFutureFunction(aggregateRootId))
-                .map(getApiFutureWriteResultFunction())
-                .forEach(writeResult -> logger.info(String.valueOf(writeResult.getUpdateTime())));
+        final String eventSerialization = serializeEvent(mapper, event);
+        StoredEvent storedEvent = wrapEvent(event, eventSerialization);
+        setDocumentToCollection(aggregateRootId, event, storedEvent);
+
     }
 
-    private Function<ApiFuture<WriteResult>, WriteResult> getApiFutureWriteResultFunction() {
-        return writeResultApiFuture -> {
-            try {
-                return writeResultApiFuture.get();
-            } catch (InterruptedException | ExecutionException e) {
-                Thread.currentThread().interrupt();
-                throw new PersistenceResultException();
-            }
-        };
-    }
+    private void setDocumentToCollection(AggregateRootId aggregateRootId, DomainEvent event, StoredEvent storedEvent) {
+        try {
+            WriteResult writeResult = database.collection(aggregateRootId.toString())
+                    .document(event.uuid.toString())
+                    .set(storedEvent).get();
 
-    private Function<DomainEvent, Tuple<UUID, StoredEvent>> getDomainEventTupleFunction(ObjectMapper mapper) {
-        return domainEvent -> {
-            final String eventSerialization = serializeEvent(mapper, domainEvent);
-            StoredEvent storedEvent = wrapEvent(domainEvent, eventSerialization);
-            return Tuple.of(domainEvent.uuid, storedEvent);
+            logger.info(String.valueOf(writeResult.getUpdateTime()));
 
-        };
-    }
-
-    private Function<Tuple<UUID, StoredEvent>, ApiFuture<WriteResult>> getTupleApiFutureFunction(AggregateRootId aggregateRootId) {
-        return storedEventTuple ->
-                db.collection(aggregateRootId.toString())
-                .document(storedEventTuple.x().toString())
-                .set(storedEventTuple.y());
+        } catch (InterruptedException | ExecutionException e) {
+            Thread.currentThread().interrupt();
+            throw new PersistenceResultException();
+        }
     }
 
     private StoredEvent wrapEvent(DomainEvent domainEvent, String eventSerialization) {
@@ -117,7 +102,7 @@ public class FirestoreRepository implements EventStoreRepository {
 
         Map<String, List<DomainEvent>> allEventsCollection= new HashMap<>();
 
-        Iterable<CollectionReference> future = db.getCollections();
+        Iterable<CollectionReference> future = database.getCollections();
         future.forEach(collectionReference ->
                 allEventsCollection.put(collectionReference.getPath(), getEventsBy(new AggregateRootId(collectionReference.getPath()))));
         return allEventsCollection;

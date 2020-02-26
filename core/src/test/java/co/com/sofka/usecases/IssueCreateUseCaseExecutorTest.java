@@ -1,9 +1,8 @@
-package co.com.sofka.usecase;
+package co.com.sofka.usecases;
 
 import co.com.sofka.business.UseCaseHandler;
 import co.com.sofka.domain.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
-import co.com.sofka.usecases.IssueCreateUseCase;
 import org.junit.Test;
 
 import java.util.concurrent.Flow;

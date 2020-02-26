@@ -6,22 +6,53 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Map;
 
 public class BdConnection {
 
-    public static Firestore firebaseInstance() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase-adminsdk-iqrs0-ff0b4b6e2c.json");
+    private static Firestore database;
 
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
+    private BdConnection() {
+    }
 
-        FirebaseApp.initializeApp(options);
 
-        Firestore db = FirestoreClient.getFirestore();
+    public static Firestore getDatabaseInstance(){
+        if(database==null){
+            database = openDatabase();
+        }
 
-        return db;
+        return database;
+    }
+
+    private static Firestore openDatabase()  {
+
+        Map<String, String> env = System.getenv();
+
+        try(FileInputStream serviceAccount = new FileInputStream("C:\\Users\\Juan Mariaca\\Desktop\\DDD\\template\\ddd-java-demo\\event-soucing-demo-firebase.json")) {
+
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+
+            FirebaseApp.initializeApp(options);
+
+            return FirestoreClient.getFirestore();
+
+        } catch (IOException e) {
+            throw new PersistenceResultException("Error to open the database");
+        }
+
+    }
+
+    public static void closeDatabase(){
+        try {
+            database.close();
+            database = null;
+        } catch (Exception e) {
+            throw new PersistenceResultException("Error to close the database");
+        }
     }
 }

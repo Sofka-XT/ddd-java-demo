@@ -1,47 +1,62 @@
 package co.com.sofka.usecases;
 
+import co.com.sofka.business.UseCase;
 import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.core.issue.values.PersonProperty;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.domain.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
-import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 
-import static co.com.sofka.infraestructure.BdConnection.firebaseInstance;
+public class IssueCreateAndUpdateUseCase extends UseCase<IssueCreateAndUpdateUseCase.Request, IssueCreateAndUpdateUseCase.Response> {
 
-public class IssueCreateAndUpdateUseCase {
+    @Override
+    protected void executeUseCase(Request requestValues) {
 
-    public static void main( String[] args ) throws IOException {
-        //Crear un issue
-        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
-        AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
+        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
 
+        issueList.createIssueWithBasicInformation(requestValues.basicInformation);
 
-        //accionar el comportamiento
-        issueList.createIssueWithBasicInformation(new BasicInformationProperty("title", "test"));
+        var uncommittedChanges = issueList.getUncommittedChanges();
+        var issueId = ((IssueWithBasicInformationCreated)uncommittedChanges.get(0)).getIssueId();
+        issueList.updateFullIssueWithoutBasicInformation(issueId, requestValues.period,requestValues.person, requestValues.status);
 
-        var changes = issueList.getUncommittedChanges();
-        var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
-        //issueList.markChangesAsCommitted();
-
-        //actualizar la información del issue
-        IssueList issueSaved = IssueList.from(anAggregateRootId, firestoreRepository.getEventsBy(anAggregateRootId));
-        issueSaved.updateFullIssueWithoutBasicInformation(issueId,
-                new PeriodProperty(new Date(), new Date()),
-                new PersonProperty("Juanpa is sick"),
-                StatusProperty.OPEN);
-
-        var changes2 = issueSaved.getUncommittedChanges();
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes2);
-        //issueSaved.markChangesAsCommitted();
-
-        System.out.println(firestoreRepository.getDomainEventList());
+        emit().onSuccess(new IssueCreateAndUpdateUseCase.Response(issueList.getUncommittedChanges()));
+        issueList.markChangesAsCommitted();
     }
+
+    public static class Request implements UseCase.RequestValues {
+        private String uuid;
+        private BasicInformationProperty basicInformation;
+        private PeriodProperty period;
+        private PersonProperty person;
+        private StatusProperty status;
+
+        public Request(String uuid, BasicInformationProperty basicInformation, PeriodProperty period, PersonProperty person, StatusProperty status) {
+            this.uuid = uuid;
+            this.basicInformation = basicInformation;
+            this.period = period;
+            this.person = person;
+            this.status = status;
+        }
+    }
+    public static class Response implements UseCase.ResponseEvents {
+
+        private List<DomainEvent> domainEvents;
+
+        public Response(List<DomainEvent> domainEvents) {
+            this.domainEvents = List.copyOf(domainEvents);
+        }
+
+        @Override
+        public List<DomainEvent> getDomainEvents() {
+            return domainEvents;
+        }
+    }
+
 }

@@ -1,40 +1,64 @@
 package co.com.sofka.usecases;
 
+import co.com.sofka.business.UseCase;
 import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
 import co.com.sofka.core.label.LabelList;
 import co.com.sofka.core.label.values.LabelListId;
 import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.domain.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 
-import java.io.IOException;
-import java.util.UUID;
+import java.util.List;
 
-import static co.com.sofka.infraestructure.BdConnection.firebaseInstance;
+public class LabelAddToIssueUseCase extends UseCase<LabelAddToIssueUseCase.Request, LabelAddToIssueUseCase.Response> {
 
-public class LabelAddToIssueUseCase {
-    public static void main( String[] args ) throws IOException {
-        //Crear un issue
-        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
-        AggregateRootId anAggregateRootId = new AggregateRootId("uuid");
+    @Override
+    protected void executeUseCase(Request requestValues) {
+
+        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
-        final LabelListId labelListId = new LabelListId(UUID.randomUUID().toString());
 
-        //accionar el comportamiento
-        issueList.createIssueWithBasicInformation(new BasicInformationProperty("title", "test"));
+        issueList.createIssueWithBasicInformation(requestValues.basicInformation);
 
+        var uncommittedChanges = issueList.getUncommittedChanges();
+        var issueId = ((IssueWithBasicInformationCreated)uncommittedChanges.get(0)).getIssueId();
+        LabelList labelList = new LabelList(requestValues.labelListId);
+        labelList.createLabel(requestValues.color, requestValues.title);
 
-        var changes = issueList.getUncommittedChanges();
-        var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        LabelList labelList = new LabelList(labelListId);
-        labelList.createLabel("Black", "Fixes");
         issueList.updateLabelListBy(issueId, labelList);
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
-        //issueList.markChangesAsCommitted();
 
-        System.out.println(firestoreRepository.getDomainEventList());
+        emit().onSuccess(new LabelAddToIssueUseCase.Response(issueList.getUncommittedChanges()));
+        issueList.markChangesAsCommitted();
+    }
 
+    public static class Request implements UseCase.RequestValues {
+        private String uuid;
+        private BasicInformationProperty basicInformation;
+        private LabelListId labelListId;
+        private String color;
+        private String title;
 
+        public Request(String uuid, BasicInformationProperty basicInformation, LabelListId labelListId, String color, String title) {
+            this.uuid = uuid;
+            this.basicInformation = basicInformation;
+            this.labelListId = labelListId;
+            this.color = color;
+            this.title = title;
+        }
+    }
+
+    public static class Response implements UseCase.ResponseEvents {
+
+        private List<DomainEvent> domainEvents;
+
+        public Response(List<DomainEvent> domainEvents) {
+            this.domainEvents = domainEvents;
+        }
+
+        @Override
+        public List<DomainEvent> getDomainEvents() {
+            return domainEvents;
+        }
     }
 }
