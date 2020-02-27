@@ -1,9 +1,9 @@
 package co.com.sofka.usecases;
 
-import co.com.sofka.business.UseCase;
+import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.core.issue.IssueList;
-import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.domain.DomainEvent;
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 
 import java.util.List;
@@ -32,8 +32,9 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Issu
         }
     }
 
-    public static class Response implements UseCase.ResponseEvents {
+    public static class Response implements UseCase.PubEvents {
         private List<DomainEvent> domainEvents;
+
         public Response(List<DomainEvent> domainEvents) {
             this.domainEvents = List.copyOf(domainEvents);
         }

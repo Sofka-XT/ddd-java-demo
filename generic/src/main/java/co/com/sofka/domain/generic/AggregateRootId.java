@@ -1,10 +1,10 @@
-package co.com.sofka.domain;
+package co.com.sofka.domain.generic;
+
 
 import java.util.Objects;
 import java.util.UUID;
 
 public class AggregateRootId {
-
     private final String uuid;
 
     public AggregateRootId(String uuid) {
@@ -19,8 +19,8 @@ public class AggregateRootId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AggregateRootId that = (AggregateRootId) o;
-        return Objects.equals(uuid, that.uuid);
+        AggregateRootId aggregateRootId = (AggregateRootId) o;
+        return Objects.equals(uuid, aggregateRootId.uuid);
     }
 
     @Override

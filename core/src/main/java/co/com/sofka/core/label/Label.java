@@ -10,8 +10,8 @@ public class Label {
     private final String tittle;
 
     public Label(LabelId labelId, String color, String tittle) {
-        checkNonNullForLabel(color,"Color can´t be null");
-        checkNonNullForLabel(tittle,"Tittle can´t be null");
+        checkNonNullForLabel(color, "Color can´t be null");
+        checkNonNullForLabel(tittle, "Tittle can´t be null");
         this.labelId = labelId;
         this.color = color;
         this.tittle = tittle;

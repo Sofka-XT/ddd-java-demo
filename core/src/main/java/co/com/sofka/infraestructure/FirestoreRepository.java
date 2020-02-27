@@ -1,9 +1,9 @@
 package co.com.sofka.infraestructure;
 
-import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.domain.DomainEvent;
-import co.com.sofka.generic.StoredEvent;
 
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.StoredEvent;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,7 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
@@ -25,23 +28,23 @@ public class FirestoreRepository implements EventStoreRepository {
 
     private final Firestore database;
 
-    public FirestoreRepository(Firestore database){
+    public FirestoreRepository(Firestore database) {
         this.database = database;
     }
 
     @Override
     public List<DomainEvent> getEventsBy(AggregateRootId aggregateRootId) {
-        List<QueryDocumentSnapshot> query  = getQuerySnapshotApiFuture(aggregateRootId);
+        List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(aggregateRootId);
         return query.stream().map(document -> {
-                final ObjectMapper mapper = new ObjectMapper();
-                StoredEvent storedEvent = mapper.convertValue(document.getData(), StoredEvent.class);
-                try {
-                    Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
-                    return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
-                } catch (IOException | ClassNotFoundException e) {
-                   throw new EventMapperException(e.getMessage());
-                }
-            }).collect(Collectors.toList());
+            final ObjectMapper mapper = new ObjectMapper();
+            StoredEvent storedEvent = mapper.convertValue(document.getData(), StoredEvent.class);
+            try {
+                Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
+                return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
+            } catch (IOException | ClassNotFoundException e) {
+                throw new EventMapperException(e.getMessage());
+            }
+        }).collect(Collectors.toList());
 
     }
 
@@ -58,7 +61,7 @@ public class FirestoreRepository implements EventStoreRepository {
     }
 
     @Override
-    public void saveEventsWithAn(final AggregateRootId aggregateRootId, final DomainEvent event) {
+    public void saveEvent(final AggregateRootId aggregateRootId, final DomainEvent event) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         final String eventSerialization = serializeEvent(mapper, event);
@@ -83,8 +86,8 @@ public class FirestoreRepository implements EventStoreRepository {
 
     private StoredEvent wrapEvent(DomainEvent domainEvent, String eventSerialization) {
         return new StoredEvent(domainEvent.getClass().getCanonicalName(),
-                        domainEvent.when,
-                        eventSerialization
+                new Date(domainEvent.when.toEpochMilli()),
+                eventSerialization
         );
     }
 
@@ -93,18 +96,19 @@ public class FirestoreRepository implements EventStoreRepository {
         try {
             eventSerialization = mapper.writeValueAsString(domainEvent);
         } catch (JsonProcessingException e) {
-           throw new EventMapperException();
+            throw new EventMapperException();
         }
         return eventSerialization;
     }
 
     public Map<String, List<DomainEvent>> getDomainEventList() {
 
-        Map<String, List<DomainEvent>> allEventsCollection= new HashMap<>();
+        Map<String, List<DomainEvent>> allEventsCollection = new HashMap<>();
 
         Iterable<CollectionReference> future = database.getCollections();
         future.forEach(collectionReference ->
-                allEventsCollection.put(collectionReference.getPath(), getEventsBy(new AggregateRootId(collectionReference.getPath()))));
+                allEventsCollection.put(collectionReference.getPath(),
+                        getEventsBy(new AggregateRootId(collectionReference.getPath()))));
         return allEventsCollection;
     }
 }

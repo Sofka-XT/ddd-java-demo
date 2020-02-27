@@ -2,7 +2,7 @@ package co.com.sofka.core.issue.events;
 
 import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.core.label.LabelList;
-import co.com.sofka.domain.DomainEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
 public class IssueLabelUpdated extends DomainEvent {
 

@@ -1,10 +1,10 @@
 package co.com.sofka.usecases;
 
-import co.com.sofka.business.UseCase;
+import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
-import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.domain.DomainEvent;
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
@@ -21,7 +21,7 @@ public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, Issu
         issueList.createIssueWithBasicInformation(requestValues.basicInformation);
 
         var uncommittedChanges = issueList.getUncommittedChanges();
-        var issueId = ((IssueWithBasicInformationCreated)uncommittedChanges.get(0)).getIssueId();
+        var issueId = ((IssueWithBasicInformationCreated) uncommittedChanges.get(0)).getIssueId();
         issueList.updateIssueStatusBy(issueId, requestValues.status);
 
         emit().onSuccess(new IssueUpdateUseCase.Response(issueList.getUncommittedChanges()));
@@ -40,7 +40,7 @@ public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, Issu
         }
     }
 
-    public static class Response implements UseCase.ResponseEvents {
+    public static class Response implements UseCase.PubEvents {
 
         private List<DomainEvent> domainEvents;
 

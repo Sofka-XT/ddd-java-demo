@@ -1,8 +1,8 @@
-package co.com.sofka.generic;
+package co.com.sofka.domain.generic;
 
 import java.util.Date;
 
-public class StoredEvent {
+public final class StoredEvent {
 
     private String eventBody;
     private Date occurredOn;
@@ -17,27 +17,27 @@ public class StoredEvent {
         this.setTypeName(typeName);
     }
 
-    public String getEventBody() {
-        return eventBody;
-    }
-
     public void setEventBody(String eventBody) {
         this.eventBody = eventBody;
-    }
-
-    public Date getOccurredOn() {
-        return occurredOn;
     }
 
     public void setOccurredOn(Date occurredOn) {
         this.occurredOn = occurredOn;
     }
 
-    public String getTypeName() {
-        return typeName;
-    }
-
     public void setTypeName(String typeName) {
         this.typeName = typeName;
+    }
+
+    public String getEventBody() {
+        return eventBody;
+    }
+
+    public Date getOccurredOn() {
+        return occurredOn;
+    }
+
+    public String getTypeName() {
+        return typeName;
     }
 }

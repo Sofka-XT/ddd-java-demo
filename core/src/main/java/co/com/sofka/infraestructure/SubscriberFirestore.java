@@ -6,18 +6,18 @@ import co.com.sofka.domain.DomainEvent;
 import java.util.concurrent.Flow;
 
 import static co.com.sofka.infraestructure.BdConnection.closeDatabase;
-import static co.com.sofka.infraestructure.BdConnection.getDatabaseInstance;
 
 
-public class SubscriberFirestoreRepository implements Flow.Subscriber<DomainEvent> {
+public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
 
-    FirestoreRepository firestoreRepository;
-    String aggregateRootId;
+    private FirestoreRepository firestoreRepository;
+    private String aggregateRootId;
 
-    public SubscriberFirestoreRepository(String aggregateRootId) {
+    public SubscriberFirestore(String aggregateRootId, FirestoreRepository firestoreRepository) {
         this.aggregateRootId = aggregateRootId;
-        firestoreRepository = new FirestoreRepository(getDatabaseInstance());
+        this.firestoreRepository = firestoreRepository;
     }
+
     @Override
     public void onSubscribe(Flow.Subscription subscription) {
 

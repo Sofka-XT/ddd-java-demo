@@ -5,7 +5,7 @@ import co.com.sofka.core.issue.values.PersonProperty;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
-import co.com.sofka.infraestructure.SubscriberFirestoreRepository;
+import co.com.sofka.infraestructure.SubscriberFirestore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -26,7 +26,7 @@ public class IssueCreateAndUpdateUseCaseExecutorTest {
                                     StatusProperty.OPEN)
                     );
 
-            pub.subscribe(new SubscriberFirestoreRepository(uuid));
+            //pub.subscribe(new SubscriberFirestore(uuid));
 
         }
 }

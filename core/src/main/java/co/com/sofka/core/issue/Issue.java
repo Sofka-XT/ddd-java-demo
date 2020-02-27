@@ -21,8 +21,8 @@ public class Issue {
     private LabelList labelList;
 
     public Issue(IssueId issueId, BasicInformationProperty basicInformation) {
-        checkNonNullForIssue(issueId,"Issue id can't be null");
-        checkNonNullForIssue(basicInformation,"Basic information can't be null");
+        checkNonNullForIssue(issueId, "Issue id can't be null");
+        checkNonNullForIssue(basicInformation, "Basic information can't be null");
         this.issueId = issueId;
         this.basicInformation = basicInformation;
     }
@@ -52,27 +52,27 @@ public class Issue {
     }
 
     public void updatePerson(PersonProperty person) {
-        checkNonNullForIssue(person,"Person can't be null");
+        checkNonNullForIssue(person, "Person can't be null");
         this.person = person;
     }
 
     public void updateStatus(StatusProperty status) {
-        checkNonNullForIssue(status,"Status can't be null");
+        checkNonNullForIssue(status, "Status can't be null");
         this.status = status;
     }
 
     public void updatePeriod(PeriodProperty period) {
-        checkNonNullForIssue(period,"Period can't be null");
+        checkNonNullForIssue(period, "Period can't be null");
         this.period = period;
     }
 
     public void updateBasicInformation(BasicInformationProperty basicInformation) {
-        checkNonNullForIssue(basicInformation,"Basic information can't be null");
+        checkNonNullForIssue(basicInformation, "Basic information can't be null");
         this.basicInformation = basicInformation;
     }
 
     public void updateLabelList(LabelList labelList) {
-        checkNonNullForIssue(labelList,"Label List can't be null");
+        checkNonNullForIssue(labelList, "Label List can't be null");
         this.labelList = labelList;
     }
 

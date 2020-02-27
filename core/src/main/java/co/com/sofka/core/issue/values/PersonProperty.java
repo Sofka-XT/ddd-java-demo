@@ -10,7 +10,7 @@ public class PersonProperty {
     private final String name;
 
     public PersonProperty(@JsonProperty("name") String name) {
-        checkNonNullForPersonProperties(name,"Name can't be null");
+        checkNonNullForPersonProperties(name, "Name can't be null");
         this.name = name;
     }
 

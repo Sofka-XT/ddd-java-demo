@@ -11,8 +11,8 @@ public class BasicInformationProperty {
     private final String description;
 
     public BasicInformationProperty(@JsonProperty("title") String title, @JsonProperty("description") String description) {
-        checkNonNullForBasicInformationProperties(title,"title can't be null");
-        checkNonNullForBasicInformationProperties(description,"Description can't be null");
+        checkNonNullForBasicInformationProperties(title, "title can't be null");
+        checkNonNullForBasicInformationProperties(description, "Description can't be null");
         this.title = title;
         this.description = description;
     }

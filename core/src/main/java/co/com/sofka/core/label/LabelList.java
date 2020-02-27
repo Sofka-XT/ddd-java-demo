@@ -36,7 +36,7 @@ public class LabelList {
     }
 
     private Label findLabelByTittle(String titleLabelToDelete) {
-        checkNonNullForLabel(titleLabelToDelete,"Label tittle to delete can´t be null");
+        checkNonNullForLabel(titleLabelToDelete, "Label tittle to delete can´t be null");
         Collection<Label> list = labelCollection
                 .stream()
                 .filter(label -> label.getTittle().equalsIgnoreCase(titleLabelToDelete))
