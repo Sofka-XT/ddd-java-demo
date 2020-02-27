@@ -31,7 +31,7 @@ public class BdConnection {
 
         Map<String, String> env = System.getenv();
 
-        try(FileInputStream serviceAccount = new FileInputStream("D:\\lisbey.urrea\\Documents\\SpringBootProject\\ddd-java-demo\\event-soucing-demo-firebase.json")) {
+        try(FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase.json")) {
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

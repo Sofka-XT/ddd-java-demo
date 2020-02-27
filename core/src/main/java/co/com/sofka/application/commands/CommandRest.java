@@ -1,4 +1,4 @@
-package co.com.sofka.application;
+package co.com.sofka.application.commands;
 
 import co.com.sofka.business.UseCase;
 import co.com.sofka.business.UseCaseHandler;

@@ -1,4 +1,4 @@
-package co.com.sofka.application;
+package co.com.sofka.application.commands;
 
 import co.com.sofka.core.issue.values.PersonProperty;
 import co.com.sofka.core.label.values.LabelListId;
