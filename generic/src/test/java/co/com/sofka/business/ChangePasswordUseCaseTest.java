@@ -1,3 +1,4 @@
+/*
 package co.com.sofka.business;
 
 import co.com.sofka.business.UseCase;
@@ -121,3 +122,4 @@ public class ChangePasswordUseCaseTest {
 
 
 }
+*/

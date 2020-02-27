@@ -1,45 +1,57 @@
 package co.com.sofka.usecases;
 
+import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.core.issue.IssueList;
 import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
-import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
-import java.io.IOException;
+import java.util.List;
 
-import static co.com.sofka.infraestructure.BdConnection.firebaseInstance;
+public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, IssueUpdateUseCase.Response> {
 
-public class IssueUpdateUseCase {
+    @Override
+    protected void executeUseCase(Request requestValues) {
 
-    public static void main( String[] args ) throws IOException {
-        //Crear un issue
-        FirestoreRepository firestoreRepository = new FirestoreRepository(firebaseInstance());
-        AggregateRootId anAggregateRootId = new AggregateRootId("lis");
+        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
 
-        //accionar el comportamiento
-        issueList.createIssueWithBasicInformation(new BasicInformationProperty("nuevo issue", ""));
+        issueList.createIssueWithBasicInformation(requestValues.basicInformation);
 
-        var changes = issueList.getUncommittedChanges();
-        var issueId = ((IssueWithBasicInformationCreated)changes.get(0)).getIssueId();
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes);
-        //issueList.markChangesAsCommitted();
+        var uncommittedChanges = issueList.getUncommittedChanges();
+        var issueId = ((IssueWithBasicInformationCreated) uncommittedChanges.get(0)).getIssueId();
+        issueList.updateIssueStatusBy(issueId, requestValues.status);
 
-        //actualizar estado
-        IssueList issueSaved = IssueList.from(anAggregateRootId, firestoreRepository.getEventsBy(anAggregateRootId));
-        issueSaved.updateIssueStatusBy(issueId, StatusProperty.CLOSE);
-        var changes2 = issueSaved.getUncommittedChanges();
-        firestoreRepository.saveEventsWithAn(anAggregateRootId, changes2);
-        //issueSaved.markChangesAsCommitted();
-
-        System.out.println(firestoreRepository.getDomainEventList());
-
-/*
-new ObjectMapper()
-         .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-        .writeValueAsString(new IssueStatusUpdated(new IssueId("idIssue01"), StatusProperty.CLOSE));
- */
+        emit().onSuccess(new IssueUpdateUseCase.Response(issueList.getUncommittedChanges()));
+        issueList.markChangesAsCommitted();
     }
+
+    public static class Request implements UseCase.RequestValues {
+        private String uuid;
+        private BasicInformationProperty basicInformation;
+        private StatusProperty status;
+
+        public Request(String uuid, BasicInformationProperty basicInformation, StatusProperty status) {
+            this.uuid = uuid;
+            this.basicInformation = basicInformation;
+            this.status = status;
+        }
+    }
+
+    public static class Response implements UseCase.PubEvents {
+
+        private List<DomainEvent> domainEvents;
+
+        public Response(List<DomainEvent> domainEvents) {
+            this.domainEvents = List.copyOf(domainEvents);
+        }
+
+        @Override
+        public List<DomainEvent> getDomainEvents() {
+            return domainEvents;
+        }
+    }
+
 }

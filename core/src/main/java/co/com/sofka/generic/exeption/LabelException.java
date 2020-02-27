@@ -1,6 +1,6 @@
 package co.com.sofka.generic.exeption;
 
-public class LabelException extends RuntimeException{
+public class LabelException extends RuntimeException {
 
     public LabelException() {
     }

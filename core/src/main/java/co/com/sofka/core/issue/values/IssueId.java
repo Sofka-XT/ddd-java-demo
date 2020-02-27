@@ -11,11 +11,11 @@ public class IssueId {
     private final String uuid;
 
     public IssueId(@JsonProperty("uuid") String uuid) {
-        checkNonNullForIssue(uuid,"ID Issue can´t be null");
+        checkNonNullForIssue(uuid, "ID Issue can´t be null");
         this.uuid = uuid;
     }
 
-    public static IssueId generateWith(String uui){
+    public static IssueId generateWith(String uui) {
         return new IssueId(uui);
     }
 
