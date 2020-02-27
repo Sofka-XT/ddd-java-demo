@@ -3,8 +3,8 @@ package co.com.sofka.application.commands;
 import co.com.sofka.infraestructure.FirestoreRepository;
 import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
-import co.com.sofka.usecases.handlers.CommandHandlerCreate;
-import co.com.sofka.usecases.handlers.CommandHandlerUpdate;
+import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
+import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
