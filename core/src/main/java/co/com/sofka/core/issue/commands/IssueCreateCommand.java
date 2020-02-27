@@ -23,4 +23,6 @@ public class IssueCreateCommand extends Command {
     public BasicInformationProperty getBasicInformation() {
         return basicInformation;
     }
+
+
 }
