@@ -31,9 +31,9 @@ public abstract class UseCaseSub implements Flow.Subscriber<DomainEvent> {
                 Optional.of(useCase.request().getDomainEvent())
                         .ifPresent(event -> {
                             if (event.getClass().isInstance(domainEvent)) {
-                                var values = UseCaseHandler.getInstance()
+                                Optional<UseCase.ResponseValues> values = UseCaseHandler.getInstance()
                                         .syncExecutor(useCase, () -> domainEvent);
-                                responseValues.add(values);
+                                responseValues.add(values.get());
                             }
                         }));
     }

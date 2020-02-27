@@ -1,7 +1,9 @@
 package co.com.sofka.infraestructure;
 
-import co.com.sofka.domain.AggregateRootId;
-import co.com.sofka.domain.DomainEvent;
+
+
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.concurrent.Flow;
 
@@ -25,7 +27,7 @@ public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
 
     @Override
     public void onNext(DomainEvent domainEvent) {
-        firestoreRepository.saveEventsWithAn(new AggregateRootId(aggregateRootId), domainEvent);
+        firestoreRepository.saveEvent(new AggregateRootId(aggregateRootId), domainEvent);
     }
 
     @Override

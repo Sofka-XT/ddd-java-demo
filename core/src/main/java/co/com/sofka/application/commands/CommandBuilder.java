@@ -6,6 +6,7 @@ import co.com.sofka.business.generic.UseCase;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public final class CommandBuilder {
     private Map<String, UseCase> useCases;
 

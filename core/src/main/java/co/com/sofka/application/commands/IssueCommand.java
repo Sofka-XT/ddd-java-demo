@@ -3,6 +3,7 @@ package co.com.sofka.application.commands;
 
 import co.com.sofka.domain.generic.Command;
 
+@Deprecated
 public class IssueCommand extends Command {
 
     private String aggregateId;

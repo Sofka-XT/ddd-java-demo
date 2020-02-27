@@ -1,6 +1,9 @@
 package co.com.sofka.domain;
 
 import co.com.sofka.domain.events.UserPasswordUpdated;
+import co.com.sofka.domain.generic.AggregateRoot;
+import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.values.UserName;
 import co.com.sofka.domain.values.UserPassword;
 import co.com.sofka.domain.events.UserCreated;
@@ -9,9 +12,9 @@ import co.com.sofka.domain.events.UserCreated;
 import java.util.List;
 import java.util.function.Consumer;
 
-public  class User extends AggregateRoot {
+public  class User {
 
-    private UserName userName;
+/*    private UserName userName;
     private UserPassword userPassword;
 
     private Consumer<UserCreated> createUser = domainEvent -> {
@@ -41,5 +44,5 @@ public  class User extends AggregateRoot {
 
     public void updateUserPassword(UserPassword userPassword) {
         appendChange(new UserPasswordUpdated(userPassword)).apply(updatePassword);
-    }
+    }*/
 }

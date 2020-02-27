@@ -1,7 +1,7 @@
 package co.com.sofka.application;
 
-import co.com.sofka.business.UseCaseHandler;
-import co.com.sofka.domain.DomainEvent;
+import co.com.sofka.business.generic.UseCaseHandler;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.usecases.IssueCreateUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class IssueUseCaseFlow {
     public Flow.Publisher<DomainEvent> createIssue(String uuid, BasicInformationProperty property) {
         return UseCaseHandler
                 .getInstance()
-                .execute(createUseCase, new IssueCreateUseCase.Request(uuid, property));
+                .asyncExecutor(createUseCase, new IssueCreateUseCase.Request(uuid, property));
     }
 
 

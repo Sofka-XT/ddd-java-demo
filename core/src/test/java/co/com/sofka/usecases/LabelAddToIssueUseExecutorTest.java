@@ -1,6 +1,4 @@
 package co.com.sofka.usecases;
-
-import co.com.sofka.business.UseCaseHandler;
 import co.com.sofka.core.label.values.LabelListId;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.infraestructure.SubscriberFirestore;
@@ -8,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class LabelAddToIssueUseExecutorTest {
 
-    @Test
+  /*  @Test
     void addLabelToIssue() {
 
         String uuid = "uuid";
@@ -26,5 +24,5 @@ class LabelAddToIssueUseExecutorTest {
 
 
 
-    }
+    }*/
 }

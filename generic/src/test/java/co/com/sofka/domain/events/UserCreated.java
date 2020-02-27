@@ -1,6 +1,6 @@
 package co.com.sofka.domain.events;
 
-import co.com.sofka.domain.DomainEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.values.UserName;
 import co.com.sofka.domain.values.UserPassword;
 
