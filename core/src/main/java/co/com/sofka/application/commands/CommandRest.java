@@ -1,16 +1,12 @@
 package co.com.sofka.application.commands;
 
-import co.com.sofka.business.generic.UseCaseHandler;
+import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.core.issue.commands.IssueCreateCommand;
 import co.com.sofka.core.issue.commands.IssueUpdateCommand;
-import co.com.sofka.infraestructure.SubscriberFirestore;
-import co.com.sofka.usecases.IssueUpdateUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 
 @RestController

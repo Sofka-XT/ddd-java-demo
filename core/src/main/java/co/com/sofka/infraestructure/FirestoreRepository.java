@@ -4,6 +4,8 @@ package co.com.sofka.infraestructure;
 import co.com.sofka.domain.generic.AggregateRootId;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generic.StoredEvent;
+import co.com.sofka.infraestructure.repository.EventStoreRepository;
+import co.com.sofka.infraestructure.repository.QueryFaultException;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;

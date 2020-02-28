@@ -1,7 +1,7 @@
 package co.com.sofka.application.commands;
 
 
-import co.com.sofka.business.generic.UseCase;
+import co.com.sofka.infraestructure.handle.CommandHandler;
 
 import java.util.HashMap;
 import java.util.Map;

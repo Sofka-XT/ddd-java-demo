@@ -1,5 +1,7 @@
 package co.com.sofka.business.generic;
 
+import co.com.sofka.business.generic.UseCase;
+import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.ArrayDeque;
@@ -7,7 +9,6 @@ import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.Flow;
-import java.util.function.Consumer;
 
 public abstract class UseCaseSub implements Flow.Subscriber<DomainEvent> {
 

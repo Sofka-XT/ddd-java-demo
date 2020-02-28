@@ -1,6 +1,6 @@
 package co.com.sofka.usecases.handlers.commands;
 
-import co.com.sofka.application.commands.CommandHandler;
+import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.core.issue.commands.IssueCreateCommand;
 import co.com.sofka.infraestructure.FirestoreRepository;

@@ -10,7 +10,7 @@ import co.com.sofka.domain.AggregateRootId;
 import co.com.sofka.domain.DomainEvent;
 import co.com.sofka.domain.values.UserName;
 import co.com.sofka.domain.values.UserPassword;
-import co.com.sofka.infraestructure.EventStoreRepository;
+import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
