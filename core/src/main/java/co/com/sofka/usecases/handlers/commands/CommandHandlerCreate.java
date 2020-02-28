@@ -1,4 +1,4 @@
-package co.com.sofka.usecases.handlers;
+package co.com.sofka.usecases.handlers.commands;
 
 import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.business.generic.UseCaseHandler;
