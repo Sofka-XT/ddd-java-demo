@@ -1,10 +1,13 @@
 package co.com.sofka.application.commands;
 
 import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.infraestructure.RabbitDomainEventBus;
+import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -33,12 +36,17 @@ public class CommandConfigure {
     }
 
     @Bean
-    public CommandHandlerUpdate commandHandlerUpdate(FirestoreRepository firestoreRepository){
-        return new CommandHandlerUpdate(firestoreRepository);
+    public CommandHandlerUpdate commandHandlerUpdate(FirestoreRepository firestoreRepository, EventBus eventBus){
+        return new CommandHandlerUpdate(firestoreRepository, eventBus);
     }
 
     @Bean
-    public CommandHandlerCreate commandHandlerCreate(FirestoreRepository firestoreRepository){
-        return new CommandHandlerCreate(firestoreRepository);
+    public CommandHandlerCreate commandHandlerCreate(FirestoreRepository firestoreRepository, EventBus eventBus){
+        return new CommandHandlerCreate(firestoreRepository, eventBus);
+    }
+
+    @Bean
+    public EventBus rabbitDomainEventBus(){
+        return new RabbitDomainEventBus();
     }
 }
