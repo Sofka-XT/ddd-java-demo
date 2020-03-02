@@ -17,7 +17,6 @@ public abstract class DomainEvent {
         this.versionType = 0L;
     }
 
-
     public void nextVersionType(Long versionType) {
         this.versionType = versionType + 1;
     }
