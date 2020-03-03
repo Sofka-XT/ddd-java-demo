@@ -9,7 +9,7 @@
 .idea/
 pet.iml
 core/core.iml
-event-soucing-demo-firebase.json
+core/src/main/resources/event-soucing-demo-firebase.json
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml

@@ -1,0 +1,79 @@
+[2020-03-03 15:07:39.685] - 11384 INFORMACIÓN [main] --- co.com.sofka.App: Starting App on PSOFKA0250 with PID 11384 (started by Juan Mariaca in C:\Users\Juan Mariaca\Desktop\DDD\template\ddd-java-demo)
+[2020-03-03 15:07:39.737] - 11384 INFORMACIÓN [main] --- co.com.sofka.App: No active profile set, falling back to default profiles: default
+[2020-03-03 15:07:40.473] - 11384 INFORMACIÓN [main] --- org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[2020-03-03 15:07:40.544] - 11384 INFORMACIÓN [main] --- org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 67ms. Found 1 MongoDB repository interfaces.
+[2020-03-03 15:07:40.994] - 11384 INFORMACIÓN [main] --- org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+[2020-03-03 15:07:41.009] - 11384 INFORMACIÓN [main] --- org.apache.catalina.core.StandardService: Starting service [Tomcat]
+[2020-03-03 15:07:41.011] - 11384 INFORMACIÓN [main] --- org.apache.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.30]
+[2020-03-03 15:07:41.141] - 11384 INFORMACIÓN [main] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+[2020-03-03 15:07:41.141] - 11384 INFORMACIÓN [main] --- org.springframework.web.context.ContextLoader: Root WebApplicationContext: initialization completed in 1335 ms
+[2020-03-03 15:07:41.745] - 11384 ADVERTENCIA [main] --- Firestore: The behavior for java.util.Date objects stored in Firestore is going to change AND YOUR APP MAY BREAK.
+To hide this warning and ensure your app does not break, you need to add the following code to your app before calling any other Cloud Firestore methods:
+
+FirestoreOptions options = 
+  FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build();
+Firestore firestore = options.getService();
+
+With this change, timestamps stored in Cloud Firestore will be read back as com.google.cloud.Timestamp objects instead of as system java.util.Date objects. So you will also need to update code expecting a java.util.Date to instead expect a Timestamp. For example:
+
+// Old:
+java.util.Date date = (java.util.Date) snapshot.get("created_at");
+// New:
+Timestamp timestamp = (Timestamp) snapshot.get("created_at");
+java.util.Date date = timestamp.toDate();
+
+Please audit all existing usages of java.util.Date when you enable the new behavior. In a future release, the behavior will be changed to the new behavior, so if you do not follow these steps, YOUR APP MAY BREAK.
+[2020-03-03 15:07:42.078] - 11384 INFORMACIÓN [main] --- org.mongodb.driver.cluster: Cluster created with settings {hosts=[127.0.0.1:27017], srvHost=platzitest-axjn2.mongodb.net, mode=MULTIPLE, requiredClusterType=REPLICA_SET, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500, requiredReplicaSetName='PlatziTest-shard-0'}
+[2020-03-03 15:07:42.235] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-srv-platzitest-axjn2.mongodb.net] --- org.mongodb.driver.cluster: Adding discovered server platzitest-shard-00-01-axjn2.mongodb.net:27017 to client view of cluster
+[2020-03-03 15:07:42.261] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-srv-platzitest-axjn2.mongodb.net] --- org.mongodb.driver.cluster: Adding discovered server platzitest-shard-00-02-axjn2.mongodb.net:27017 to client view of cluster
+[2020-03-03 15:07:42.262] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-srv-platzitest-axjn2.mongodb.net] --- org.mongodb.driver.cluster: Adding discovered server platzitest-shard-00-00-axjn2.mongodb.net:27017 to client view of cluster
+[2020-03-03 15:07:42.522] - 11384 INFORMACIÓN [main] --- org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+[2020-03-03 15:07:42.752] - 11384 INFORMACIÓN [main] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Attempting to connect to: [localhost:5672]
+[2020-03-03 15:07:42.769] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-01-axjn2.mongodb.net:27017] --- org.mongodb.driver.connection: Opened connection [connectionId{localValue:2, serverValue:9}] to platzitest-shard-00-01-axjn2.mongodb.net:27017
+[2020-03-03 15:07:42.772] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-00-axjn2.mongodb.net:27017] --- org.mongodb.driver.connection: Opened connection [connectionId{localValue:3, serverValue:2868}] to platzitest-shard-00-00-axjn2.mongodb.net:27017
+[2020-03-03 15:07:42.772] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-02-axjn2.mongodb.net:27017] --- org.mongodb.driver.connection: Opened connection [connectionId{localValue:1, serverValue:5270}] to platzitest-shard-00-02-axjn2.mongodb.net:27017
+[2020-03-03 15:07:42.784] - 11384 INFORMACIÓN [main] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Created new connection: rabbitConnectionFactory#4702e7a5:0/SimpleConnection@10a0a1e [delegate=amqp://guest@127.0.0.1:5672/, localPort= 62640]
+[2020-03-03 15:07:42.787] - 11384 INFORMACIÓN [main] --- org.springframework.amqp.rabbit.core.RabbitAdmin: Auto-declaring a non-durable, auto-delete, or exclusive Queue (issue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+[2020-03-03 15:07:42.849] - 11384 INFORMACIÓN [main] --- org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+[2020-03-03 15:07:42.852] - 11384 INFORMACIÓN [main] --- co.com.sofka.App: Started App in 3.837 seconds (JVM running for 5.077)
+[2020-03-03 15:07:42.856] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-02-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Monitor thread successfully connected to server with description ServerDescription{address=platzitest-shard-00-02-axjn2.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 3]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=82236900, setName='PlatziTest-shard-0', canonicalAddress=platzitest-shard-00-02-axjn2.mongodb.net:27017, hosts=[platzitest-shard-00-01-axjn2.mongodb.net:27017, platzitest-shard-00-02-axjn2.mongodb.net:27017, platzitest-shard-00-00-axjn2.mongodb.net:27017], passives=[], arbiters=[], primary='platzitest-shard-00-01-axjn2.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_EAST_1'}]}, electionId=null, setVersion=2, lastWriteDate=Tue Mar 03 15:07:36 COT 2020, lastUpdateTimeNanos=424010587852300}
+[2020-03-03 15:07:42.856] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-01-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Monitor thread successfully connected to server with description ServerDescription{address=platzitest-shard-00-01-axjn2.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 3]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=85630100, setName='PlatziTest-shard-0', canonicalAddress=platzitest-shard-00-01-axjn2.mongodb.net:27017, hosts=[platzitest-shard-00-01-axjn2.mongodb.net:27017, platzitest-shard-00-02-axjn2.mongodb.net:27017, platzitest-shard-00-00-axjn2.mongodb.net:27017], passives=[], arbiters=[], primary='platzitest-shard-00-01-axjn2.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_EAST_1'}]}, electionId=7fffffff0000000000000012, setVersion=2, lastWriteDate=Tue Mar 03 15:07:36 COT 2020, lastUpdateTimeNanos=424010587852300}
+[2020-03-03 15:07:42.856] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-00-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Monitor thread successfully connected to server with description ServerDescription{address=platzitest-shard-00-00-axjn2.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 3]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=82031700, setName='PlatziTest-shard-0', canonicalAddress=platzitest-shard-00-00-axjn2.mongodb.net:27017, hosts=[platzitest-shard-00-01-axjn2.mongodb.net:27017, platzitest-shard-00-02-axjn2.mongodb.net:27017, platzitest-shard-00-00-axjn2.mongodb.net:27017], passives=[], arbiters=[], primary='platzitest-shard-00-01-axjn2.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_EAST_1'}]}, electionId=null, setVersion=2, lastWriteDate=Tue Mar 03 15:07:36 COT 2020, lastUpdateTimeNanos=424010587336300}
+[2020-03-03 15:07:42.859] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-01-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Setting max election id to 7fffffff0000000000000012 from replica set primary platzitest-shard-00-01-axjn2.mongodb.net:27017
+[2020-03-03 15:07:42.860] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-01-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Setting max set version to 2 from replica set primary platzitest-shard-00-01-axjn2.mongodb.net:27017
+[2020-03-03 15:07:42.860] - 11384 INFORMACIÓN [cluster-ClusterId{value='5e5eb90eb0167e53c7df753b', description='null'}-platzitest-shard-00-01-axjn2.mongodb.net:27017] --- org.mongodb.driver.cluster: Discovered replica set primary platzitest-shard-00-01-axjn2.mongodb.net:27017
+[2020-03-03 15:07:53.353] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2020-03-03 15:07:53.353] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.springframework.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+[2020-03-03 15:07:53.360] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.springframework.web.servlet.DispatcherServlet: Completed initialization in 6 ms
+[2020-03-03 15:15:52.589] - 11384 GRAVE [AMQP Connection 127.0.0.1:5672] --- com.rabbitmq.client.impl.ForgivingExceptionHandler: An unexpected connection driver error occured
+java.net.SocketException: Software caused connection abort: recv failed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:293)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:598)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+[2020-03-03 15:15:52.596] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Attempting to connect to: [localhost:5672]
+[2020-03-03 15:15:52.598] - 11384 GRAVE [AMQP Connection 127.0.0.1:5672] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Channel shutdown: connection error
+[2020-03-03 15:15:52.629] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Created new connection: rabbitConnectionFactory#4702e7a5:1/SimpleConnection@6a748314 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 62813]
+[2020-03-03 15:15:52.637] - 11384 INFORMACIÓN [http-nio-8080-exec-2] --- org.springframework.amqp.rabbit.core.RabbitAdmin: Auto-declaring a non-durable, auto-delete, or exclusive Queue (issue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+[2020-03-03 15:15:59.227] - 11384 INFORMACIÓN [messageListenerContainer-1] --- org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer: Restarting Consumer@2c1a8529: tags=[[amq.ctag-X4RqevJBF_-51e19FmsWnA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@36665c11 Shared Rabbit Connection: SimpleConnection@6a748314 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 62813], acknowledgeMode=AUTO local queue size=0
+[2020-03-03 15:16:02.548] - 11384 INFORMACIÓN [messageListenerContainer-2] --- org.mongodb.driver.connection: Opened connection [connectionId{localValue:4, serverValue:557}] to platzitest-shard-00-01-axjn2.mongodb.net:27017
+[2020-03-03 15:17:11.928] - 11384 GRAVE [AMQP Connection 127.0.0.1:5672] --- org.springframework.amqp.rabbit.connection.CachingConnectionFactory: Channel shutdown: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'issue_status_updated' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+[2020-03-03 15:17:20.180] - 11384 GRAVE [http-nio-8080-exec-2] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.amqp.AmqpIOException: java.io.IOException] with root cause
+com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'issue_status_updated' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:522)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:346)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:672)
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:599)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+

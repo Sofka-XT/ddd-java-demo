@@ -31,7 +31,7 @@ public class QueryRest {
 
     @GetMapping("query/getAllIssues")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Map<String, Object>> getAllIssues(@PathVariable final QueryGetIssueById issueId) {
+    public ResponseEntity<Map<String, Object>> getAllIssues() {
         Map<String, Object> response = new HashMap<>();
 
         Collection<IssueEntity> issueList = queryHandler.findAll();

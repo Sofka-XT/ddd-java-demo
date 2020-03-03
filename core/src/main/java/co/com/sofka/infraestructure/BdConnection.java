@@ -5,12 +5,16 @@ import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
 
 public final class BdConnection {
+
+    @Value("${rabbitmq.routingkey}")
+    private static String routingkey;
 
     private static Firestore database;
 
@@ -29,6 +33,8 @@ public final class BdConnection {
     private static Firestore openDatabase() {
 
         Map<String, String> env = System.getenv();
+
+        System.out.println(routingkey);
 
         try (FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase.json")) {
 

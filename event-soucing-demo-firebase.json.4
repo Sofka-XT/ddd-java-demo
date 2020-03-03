@@ -1,0 +1,45 @@
+[2020-03-03 14:41:48.461] - 18732 INFORMACIÓN [main] --- co.com.sofka.App: Starting App on PSOFKA0250 with PID 18732 (started by Juan Mariaca in C:\Users\Juan Mariaca\Desktop\DDD\template\ddd-java-demo)
+[2020-03-03 14:41:48.512] - 18732 INFORMACIÓN [main] --- co.com.sofka.App: No active profile set, falling back to default profiles: default
+[2020-03-03 14:41:49.251] - 18732 INFORMACIÓN [main] --- org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[2020-03-03 14:41:49.336] - 18732 INFORMACIÓN [main] --- org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 79ms. Found 1 MongoDB repository interfaces.
+[2020-03-03 14:41:49.830] - 18732 INFORMACIÓN [main] --- org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+[2020-03-03 14:41:49.845] - 18732 INFORMACIÓN [main] --- org.apache.catalina.core.StandardService: Starting service [Tomcat]
+[2020-03-03 14:41:49.846] - 18732 INFORMACIÓN [main] --- org.apache.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.30]
+[2020-03-03 14:41:49.987] - 18732 INFORMACIÓN [main] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+[2020-03-03 14:41:49.988] - 18732 INFORMACIÓN [main] --- org.springframework.web.context.ContextLoader: Root WebApplicationContext: initialization completed in 1392 ms
+[2020-03-03 14:41:53.319] - 18732 ADVERTENCIA [main] --- Firestore: The behavior for java.util.Date objects stored in Firestore is going to change AND YOUR APP MAY BREAK.
+To hide this warning and ensure your app does not break, you need to add the following code to your app before calling any other Cloud Firestore methods:
+
+FirestoreOptions options = 
+  FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build();
+Firestore firestore = options.getService();
+
+With this change, timestamps stored in Cloud Firestore will be read back as com.google.cloud.Timestamp objects instead of as system java.util.Date objects. So you will also need to update code expecting a java.util.Date to instead expect a Timestamp. For example:
+
+// Old:
+java.util.Date date = (java.util.Date) snapshot.get("created_at");
+// New:
+Timestamp timestamp = (Timestamp) snapshot.get("created_at");
+java.util.Date date = timestamp.toDate();
+
+Please audit all existing usages of java.util.Date when you enable the new behavior. In a future release, the behavior will be changed to the new behavior, so if you do not follow these steps, YOUR APP MAY BREAK.
+[2020-03-03 14:41:53.390] - 18732 ADVERTENCIA [main] --- org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commandRest' defined in file [C:\Users\Juan Mariaca\Desktop\DDD\template\ddd-java-demo\core\target\classes\co\com\sofka\application\commands\CommandRest.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commandHandlerCreate' defined in class path resource [co/com/sofka/application/commands/CommandConfigure.class]: Unsatisfied dependency expressed through method 'commandHandlerCreate' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rabbitDomainEventBus': Unsatisfied dependency expressed through field 'rabbitAdmin'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.amqp.rabbit.core.RabbitAdmin' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+[2020-03-03 14:41:53.396] - 18732 INFORMACIÓN [main] --- org.apache.catalina.core.StandardService: Stopping service [Tomcat]
+[2020-03-03 14:41:53.409] - 18732 INFORMACIÓN [main] --- org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2020-03-03 14:41:53.523] - 18732 GRAVE [main] --- org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field rabbitAdmin in co.com.sofka.infraestructure.RabbitDomainEventBus required a bean of type 'org.springframework.amqp.rabbit.core.RabbitAdmin' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.amqp.rabbit.core.RabbitAdmin' in your configuration.
+
