@@ -29,30 +29,51 @@ public class RabbitMQListener implements MessageListener {
         final ObjectMapper mapper = new ObjectMapper();
         String body = new String(message.getBody());
         try {
-
-
             IssueEntity issue = mapper.readValue(body, IssueEntity.class);
 
-           // repository.save(issue);
+            issue.();
 
-            Query query1 = new Query(Criteria.where("_id")
-                    .ne(issue.getIssueId().getUuid()));
-            Update update1 = new Update();
-            update1.set("basicInformation", issue.getBasicInformation());
-            update1.set("person", issue.getPerson());
-            update1.set("statusProperty", issue.getStatusProperty());
-            update1.set("period", issue.getPeriod());
-            update1.set("labelList", issue.getLabelList());
-            mongoTemplate.updateFirst(query1, update1,
-                    IssueEntity.class, IssueEntity.class.toString());
-
-//            mongoTemplate.save(issue, IssueEntity.class.toString());
-
-            //repository.save(issue);
+            if (issue.getType().contains("update")) {
+                updateIssue(issue);
+            } else {
+                mongoTemplate.save(issue, IssueEntity.class.toString());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void updateIssue(IssueEntity issue) {
+        Query queryForUpdateIssue = new Query(Criteria.where("_id")
+                .is(issue.getIssueId()));
+
+        Update updateIssue = new Update();
+
+        setAttributesForUpdate(issue, updateIssue);
+
+        mongoTemplate.updateFirst(queryForUpdateIssue, updateIssue,
+                IssueEntity.class, IssueEntity.class.toString());
+    }
+
+    private void setAttributesForUpdate(IssueEntity issue, Update updateIssue) {
+        if (issue.getBasicInformation() != null)
+            updateIssue.set("basicInformation", issue.getBasicInformation());
+
+        if (issue.getPerson() != null)
+            updateIssue.set("person", issue.getPerson());
+
+        if (issue.getStatusProperty() != null)
+            updateIssue.set("statusProperty", issue.getStatusProperty());
+
+        if (issue.getPeriod() != null)
+            updateIssue.set("period", issue.getPeriod());
+
+        if (issue.getLabelList() != null)
+            updateIssue.set("labelList", issue.getLabelList());
+
+        if (issue.getType() != null)
+            updateIssue.set("type", issue.getType());
     }
 
 }
