@@ -1,12 +1,12 @@
 package co.com.sofka.application.querys;
 
-import co.com.sofka.domain.generic.AggregateRootId;
+import co.com.sofka.core.issue.values.IssueId;
 
 import java.util.Collection;
 
 public interface QueryHandler<T> {
 
-    Collection<T> findById(AggregateRootId id);
+    T findById(IssueId id);
 
     Collection<T> findAll();
 }
