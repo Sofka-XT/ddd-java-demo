@@ -31,8 +31,6 @@ public class RabbitMQListener implements MessageListener {
         try {
             IssueEntity issue = mapper.readValue(body, IssueEntity.class);
 
-            issue.();
-
             if (issue.getType().contains("update")) {
                 updateIssue(issue);
             } else {
