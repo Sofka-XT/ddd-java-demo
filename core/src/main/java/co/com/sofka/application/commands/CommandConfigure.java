@@ -7,6 +7,7 @@ import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +47,7 @@ public class CommandConfigure {
     }
 
     @Bean
-    public EventBus rabbitDomainEventBus(){
-        return new RabbitDomainEventBus();
+    public EventBus rabbitDomainEventBus(RabbitTemplate rabbitTemplate){
+        return new RabbitDomainEventBus(rabbitTemplate);
     }
 }

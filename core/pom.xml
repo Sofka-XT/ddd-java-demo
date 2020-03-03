@@ -79,33 +79,17 @@
       <version>2.8.2</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.reactivecommons/async-commons -->
+
     <dependency>
-      <groupId>org.reactivecommons</groupId>
-      <artifactId>async-commons</artifactId>
-      <version>0.0.3-alpha1</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+      <version>2.2.4.RELEASE</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.reactivecommons/async-commons-starter -->
     <dependency>
-      <groupId>org.reactivecommons</groupId>
-      <artifactId>async-commons-starter</artifactId>
-      <version>0.2.1-beta1</version>
-    </dependency>
-
-
-    <!-- https://mvnrepository.com/artifact/org.reactivecommons/domain-events-api -->
-    <dependency>
-      <groupId>org.reactivecommons</groupId>
-      <artifactId>domain-events-api</artifactId>
-      <version>0.2.1-beta1</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.reactivecommons/async-commons-api -->
-    <dependency>
-      <groupId>org.reactivecommons</groupId>
-      <artifactId>async-commons-api</artifactId>
-      <version>0.2.1-beta1</version>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-mongodb</artifactId>
+      <version>2.2.4.RELEASE</version>
     </dependency>
 
   </dependencies>
