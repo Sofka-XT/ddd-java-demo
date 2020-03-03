@@ -29,7 +29,7 @@ public class QueryRest {
     }
 
 
-    @GetMapping("query/getAllIsues")
+    @GetMapping("query/getAllIssues")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Map<String, Object>> getAllIssues(@PathVariable final QueryGetIssueById issueId) {
         Map<String, Object> response = new HashMap<>();
@@ -39,7 +39,7 @@ public class QueryRest {
         response.put("data", issueList);
         response.put("message", "Issues list");
 
-        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("query/getById/{issueId}")
@@ -52,7 +52,7 @@ public class QueryRest {
         response.put("data", issueList);
         response.put("message", "Issues");
 
-        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

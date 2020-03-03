@@ -1,6 +1,16 @@
 package co.com.sofka.core.issue;
 
-import co.com.sofka.core.issue.events.*;
+
+import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
+import co.com.sofka.core.issue.events.FullIssueWithoutBasicInformationUpdated;
+import co.com.sofka.core.issue.events.IssueBasicInformationUpdated;
+import co.com.sofka.core.issue.events.IssuePersonUpdated;
+import co.com.sofka.core.issue.events.IssuePeriodUpdated;
+import co.com.sofka.core.issue.events.IssueStatusUpdated;
+import co.com.sofka.core.issue.events.IssueLabelsDeleted;
+import co.com.sofka.core.issue.events.IssueLabelUpdated;
+import co.com.sofka.core.issue.events.IssueDeleted;
+
 import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.core.issue.values.PersonProperty;
 import co.com.sofka.core.label.LabelList;
@@ -12,10 +22,12 @@ import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class IssueList extends AggregateRoot<AggregateRootId> {
@@ -69,56 +81,56 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
                 updatedIssueLabels, deleteIssueLabels);
     }
 
-    public static IssueList from(AggregateRootId id, List<DomainEvent> history) {
+    public static IssueList from(final AggregateRootId id, final List<DomainEvent> history) {
         IssueList entity = new IssueList(id);
         history.forEach(entity::applyEvent);
         return entity;
     }
 
-    public void createIssueWithBasicInformation(BasicInformationProperty basicInformation) {
+    public void createIssueWithBasicInformation(final BasicInformationProperty basicInformation) {
         IssueId issueId = new IssueId(UUID.randomUUID().toString());
         appendChange(new IssueWithBasicInformationCreated(issueId, basicInformation))
                 .apply(createIssueWithBasicInformation);
     }
 
-    public void updateFullIssueWithoutBasicInformation(IssueId issueId, PeriodProperty period,
-                                                       PersonProperty person, StatusProperty status) {
+    public void updateFullIssueWithoutBasicInformation(final IssueId issueId, final PeriodProperty period,
+                                                       final PersonProperty person, final StatusProperty status) {
         appendChange(new FullIssueWithoutBasicInformationUpdated(issueId, period, person, status))
                 .apply(updateFullIssueWithoutBasicInformation);
     }
 
-    public void updateIssueBasicInformationBy(IssueId issueId, BasicInformationProperty basicInformation) {
+    public void updateIssueBasicInformationBy(final IssueId issueId, final BasicInformationProperty basicInformation) {
         appendChange(new IssueBasicInformationUpdated(issueId, basicInformation))
                 .apply(updatedIssueBasicInformation);
     }
 
-    public void updateIssuePersonBy(IssueId issueId, PersonProperty person) {
+    public void updateIssuePersonBy(final IssueId issueId, final PersonProperty person) {
         appendChange(new IssuePersonUpdated(issueId, person))
                 .apply(updatedIssuePerson);
     }
 
-    public void updateLabelListBy(IssueId issueId, LabelList labelList) {
+    public void updateLabelListBy(final IssueId issueId, final LabelList labelList) {
         appendChange(new IssueLabelUpdated(issueId, labelList))
                 .apply(updatedIssueLabels);
     }
 
-    public void updateIssuePeriodBy(IssueId issueId, PeriodProperty period) {
+    public void updateIssuePeriodBy(final IssueId issueId, final PeriodProperty period) {
         appendChange(new IssuePeriodUpdated(issueId, period))
                 .apply(updatedIssuePeriod);
     }
 
-    public void updateIssueStatusBy(IssueId issueId, StatusProperty status) {
+    public void updateIssueStatusBy(final IssueId issueId, final StatusProperty status) {
         appendChange(new IssueStatusUpdated(issueId, status))
                 .apply(updatedIssueStatus);
     }
 
-    public void deleteLabelsBy(IssueId issueId) {
+    public void deleteLabelsBy(final IssueId issueId) {
         appendChange(new IssueLabelsDeleted(issueId))
                 .apply(deleteIssueLabels);
 
     }
 
-    public void deleteIssueBy(IssueId issueId) {
+    public void deleteIssueBy(final IssueId issueId) {
         appendChange(new IssueDeleted(issueId))
                 .apply(deleteIssue);
 
@@ -128,7 +140,7 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
         return this.issueCollection;
     }
 
-    private Issue selectIssueBy(IssueId issueId) {
+    private Issue selectIssueBy(final IssueId issueId) {
         return getAllIssues()
                 .stream()
                 .filter(issue -> issue.issueId().equals(issueId))
@@ -136,5 +148,26 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
                 .orElseThrow(() -> new IssueException("No existe el issue"));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        IssueList issueList = (IssueList) o;
+        return Objects.equals(issueCollection, issueList.issueCollection);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), issueCollection,
+                createIssueWithBasicInformation, updateFullIssueWithoutBasicInformation,
+                updatedIssueBasicInformation, updatedIssuePerson, updatedIssuePeriod,
+                updatedIssueStatus, deleteIssueLabels, updatedIssueLabels, deleteIssue);
+    }
 }

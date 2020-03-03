@@ -10,7 +10,7 @@ public class IssuePersonUpdated extends DomainEvent {
     private final IssueId issueId;
     private final PersonProperty person;
 
-    public IssuePersonUpdated(IssueId issueId, PersonProperty person) {
+    public IssuePersonUpdated(final IssueId issueId, final PersonProperty person) {
         super("issue_person_updated");
         this.issueId = issueId;
         this.person = person;

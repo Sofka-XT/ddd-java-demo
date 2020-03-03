@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-import static co.com.sofka.infraestructure.RabbitConfiguration.topicExchangeName;
+import static co.com.sofka.infraestructure.RabbitConfiguration.TOPIC_EXCHANGE_NAME;
 
 public class RabbitDomainEventBus implements EventBus {
     @Value("${rabbitmq.routingkey}")
@@ -18,19 +18,19 @@ public class RabbitDomainEventBus implements EventBus {
 
     private final RabbitTemplate rabbitTemplate;
 
-    public RabbitDomainEventBus(RabbitTemplate rabbitTemplate) {
+    public RabbitDomainEventBus(final RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
     @Override
-    public void publish(DomainEvent event) {
+    public void publish(final DomainEvent event) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         final String eventSerialization = serializeEvent(mapper, event);
-        rabbitTemplate.convertAndSend(topicExchangeName, routingkey, eventSerialization);
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, routingkey, eventSerialization);
     }
 
-    private String serializeEvent(ObjectMapper mapper, DomainEvent domainEvent) {
+    private String serializeEvent(final ObjectMapper mapper, final DomainEvent domainEvent) {
         final String eventSerialization;
         try {
             eventSerialization = mapper.writeValueAsString(domainEvent);

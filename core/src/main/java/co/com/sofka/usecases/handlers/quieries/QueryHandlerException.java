@@ -5,7 +5,7 @@ public class QueryHandlerException extends RuntimeException {
     public QueryHandlerException() {
     }
 
-    public QueryHandlerException(String message) {
+    public QueryHandlerException(final String message) {
         super(message);
     }
 }

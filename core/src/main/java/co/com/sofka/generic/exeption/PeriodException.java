@@ -1,7 +1,7 @@
 package co.com.sofka.generic.exeption;
 
 public class PeriodException extends RuntimeException {
-    public PeriodException(String message) {
+    public PeriodException(final String message) {
         super(message);
     }
 }

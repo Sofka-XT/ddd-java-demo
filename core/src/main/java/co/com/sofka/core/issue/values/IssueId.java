@@ -10,7 +10,7 @@ public class IssueId {
 
     private final String uuid;
 
-    public IssueId(@JsonProperty("uuid") String uuid) {
+    public IssueId(@JsonProperty("uuid") final String uuid) {
         checkNonNullForIssue(uuid, "ID Issue can´t be null");
         this.uuid = uuid;
     }
@@ -24,9 +24,13 @@ public class IssueId {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         IssueId issueId = (IssueId) o;
         return Objects.equals(uuid, issueId.uuid);
     }

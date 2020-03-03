@@ -19,14 +19,18 @@ public class IssueEntity {
     @Id
     private IssueId issueId;
 
-    public BasicInformationProperty basicInformation;
-    public PersonProperty person;
-    public StatusProperty statusProperty;
-    public PeriodProperty period;
-    public  LabelList labelList;
+    private BasicInformationProperty basicInformation;
+    private PersonProperty person;
+    private StatusProperty statusProperty;
+    private PeriodProperty period;
+    private LabelList labelList;
 
-    private  UUID uuid;
     private  String type;
+
+    @JsonIgnore
+    private  UUID uuid;
+
+    @JsonIgnore
     private Long versionType;
 
     @JsonIgnore
@@ -35,24 +39,24 @@ public class IssueEntity {
     public IssueEntity() {
     }
 
-    public IssueEntity(IssueId issueId, BasicInformationProperty basicInformation, PersonProperty person, StatusProperty statusProperty, PeriodProperty period, LabelList labelList, UUID uuid, String type, Long versionType, Instant when) {
+    public IssueEntity(final IssueId issueId, final BasicInformationProperty basicInformation,
+                       final PersonProperty person, final StatusProperty statusProperty,
+                       final PeriodProperty period, final LabelList labelList,
+                       final String type) {
         this.issueId = issueId;
         this.basicInformation = basicInformation;
         this.person = person;
         this.statusProperty = statusProperty;
         this.period = period;
         this.labelList = labelList;
-        this.uuid = uuid;
         this.type = type;
-        this.versionType = versionType;
-        this.when = when;
     }
 
     public IssueId getIssueId() {
         return issueId;
     }
 
-    public void setIssueId(IssueId issueId) {
+    public void setIssueId(final IssueId issueId) {
         this.issueId = issueId;
     }
 
@@ -60,7 +64,7 @@ public class IssueEntity {
         return basicInformation;
     }
 
-    public void setBasicInformation(BasicInformationProperty basicInformation) {
+    public void setBasicInformation(final BasicInformationProperty basicInformation) {
         this.basicInformation = basicInformation;
     }
 
@@ -68,7 +72,7 @@ public class IssueEntity {
         return person;
     }
 
-    public void setPerson(PersonProperty person) {
+    public void setPerson(final PersonProperty person) {
         this.person = person;
     }
 
@@ -76,7 +80,7 @@ public class IssueEntity {
         return statusProperty;
     }
 
-    public void setStatusProperty(StatusProperty statusProperty) {
+    public void setStatusProperty(final StatusProperty statusProperty) {
         this.statusProperty = statusProperty;
     }
 
@@ -84,7 +88,7 @@ public class IssueEntity {
         return period;
     }
 
-    public void setPeriod(PeriodProperty period) {
+    public void setPeriod(final PeriodProperty period) {
         this.period = period;
     }
 
@@ -92,7 +96,7 @@ public class IssueEntity {
         return labelList;
     }
 
-    public void setLabelList(LabelList labelList) {
+    public void setLabelList(final LabelList labelList) {
         this.labelList = labelList;
     }
 
@@ -100,7 +104,7 @@ public class IssueEntity {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUuid(final UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -108,7 +112,7 @@ public class IssueEntity {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(final String type) {
         this.type = type;
     }
 
@@ -116,7 +120,7 @@ public class IssueEntity {
         return versionType;
     }
 
-    public void setVersionType(Long versionType) {
+    public void setVersionType(final Long versionType) {
         this.versionType = versionType;
     }
 
@@ -124,7 +128,7 @@ public class IssueEntity {
         return when;
     }
 
-    public void setWhen(Instant when) {
+    public void setWhen(final Instant when) {
         this.when = when;
     }
 }

@@ -13,20 +13,21 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
     private FirestoreRepository firestoreRepository;
     private EventBus eventBus;
 
-    public CommandHandlerCreate(FirestoreRepository firestoreRepository, EventBus eventBus) {
+    public CommandHandlerCreate(final FirestoreRepository firestoreRepository,
+                                final EventBus eventBus) {
         this.firestoreRepository = firestoreRepository;
         this.eventBus = eventBus;
     }
 
 
     @Override
-    public void execute(IssueCreateCommand command) {
+    public void execute(final IssueCreateCommand command) {
 
         UseCaseHandler.getInstance()
                 .asyncExecutor(new IssueCreateUseCase(),
-                        new IssueCreateUseCase.Request(command.getUuid(),
+                        new IssueCreateUseCase.Request(command.getAggregateRootId(),
                                 command.getBasicInformation())
-                ).subscribe(new SubscriberFirestore(command.getUuid(), firestoreRepository, eventBus));
+                ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
 
     }
 

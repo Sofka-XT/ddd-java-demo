@@ -13,19 +13,22 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand> 
     private FirestoreRepository firestoreRepository;
     private EventBus eventBus;
 
-    public CommandHandlerUpdate(FirestoreRepository firestoreRepository, EventBus eventBus) {
+    public CommandHandlerUpdate(final FirestoreRepository firestoreRepository,
+                                final EventBus eventBus) {
+
         this.firestoreRepository = firestoreRepository;
-        this.eventBus= eventBus;
+        this.eventBus = eventBus;
     }
 
     @Override
-    public void execute(IssueUpdateCommand command) {
+    public void execute(final IssueUpdateCommand command) {
 
         UseCaseHandler.getInstance()
                 .asyncExecutor(new IssueUpdateUseCase(),
-                        new IssueUpdateUseCase.Request(command.getUuid(),
+                        new IssueUpdateUseCase.Request(command.getAggregateRootId(),
                                 command.getBasicInformation(), command.getStatus())
-                ).subscribe(new SubscriberFirestore(command.getUuid(), firestoreRepository, eventBus));
+                )
+                .subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
 
     }
 }

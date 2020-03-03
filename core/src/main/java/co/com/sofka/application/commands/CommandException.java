@@ -5,7 +5,7 @@ public class CommandException extends RuntimeException {
     public CommandException() {
     }
 
-    public CommandException(String message) {
+    public CommandException(final String message) {
         super(message);
     }
 

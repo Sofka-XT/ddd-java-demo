@@ -9,7 +9,7 @@ public class Label {
     private final String color;
     private final String tittle;
 
-    public Label(LabelId labelId, String color, String tittle) {
+    public Label(final LabelId labelId, final String color, final String tittle) {
         checkNonNullForLabel(color, "Color can´t be null");
         checkNonNullForLabel(tittle, "Tittle can´t be null");
         this.labelId = labelId;

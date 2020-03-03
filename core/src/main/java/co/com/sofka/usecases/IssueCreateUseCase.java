@@ -11,7 +11,7 @@ import java.util.List;
 public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, IssueCreateUseCase.Response> {
 
     @Override
-    protected void executeUseCase(Request requestValues) {
+    protected void executeUseCase(final Request requestValues) {
 
         AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
@@ -26,7 +26,7 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Issu
         private String uuid;
         private BasicInformationProperty basicInformation;
 
-        public Request(String uuid, BasicInformationProperty basicInformation) {
+        public Request(final String uuid, final BasicInformationProperty basicInformation) {
             this.uuid = uuid;
             this.basicInformation = basicInformation;
         }
@@ -35,7 +35,7 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Issu
     public static class Response implements UseCase.PubEvents {
         private List<DomainEvent> domainEvents;
 
-        public Response(List<DomainEvent> domainEvents) {
+        public Response(final List<DomainEvent> domainEvents) {
             this.domainEvents = List.copyOf(domainEvents);
         }
 

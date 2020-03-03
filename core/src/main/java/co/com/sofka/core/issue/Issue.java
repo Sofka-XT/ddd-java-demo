@@ -20,7 +20,7 @@ public class Issue {
     private PeriodProperty period;
     private LabelList labelList;
 
-    public Issue(IssueId issueId, BasicInformationProperty basicInformation) {
+    public Issue(final IssueId issueId, final BasicInformationProperty basicInformation) {
         checkNonNullForIssue(issueId, "Issue id can't be null");
         checkNonNullForIssue(basicInformation, "Basic information can't be null");
         this.issueId = issueId;
@@ -51,27 +51,27 @@ public class Issue {
         return basicInformation;
     }
 
-    public void updatePerson(PersonProperty person) {
+    public void updatePerson(final PersonProperty person) {
         checkNonNullForIssue(person, "Person can't be null");
         this.person = person;
     }
 
-    public void updateStatus(StatusProperty status) {
+    public void updateStatus(final StatusProperty status) {
         checkNonNullForIssue(status, "Status can't be null");
         this.status = status;
     }
 
-    public void updatePeriod(PeriodProperty period) {
+    public void updatePeriod(final PeriodProperty period) {
         checkNonNullForIssue(period, "Period can't be null");
         this.period = period;
     }
 
-    public void updateBasicInformation(BasicInformationProperty basicInformation) {
+    public void updateBasicInformation(final BasicInformationProperty basicInformation) {
         checkNonNullForIssue(basicInformation, "Basic information can't be null");
         this.basicInformation = basicInformation;
     }
 
-    public void updateLabelList(LabelList labelList) {
+    public void updateLabelList(final LabelList labelList) {
         checkNonNullForIssue(labelList, "Label List can't be null");
         this.labelList = labelList;
     }
@@ -83,8 +83,12 @@ public class Issue {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Issue issue = (Issue) o;
         return Objects.equals(issueId, issue.issueId);
     }

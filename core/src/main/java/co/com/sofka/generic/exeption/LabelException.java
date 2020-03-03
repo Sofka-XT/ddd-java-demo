@@ -5,7 +5,7 @@ public class LabelException extends RuntimeException {
     public LabelException() {
     }
 
-    public LabelException(String message) {
+    public LabelException(final String message) {
         super(message);
     }
 }

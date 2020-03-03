@@ -8,7 +8,6 @@ import co.com.sofka.usecases.IssueUpdateUseCase;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,8 +16,8 @@ public class CommandConfigure {
 
     @Bean
     public CommandBuilder configUseCases(
-            CommandHandlerCreate issueCreateUseCase,
-            CommandHandlerUpdate issueUpdateUseCase) {
+            final CommandHandlerCreate issueCreateUseCase,
+            final CommandHandlerUpdate issueUpdateUseCase) {
 
         return new CommandBuilder.Builder()
                 .registerUseCase("issue_create", issueCreateUseCase)
@@ -37,17 +36,19 @@ public class CommandConfigure {
     }
 
     @Bean
-    public CommandHandlerUpdate commandHandlerUpdate(FirestoreRepository firestoreRepository, EventBus eventBus){
+    public CommandHandlerUpdate commandHandlerUpdate(final FirestoreRepository firestoreRepository,
+                                                     final EventBus eventBus) {
         return new CommandHandlerUpdate(firestoreRepository, eventBus);
     }
 
     @Bean
-    public CommandHandlerCreate commandHandlerCreate(FirestoreRepository firestoreRepository, EventBus eventBus){
+    public CommandHandlerCreate commandHandlerCreate(final FirestoreRepository firestoreRepository,
+                                                     final EventBus eventBus) {
         return new CommandHandlerCreate(firestoreRepository, eventBus);
     }
 
     @Bean
-    public EventBus rabbitDomainEventBus(RabbitTemplate rabbitTemplate){
+    public EventBus rabbitDomainEventBus(final RabbitTemplate rabbitTemplate) {
         return new RabbitDomainEventBus(rabbitTemplate);
     }
 }

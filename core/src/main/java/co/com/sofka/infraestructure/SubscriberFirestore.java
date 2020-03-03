@@ -9,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Flow;
 
@@ -19,40 +17,42 @@ import static co.com.sofka.infraestructure.BdConnection.closeDatabase;
 
 public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
 
-    private static final Logger logger = LoggerFactory.getLogger(SubscriberFirestore.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SubscriberFirestore.class);
 
     private FirestoreRepository firestoreRepository;
     private String aggregateRootId;
     private Set<DomainEvent> domainEvents;
     private EventBus eventBus;
 
-    public SubscriberFirestore(String aggregateRootId, FirestoreRepository firestoreRepository, EventBus eventBus) {
+    public SubscriberFirestore(final String aggregateRootId,
+                               final FirestoreRepository firestoreRepository,
+                               final EventBus eventBus) {
         this.aggregateRootId = aggregateRootId;
         this.firestoreRepository = firestoreRepository;
         this.eventBus = eventBus;
         this.domainEvents = new HashSet<>();
-        List s = new LinkedList();
     }
 
     @Override
-    public void onSubscribe(Flow.Subscription subscription) {
-
+    public void onSubscribe(final Flow.Subscription subscription) {
+        LOGGER.info("onSubscribe");
     }
 
     @Override
-    public void onNext(DomainEvent domainEvent) {
+    public void onNext(final DomainEvent domainEvent) {
         eventBus.publish(domainEvent);
         firestoreRepository.saveEvent(new AggregateRootId(aggregateRootId), domainEvent);
         domainEvents.add(domainEvent);
     }
 
     @Override
-    public void onError(Throwable throwable) {
+    public void onError(final Throwable throwable) {
         closeDatabase();
     }
 
     @Override
     public void onComplete() {
-        logger.info(domainEvents.size()+" events saved and published");
+        String message = domainEvents.size() + " events saved and published";
+        LOGGER.info(message);
     }
 }

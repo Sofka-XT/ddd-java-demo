@@ -10,7 +10,8 @@ public class IssueWithBasicInformationCreated extends DomainEvent {
     private final BasicInformationProperty basicInformation;
     private final IssueId issueId;
 
-    public IssueWithBasicInformationCreated(@JsonProperty("issueId") IssueId issueId, @JsonProperty("basicInformation") BasicInformationProperty basicInformation) {
+    public IssueWithBasicInformationCreated(@JsonProperty("issueId") final IssueId issueId,
+                                            @JsonProperty("basicInformation") final BasicInformationProperty basicInformation) {
         super("issue_with_basic_information_created");
         this.issueId = issueId;
         this.basicInformation = basicInformation;
