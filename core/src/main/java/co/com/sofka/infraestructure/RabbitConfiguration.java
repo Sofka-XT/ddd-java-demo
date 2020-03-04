@@ -10,27 +10,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
+import static co.com.sofka.infraestructure.Constants.QUEUE_NAME;
+import static co.com.sofka.infraestructure.Constants.TOPIC_EXCHANGE_NAME;
+
 
 @Configuration
 public class RabbitConfiguration {
 
-    static final String TOPIC_EXCHANGE_NAME = "ddd-demo-java";
-
-    static final String QUEUE_NAME = "issue";
 
     @Bean
     Queue queue() {
         return new Queue(QUEUE_NAME, false);
-    }
-
-    @Bean
-    TopicExchange exchange() {
-        return new TopicExchange(TOPIC_EXCHANGE_NAME);
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("test");
     }
 
     @Bean

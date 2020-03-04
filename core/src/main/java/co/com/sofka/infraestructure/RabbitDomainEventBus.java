@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-import static co.com.sofka.infraestructure.RabbitConfiguration.TOPIC_EXCHANGE_NAME;
+import static co.com.sofka.infraestructure.Constants.TOPIC_EXCHANGE_NAME;
+
 
 public class RabbitDomainEventBus implements EventBus {
     @Value("${rabbitmq.routingkey}")

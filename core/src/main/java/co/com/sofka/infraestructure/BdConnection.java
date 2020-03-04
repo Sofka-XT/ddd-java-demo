@@ -5,26 +5,19 @@ import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Map;
+
+import static co.com.sofka.infraestructure.Constants.CREDENTIAL_FIREBASE;
 
 public final class BdConnection {
-
-    private static String name;
 
     private static Firestore database;
 
     private BdConnection() {
     }
 
-    @Value("${rabbitmq.name}")
-    public void setName(String nameFromProperties) {
-        name = nameFromProperties
-        ;
-    }
 
     public static Firestore getDatabaseInstance() {
         if (database == null) {
@@ -36,9 +29,8 @@ public final class BdConnection {
 
     private static Firestore openDatabase() {
 
-        Map<String, String> env = System.getenv();
 
-        try (FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase.json")) {
+        try (FileInputStream serviceAccount = new FileInputStream(CREDENTIAL_FIREBASE)) {
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
