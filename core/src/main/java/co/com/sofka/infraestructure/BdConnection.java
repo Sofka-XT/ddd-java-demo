@@ -13,14 +13,18 @@ import java.util.Map;
 
 public final class BdConnection {
 
-    @Value("${rabbitmq.routingkey}")
-    private static String routingkey;
+    private static String name;
 
     private static Firestore database;
 
     private BdConnection() {
     }
 
+    @Value("${rabbitmq.name}")
+    public void setName(String nameFromProperties) {
+        name = nameFromProperties
+        ;
+    }
 
     public static Firestore getDatabaseInstance() {
         if (database == null) {
@@ -33,8 +37,6 @@ public final class BdConnection {
     private static Firestore openDatabase() {
 
         Map<String, String> env = System.getenv();
-
-        System.out.println(routingkey);
 
         try (FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase.json")) {
 

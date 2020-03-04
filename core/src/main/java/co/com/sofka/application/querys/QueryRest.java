@@ -1,6 +1,6 @@
 package co.com.sofka.application.querys;
 
-import co.com.sofka.core.issue.quieries.QueryGetIssueById;
+import co.com.sofka.core.issue.queries.QueryGetIssueById;
 import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.infraestructure.IssueEntity;
 import org.springframework.beans.factory.annotation.Autowired;

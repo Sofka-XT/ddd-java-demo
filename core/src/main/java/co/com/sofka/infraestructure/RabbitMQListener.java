@@ -52,23 +52,47 @@ public class RabbitMQListener implements MessageListener {
     }
 
     private void setAttributesForUpdate(final IssueEntity issue, final Update updateIssue) {
-        if (issue.getBasicInformation() != null) {
-            updateIssue.set("basicInformation", issue.getBasicInformation());
+        setBasicInformation(issue, updateIssue);
+        setPerson(issue, updateIssue);
+        setStatus(issue, updateIssue);
+        setPeriod(issue, updateIssue);
+        setLabelList(issue, updateIssue);
+        setType(issue, updateIssue);
+    }
+
+    private void setType(IssueEntity issue, Update updateIssue) {
+        if (issue.getType() != null) {
+            updateIssue.set("type", issue.getType());
         }
-        if (issue.getPerson() != null) {
-            updateIssue.set("person", issue.getPerson());
-        }
-        if (issue.getStatusProperty() != null) {
-            updateIssue.set("statusProperty", issue.getStatusProperty());
-        }
-        if (issue.getPeriod() != null) {
-            updateIssue.set("period", issue.getPeriod());
-        }
+    }
+
+    private void setLabelList(IssueEntity issue, Update updateIssue) {
         if (issue.getLabelList() != null) {
             updateIssue.set("labelList", issue.getLabelList());
         }
-        if (issue.getType() != null) {
-            updateIssue.set("type", issue.getType());
+    }
+
+    private void setPeriod(IssueEntity issue, Update updateIssue) {
+        if (issue.getPeriod() != null) {
+            updateIssue.set("period", issue.getPeriod());
+        }
+    }
+
+    private void setStatus(IssueEntity issue, Update updateIssue) {
+        if (issue.getStatusProperty() != null) {
+            updateIssue.set("statusProperty", issue.getStatusProperty());
+        }
+    }
+
+    private void setPerson(IssueEntity issue, Update updateIssue) {
+        if (issue.getPerson() != null) {
+            updateIssue.set("person", issue.getPerson());
+        }
+    }
+
+    private void setBasicInformation(IssueEntity issue, Update updateIssue) {
+        if (issue.getBasicInformation() != null) {
+            updateIssue.set("basicInformation", issue.getBasicInformation());
         }
     }
 

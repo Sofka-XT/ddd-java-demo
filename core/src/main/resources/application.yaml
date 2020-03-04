@@ -16,8 +16,4 @@ rabbitmq:
   ports:
     - "5672:5672"
     - "15672:15672"
-
-
-logging:
-  file:
-    name: "event-soucing-demo-firebase.json"
+  name: "event-soucing-demo-firebase.json"

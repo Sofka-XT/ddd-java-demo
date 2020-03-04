@@ -33,14 +33,19 @@ public class RabbitDomainEventBus implements EventBus {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         final String eventSerialization = serializeEvent(mapper, event);
-
-        Queue queue = new Queue(event.type, false, false, false);
-        Binding binding = new Binding(event.type, Binding.DestinationType.QUEUE, TOPIC_EXCHANGE_NAME, event.type, null);
-
-        rabbitAdmin.declareQueue(queue);
-        rabbitAdmin.declareBinding(binding);
-
+        generateQueue(event);
+        generateBinding(event);
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, routingkey, eventSerialization);
+    }
+
+    private void generateBinding(DomainEvent event) {
+        Binding binding = new Binding(event.type, Binding.DestinationType.QUEUE, TOPIC_EXCHANGE_NAME, event.type, null);
+        rabbitAdmin.declareBinding(binding);
+    }
+
+    private void generateQueue(DomainEvent event) {
+        Queue queue = new Queue(event.type, false, false, false);
+        rabbitAdmin.declareQueue(queue);
     }
 
     private String serializeEvent(final ObjectMapper mapper, final DomainEvent domainEvent) {
