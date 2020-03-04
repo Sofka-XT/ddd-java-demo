@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.generic.helpers;
 
 public final class Constants {
 

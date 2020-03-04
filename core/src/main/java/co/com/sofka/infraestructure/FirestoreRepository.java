@@ -8,7 +8,6 @@ import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import co.com.sofka.infraestructure.repository.QueryFaultException;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
@@ -24,6 +23,8 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
+import static co.com.sofka.generic.helpers.Serialize.serializeEvent;
+
 public class FirestoreRepository implements EventStoreRepository {
 
     private final Firestore database;
@@ -35,17 +36,19 @@ public class FirestoreRepository implements EventStoreRepository {
     @Override
     public List<DomainEvent> getEventsBy(final AggregateRootId aggregateRootId) {
         List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(aggregateRootId);
-        return query.stream().map(document -> {
-            final ObjectMapper mapper = new ObjectMapper();
-            StoredEvent storedEvent = mapper.convertValue(document.getData(), StoredEvent.class);
-            try {
-                Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
-                return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
-            } catch (IOException | ClassNotFoundException e) {
-                throw new EventMapperException(e.getMessage());
-            }
-        }).collect(Collectors.toList());
+        return query.stream().map(document -> getDomainEvent(document)).collect(Collectors.toList());
 
+    }
+
+    private DomainEvent getDomainEvent(final QueryDocumentSnapshot document) {
+        final ObjectMapper mapper = new ObjectMapper();
+        StoredEvent storedEvent = mapper.convertValue(document.getData(), StoredEvent.class);
+        try {
+            Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
+            return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
+        } catch (IOException | ClassNotFoundException e) {
+            throw new EventMapperException(e.getMessage());
+        }
     }
 
     private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(final AggregateRootId aggregateRootId) {
@@ -67,7 +70,6 @@ public class FirestoreRepository implements EventStoreRepository {
         final String eventSerialization = serializeEvent(mapper, event);
         StoredEvent storedEvent = wrapEvent(event, eventSerialization);
         setDocumentToCollection(aggregateRootId, event, storedEvent);
-
     }
 
     private void setDocumentToCollection(final AggregateRootId aggregateRootId,
@@ -91,15 +93,6 @@ public class FirestoreRepository implements EventStoreRepository {
         );
     }
 
-    private String serializeEvent(final ObjectMapper mapper, final DomainEvent domainEvent) {
-        final String eventSerialization;
-        try {
-            eventSerialization = mapper.writeValueAsString(domainEvent);
-        } catch (JsonProcessingException e) {
-            throw new EventMapperException();
-        }
-        return eventSerialization;
-    }
 
     public Map<String, List<DomainEvent>> getDomainEventList() {
 

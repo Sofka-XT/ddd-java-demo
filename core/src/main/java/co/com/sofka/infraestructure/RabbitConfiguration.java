@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static co.com.sofka.infraestructure.Constants.QUEUE_NAME;
-import static co.com.sofka.infraestructure.Constants.TOPIC_EXCHANGE_NAME;
+import static co.com.sofka.generic.helpers.Constants.QUEUE_NAME;
 
 
 @Configuration
@@ -37,6 +36,11 @@ public class RabbitConfiguration {
     @Bean
     public RabbitAdmin rabbitAdmin(final ConnectionFactory connectionFactory) {
         return new RabbitAdmin(connectionFactory);
+    }
+
+    @Bean
+    public RabbitMQListener rabbitMQListener(final MongoTemplate mongoTemplate){
+        return new RabbitMQListener(mongoTemplate);
     }
 
 }

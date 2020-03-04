@@ -23,11 +23,11 @@ public class IssueEntity {
     private PersonProperty person;
     private StatusProperty statusProperty;
     private PeriodProperty period;
+
+    @JsonIgnore
     private LabelList labelList;
 
     private  String type;
-
-    @JsonIgnore
     private  UUID uuid;
 
     @JsonIgnore
@@ -41,15 +41,15 @@ public class IssueEntity {
 
     public IssueEntity(final IssueId issueId, final BasicInformationProperty basicInformation,
                        final PersonProperty person, final StatusProperty statusProperty,
-                       final PeriodProperty period, final LabelList labelList,
-                       final String type) {
+                       final PeriodProperty period,
+                       final String type, final UUID uuid) {
         this.issueId = issueId;
         this.basicInformation = basicInformation;
         this.person = person;
         this.statusProperty = statusProperty;
         this.period = period;
-        this.labelList = labelList;
         this.type = type;
+        this.uuid = uuid;
     }
 
     public IssueId getIssueId() {

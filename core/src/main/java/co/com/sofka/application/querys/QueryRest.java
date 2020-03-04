@@ -5,6 +5,7 @@ import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.infraestructure.IssueEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping(value = "api/query/", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class QueryRest {
 
     private QueryHandler<IssueEntity> queryHandler;
@@ -29,7 +30,7 @@ public class QueryRest {
     }
 
 
-    @GetMapping("query/getAllIssues")
+    @GetMapping("getAllIssues")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Map<String, Object>> getAllIssues() {
         Map<String, Object> response = new HashMap<>();
@@ -42,7 +43,7 @@ public class QueryRest {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("query/getById/{issueId}")
+    @GetMapping("getById/{issueId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Map<String, Object>> getIssueById(@PathVariable final QueryGetIssueById issueId) {
         Map<String, Object> response = new HashMap<>();

@@ -9,7 +9,7 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static co.com.sofka.infraestructure.Constants.CREDENTIAL_FIREBASE;
+import static co.com.sofka.generic.helpers.Constants.CREDENTIAL_FIREBASE;
 
 public final class BdConnection {
 

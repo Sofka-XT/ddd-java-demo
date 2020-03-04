@@ -1,4 +1,4 @@
-package co.com.sofka.generic.exeption;
+package co.com.sofka.generic.exceptions;
 
 public class BasicInformationException extends RuntimeException {
 
