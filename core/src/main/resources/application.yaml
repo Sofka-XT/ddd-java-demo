@@ -6,7 +6,9 @@ spring:
     name: dddDemoJava
   data:
     mongodb:
-      uri: mongodb+srv://admin:A9332ab17f04@platzitest-axjn2.mongodb.net/test?retryWrites=true&w=majority
+      #uri: mongodb+srv://admin:A9332ab17f04@platzitest-axjn2.mongodb.net/test?retryWrites=true&w=majority
+      host: localhost
+      port: 27017
       database: ddd-demo
 
 

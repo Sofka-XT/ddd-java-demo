@@ -1,11 +1,11 @@
 package co.com.sofka.generic;
 
 import co.com.sofka.core.label.Label;
-import co.com.sofka.generic.exeption.BasicInformationException;
-import co.com.sofka.generic.exeption.IssueException;
-import co.com.sofka.generic.exeption.LabelException;
-import co.com.sofka.generic.exeption.PeriodException;
-import co.com.sofka.generic.exeption.PersonException;
+import co.com.sofka.generic.exceptions.BasicInformationException;
+import co.com.sofka.generic.exceptions.IssueException;
+import co.com.sofka.generic.exceptions.LabelException;
+import co.com.sofka.generic.exceptions.PeriodException;
+import co.com.sofka.generic.exceptions.PersonException;
 
 
 import java.util.Collection;

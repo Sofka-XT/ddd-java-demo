@@ -17,7 +17,7 @@ import co.com.sofka.core.label.LabelList;
 import co.com.sofka.domain.generic.AggregateRoot;
 import co.com.sofka.domain.generic.AggregateRootId;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.generic.exeption.IssueException;
+import co.com.sofka.generic.exceptions.IssueException;
 import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
@@ -33,11 +33,11 @@ import java.util.function.Consumer;
 public class IssueList extends AggregateRoot<AggregateRootId> {
 
     private Collection<Issue> issueCollection;
-    private final Consumer<IssueWithBasicInformationCreated> createIssueWithBasicInformation = event -> {
+    private final Consumer<IssueWithBasicInformationCreated> createdIssueWithBasicInformation = event -> {
         var issue = new Issue(event.getIssueId(), event.getBasicInformation());
         issueCollection.add(issue);
     };
-    private final Consumer<FullIssueWithoutBasicInformationUpdated> updateFullIssueWithoutBasicInformation = event -> {
+    private final Consumer<FullIssueWithoutBasicInformationUpdated> updatedFullIssueWithoutBasicInformation = event -> {
         var issue = selectIssueBy(event.getIssueId());
         issue.updatePerson(event.getPerson());
         issue.updatePeriod(event.getPeriod());
@@ -75,8 +75,8 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
     public IssueList(final AggregateRootId aggregateRootId) {
         super(aggregateRootId);
         issueCollection = new ArrayList<>();
-        registerActions(createIssueWithBasicInformation, updatedIssueStatus,
-                updatedIssuePeriod, updateFullIssueWithoutBasicInformation,
+        registerActions(createdIssueWithBasicInformation, updatedIssueStatus,
+                updatedIssuePeriod, updatedFullIssueWithoutBasicInformation,
                 updatedIssueBasicInformation, updatedIssuePerson,
                 updatedIssueLabels, deleteIssueLabels);
     }
@@ -90,13 +90,13 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
     public void createIssueWithBasicInformation(final BasicInformationProperty basicInformation) {
         IssueId issueId = new IssueId(UUID.randomUUID().toString());
         appendChange(new IssueWithBasicInformationCreated(issueId, basicInformation))
-                .apply(createIssueWithBasicInformation);
+                .apply(createdIssueWithBasicInformation);
     }
 
     public void updateFullIssueWithoutBasicInformation(final IssueId issueId, final PeriodProperty period,
                                                        final PersonProperty person, final StatusProperty status) {
         appendChange(new FullIssueWithoutBasicInformationUpdated(issueId, period, person, status))
-                .apply(updateFullIssueWithoutBasicInformation);
+                .apply(updatedFullIssueWithoutBasicInformation);
     }
 
     public void updateIssueBasicInformationBy(final IssueId issueId, final BasicInformationProperty basicInformation) {
@@ -166,7 +166,7 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), issueCollection,
-                createIssueWithBasicInformation, updateFullIssueWithoutBasicInformation,
+                createdIssueWithBasicInformation, updatedFullIssueWithoutBasicInformation,
                 updatedIssueBasicInformation, updatedIssuePerson, updatedIssuePeriod,
                 updatedIssueStatus, deleteIssueLabels, updatedIssueLabels, deleteIssue);
     }

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping(value = "api/command/",
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CommandRest {
 
     private CommandHandler<IssueCreateCommand> commandCreated;
@@ -27,19 +29,15 @@ public class CommandRest {
         this.commandUpdated = commandUpdated;
     }
 
-    @PostMapping(value = "command/issueCreate",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("issueCreate")
     @ResponseStatus(HttpStatus.OK)
-    public void setCommand(@RequestBody final IssueCreateCommand command) {
+    public void setCommandIssueCreated(@RequestBody final IssueCreateCommand command) {
         commandCreated.execute(command);
     }
 
-    @PostMapping(value = "command/issueUpdate",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("issueUpdate")
     @ResponseStatus(HttpStatus.OK)
-    public void setCommand(@RequestBody final IssueUpdateCommand command) {
+    public void setCommandIssueUpdate(@RequestBody final IssueUpdateCommand command) {
         commandUpdated.execute(command);
 
     }
