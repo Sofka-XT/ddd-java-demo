@@ -1,11 +1,11 @@
-package co.com.sofka.generic.exeption;
+package co.com.sofka.generic.exceptions;
 
 public class LabelException extends RuntimeException {
 
     public LabelException() {
     }
 
-    public LabelException(String message) {
+    public LabelException(final String message) {
         super(message);
     }
 }

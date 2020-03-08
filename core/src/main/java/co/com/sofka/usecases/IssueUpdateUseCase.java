@@ -13,7 +13,7 @@ import java.util.List;
 public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, IssueUpdateUseCase.Response> {
 
     @Override
-    protected void executeUseCase(Request requestValues) {
+    protected void executeUseCase(final Request requestValues) {
 
         AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
         IssueList issueList = new IssueList(anAggregateRootId);
@@ -33,7 +33,10 @@ public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, Issu
         private BasicInformationProperty basicInformation;
         private StatusProperty status;
 
-        public Request(String uuid, BasicInformationProperty basicInformation, StatusProperty status) {
+        public Request(final String uuid,
+                       final BasicInformationProperty basicInformation,
+                       final StatusProperty status) {
+
             this.uuid = uuid;
             this.basicInformation = basicInformation;
             this.status = status;
@@ -44,7 +47,7 @@ public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, Issu
 
         private List<DomainEvent> domainEvents;
 
-        public Response(List<DomainEvent> domainEvents) {
+        public Response(final List<DomainEvent> domainEvents) {
             this.domainEvents = List.copyOf(domainEvents);
         }
 

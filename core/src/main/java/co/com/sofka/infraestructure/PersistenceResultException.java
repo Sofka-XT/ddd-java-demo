@@ -5,7 +5,7 @@ public class PersistenceResultException extends RuntimeException {
     public PersistenceResultException() {
     }
 
-    public PersistenceResultException(String message) {
+    public PersistenceResultException(final String message) {
         super(message);
     }
 }

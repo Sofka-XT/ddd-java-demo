@@ -8,7 +8,7 @@ public class IssueDeleted extends DomainEvent {
 
     private final IssueId issueId;
 
-    public IssueDeleted(IssueId issueId) {
+    public IssueDeleted(final IssueId issueId) {
         super("issue_deleted");
         this.issueId = issueId;
     }

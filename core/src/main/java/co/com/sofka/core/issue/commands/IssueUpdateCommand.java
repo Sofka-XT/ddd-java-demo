@@ -6,22 +6,22 @@ import co.com.sofka.generic.values.StatusProperty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueUpdateCommand extends Command {
-    private String uuid;
+    private String aggregateRootId;
     private BasicInformationProperty basicInformation;
     private StatusProperty status;
 
-    public IssueUpdateCommand(@JsonProperty("type") String type,
-                              @JsonProperty("uuid")  String uuid,
-                              @JsonProperty("basicInformation") BasicInformationProperty basicInformation,
-                              @JsonProperty("status") StatusProperty status) {
+    public IssueUpdateCommand(@JsonProperty("type") final String type,
+                              @JsonProperty("aggregateRootId") final String aggregateRootId,
+                              @JsonProperty("basicInformation") final BasicInformationProperty basicInformation,
+                              @JsonProperty("status") final StatusProperty status) {
         super(type);
-        this.uuid = uuid;
+        this.aggregateRootId = aggregateRootId;
         this.basicInformation = basicInformation;
         this.status = status;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getAggregateRootId() {
+        return aggregateRootId;
     }
 
     public BasicInformationProperty getBasicInformation() {

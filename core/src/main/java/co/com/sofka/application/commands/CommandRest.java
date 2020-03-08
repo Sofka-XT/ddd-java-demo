@@ -6,36 +6,38 @@ import co.com.sofka.core.issue.commands.IssueUpdateCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping(value = "api/command/",
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CommandRest {
 
-
-    CommandHandler<IssueCreateCommand> commandCreated;
-    CommandHandler<IssueUpdateCommand> commandUpdated;
+    private CommandHandler<IssueCreateCommand> commandCreated;
+    private CommandHandler<IssueUpdateCommand> commandUpdated;
 
     @Autowired
-    public CommandRest(CommandHandler<IssueCreateCommand> commandCreated, CommandHandler<IssueUpdateCommand> commandUpdated) {
+    public CommandRest(final CommandHandler<IssueCreateCommand> commandCreated,
+                       final CommandHandler<IssueUpdateCommand> commandUpdated) {
         this.commandCreated = commandCreated;
         this.commandUpdated = commandUpdated;
     }
 
-    @PostMapping(value = "command/issueCreate",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("issueCreate")
     @ResponseStatus(HttpStatus.OK)
-    public void setCommand(@RequestBody IssueCreateCommand command) {
+    public void setCommandIssueCreated(@RequestBody final IssueCreateCommand command) {
         commandCreated.execute(command);
     }
 
-    @PostMapping(value = "command/issueUpdate",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("issueUpdate")
     @ResponseStatus(HttpStatus.OK)
-    public void setCommand(@RequestBody IssueUpdateCommand command) {
+    public void setCommandIssueUpdate(@RequestBody final IssueUpdateCommand command) {
         commandUpdated.execute(command);
 
     }

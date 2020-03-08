@@ -10,7 +10,8 @@ public class IssueBasicInformationUpdated extends DomainEvent {
     private final IssueId issueId;
     private final BasicInformationProperty basicInformation;
 
-    public IssueBasicInformationUpdated(IssueId issueId, BasicInformationProperty basicInformation) {
+    public IssueBasicInformationUpdated(final IssueId issueId,
+                                        final BasicInformationProperty basicInformation) {
         super("issue_basic_information_updated");
         this.issueId = issueId;
         this.basicInformation = basicInformation;

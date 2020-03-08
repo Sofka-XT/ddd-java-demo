@@ -5,7 +5,7 @@ public class EventMapperException extends RuntimeException {
     public EventMapperException() {
     }
 
-    public EventMapperException(String message) {
+    public EventMapperException(final String message) {
         super(message);
     }
 }

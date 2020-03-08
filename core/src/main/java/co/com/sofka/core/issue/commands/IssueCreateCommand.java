@@ -5,19 +5,19 @@ import co.com.sofka.generic.values.BasicInformationProperty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueCreateCommand extends Command {
-    private String uuid;
+    private String aggregateRootId;
     private BasicInformationProperty basicInformation;
 
-    public IssueCreateCommand(@JsonProperty("type") String type,
-                              @JsonProperty("uuid") String uuid,
-                              @JsonProperty("basicInformation") BasicInformationProperty basicInformation) {
+    public IssueCreateCommand(@JsonProperty("type") final String type,
+                              @JsonProperty("aggregateRootId") final String aggregateRootId,
+                              @JsonProperty("basicInformation") final BasicInformationProperty basicInformation) {
         super(type);
-        this.uuid = uuid;
+        this.aggregateRootId = aggregateRootId;
         this.basicInformation = basicInformation;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getAggregateRootId() {
+        return aggregateRootId;
     }
 
     public BasicInformationProperty getBasicInformation() {

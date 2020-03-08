@@ -15,12 +15,12 @@ public class LabelList {
     private final LabelListId labelListId;
     private Collection<Label> labelCollection;
 
-    public LabelList(LabelListId labelListId) {
+    public LabelList(final LabelListId labelListId) {
         this.labelListId = labelListId;
         labelCollection = new ArrayList<>();
     }
 
-    public void createLabel(String color, String tittle) {
+    public void createLabel(final String color, final String tittle) {
         LabelId labelId = new LabelId(UUID.randomUUID().toString());
         Label label = new Label(labelId, color, tittle);
         labelCollection.add(label);
@@ -30,12 +30,12 @@ public class LabelList {
         return this.labelCollection;
     }
 
-    public void deleteLabel(String titleLabelToDelete) {
+    public void deleteLabel(final String titleLabelToDelete) {
         Label label = findLabelByTittle(titleLabelToDelete);
         labelCollection.remove(label);
     }
 
-    private Label findLabelByTittle(String titleLabelToDelete) {
+    private Label findLabelByTittle(final String titleLabelToDelete) {
         checkNonNullForLabel(titleLabelToDelete, "Label tittle to delete can´t be null");
         Collection<Label> list = labelCollection
                 .stream()

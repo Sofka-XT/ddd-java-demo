@@ -6,7 +6,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.generic.values.PeriodProperty;
 import co.com.sofka.generic.values.StatusProperty;
 
-
 public class FullIssueWithoutBasicInformationUpdated extends DomainEvent {
 
     private final IssueId issueId;
@@ -14,7 +13,10 @@ public class FullIssueWithoutBasicInformationUpdated extends DomainEvent {
     private final PersonProperty person;
     private final StatusProperty status;
 
-    public FullIssueWithoutBasicInformationUpdated(IssueId issueId, PeriodProperty period, PersonProperty person, StatusProperty status) {
+    public FullIssueWithoutBasicInformationUpdated(final IssueId issueId,
+                                                   final PeriodProperty period,
+                                                   final PersonProperty person,
+                                                   final StatusProperty status) {
         super("full_issue_without_basic_information_updated");
         this.issueId = issueId;
         this.period = period;

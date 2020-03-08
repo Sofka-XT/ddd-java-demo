@@ -9,7 +9,7 @@ public class IssuePeriodUpdated extends DomainEvent {
     private final IssueId issueId;
     private final PeriodProperty period;
 
-    public IssuePeriodUpdated(IssueId issueId, PeriodProperty period) {
+    public IssuePeriodUpdated(final IssueId issueId, final PeriodProperty period) {
         super("issue_period_updated");
         this.issueId = issueId;
         this.period = period;

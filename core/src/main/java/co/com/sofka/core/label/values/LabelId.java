@@ -6,7 +6,7 @@ public class LabelId {
 
     private final String uuid;
 
-    public LabelId(String uuid) {
+    public LabelId(final String uuid) {
         checkNonNullForLabel(uuid, "Label List Id can't be null");
         this.uuid = uuid;
     }

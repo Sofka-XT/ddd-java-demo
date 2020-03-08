@@ -10,13 +10,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
 
+import static co.com.sofka.generic.helpers.Constants.CREDENTIAL_FIREBASE;
+
 public final class BdConnection {
+
 
     private static Firestore database;
 
     private BdConnection() {
     }
-
 
     public static Firestore getDatabaseInstance() {
         if (database == null) {
@@ -30,7 +32,7 @@ public final class BdConnection {
 
         Map<String, String> env = System.getenv();
 
-        try (FileInputStream serviceAccount = new FileInputStream("event-soucing-demo-firebase.json")) {
+        try (FileInputStream serviceAccount = new FileInputStream(CREDENTIAL_FIREBASE)) {
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

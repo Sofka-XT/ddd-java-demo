@@ -9,7 +9,7 @@ public class IssueLabelUpdated extends DomainEvent {
     private final IssueId issueId;
     private final LabelList labelList;
 
-    public IssueLabelUpdated(IssueId issueId, LabelList labelList) {
+    public IssueLabelUpdated(final IssueId issueId, final LabelList labelList) {
         super("issue_label_updated");
         this.issueId = issueId;
         this.labelList = labelList;

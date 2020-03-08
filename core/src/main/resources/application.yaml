@@ -1,0 +1,21 @@
+##Spring Configuration
+server:
+  port: 8080
+spring:
+  application:
+    name: dddDemoJava
+  data:
+    mongodb:
+      #uri: mongodb+srv://admin:A9332ab17f04@platzitest-axjn2.mongodb.net/test?retryWrites=true&w=majority
+      host: localhost
+      port: 27017
+      database: ddd-demo
+
+
+rabbitmq:
+  image: rabbitmq:management
+  routingkey: "ddd.routingkey"
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+  name: "event-soucing-demo-firebase.json"
