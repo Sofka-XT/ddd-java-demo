@@ -131,10 +131,28 @@ We need to generate the database in firebase, download the credentials file and 
 #### Docker RabbitMQ
 > docker run -d -p 15672:15672 -p 5672:5672 --name rabbit-ddd rabbitmq:3-management
 
+### Configuration for application.yaml
+```
+    data:
+         mongodb:
+           host: localhost
+           port: 27017
+           database: ddd-demo
+```
+
 you must generate the exchange: 'ddd-demo-java' which we use as an event lake.
 
 #### Docker MongoBD
 > docker run -p 27017:27017 --name some-mongo -d mongo:3
+
+### Configuration for application.yaml
+```
+    rabbitmq:
+      image: rabbitmq:management
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+```
 
 ### Patters
 > 1. Command Query Responsibility Segregation - CQRS - https://docs.microsoft.com/es-es/azure/architecture/patterns/cqrs
