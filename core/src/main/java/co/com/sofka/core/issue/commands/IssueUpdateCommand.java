@@ -6,9 +6,9 @@ import co.com.sofka.generic.values.StatusProperty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueUpdateCommand extends Command {
-    private String aggregateRootId;
-    private BasicInformationProperty basicInformation;
-    private StatusProperty status;
+    private final String aggregateRootId;
+    private final BasicInformationProperty basicInformation;
+    private final StatusProperty status;
 
     public IssueUpdateCommand(@JsonProperty("type") final String type,
                               @JsonProperty("aggregateRootId") final String aggregateRootId,

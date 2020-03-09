@@ -16,7 +16,6 @@ public class RabbitMQListener implements MessageListener {
 
     private final MongoTemplate mongoTemplate;
 
-    @Autowired
     public RabbitMQListener(final MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }

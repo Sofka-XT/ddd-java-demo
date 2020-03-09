@@ -5,8 +5,8 @@ import co.com.sofka.generic.values.BasicInformationProperty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueCreateCommand extends Command {
-    private String aggregateRootId;
-    private BasicInformationProperty basicInformation;
+    private final String aggregateRootId;
+    private final BasicInformationProperty basicInformation;
 
     public IssueCreateCommand(@JsonProperty("type") final String type,
                               @JsonProperty("aggregateRootId") final String aggregateRootId,

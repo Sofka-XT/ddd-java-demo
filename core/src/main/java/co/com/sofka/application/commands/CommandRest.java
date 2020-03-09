@@ -39,7 +39,6 @@ public class CommandRest {
     @ResponseStatus(HttpStatus.OK)
     public void setCommandIssueUpdate(@RequestBody final IssueUpdateCommand command) {
         commandUpdated.execute(command);
-
     }
 
 }

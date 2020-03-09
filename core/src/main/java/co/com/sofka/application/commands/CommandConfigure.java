@@ -16,17 +16,6 @@ import org.springframework.context.annotation.Configuration;
 public class CommandConfigure {
 
     @Bean
-    public CommandBuilder configUseCases(
-            final CommandHandlerCreate issueCreateUseCase,
-            final CommandHandlerUpdate issueUpdateUseCase) {
-
-        return new CommandBuilder.Builder()
-                .registerUseCase("issue_create", issueCreateUseCase)
-                .registerUseCase("issue_update", issueUpdateUseCase)
-                .build();
-    }
-
-    @Bean
     public IssueCreateUseCase issueCreateUseCase() {
         return new IssueCreateUseCase();
     }

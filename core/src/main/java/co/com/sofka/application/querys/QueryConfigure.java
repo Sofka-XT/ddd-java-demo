@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class QueryConfigure {
 
-
     @Bean
     public QueryHandlerImpl queryHandlerGetById(final IssueEntityRepository repository) {
         return new QueryHandlerImpl(repository);

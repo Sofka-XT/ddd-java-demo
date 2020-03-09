@@ -89,7 +89,6 @@
   
   <modules>
     <module>core</module>
-    <module>generic</module>
     <module>spring</module>
   </modules>
     
