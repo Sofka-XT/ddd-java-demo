@@ -23,12 +23,13 @@
 
   <dependencies>
 
+    <!-- https://mvnrepository.com/artifact/co.com.sofka/domain-driven-design -->
     <dependency>
       <groupId>co.com.sofka</groupId>
-      <artifactId>generic</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
+      <artifactId>domain-driven-design</artifactId>
+      <version>0.1.2</version>
     </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>

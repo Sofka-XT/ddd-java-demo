@@ -1,9 +1,9 @@
 package co.com.sofka.core.issue.queries;
 
-import co.com.sofka.domain.generic.QueryGeneric;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class QueryGetIssueById extends QueryGeneric {
+public class QueryGetIssueById  {
 
     private String issueId;
 
