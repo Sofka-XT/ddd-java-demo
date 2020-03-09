@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.infrastructure;
 
 import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.core.issue.values.PersonProperty;

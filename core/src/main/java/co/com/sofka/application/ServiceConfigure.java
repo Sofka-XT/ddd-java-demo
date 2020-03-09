@@ -1,7 +1,7 @@
 package co.com.sofka.application;
 
-import co.com.sofka.infraestructure.BdConnection;
-import co.com.sofka.infraestructure.FirestoreRepository;
+import co.com.sofka.infrastructure.BdConnection;
+import co.com.sofka.infrastructure.FirestoreRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

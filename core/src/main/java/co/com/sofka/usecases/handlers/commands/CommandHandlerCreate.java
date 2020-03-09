@@ -4,8 +4,8 @@ import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.core.issue.commands.IssueCreateCommand;
-import co.com.sofka.infraestructure.FirestoreRepository;
-import co.com.sofka.infraestructure.SubscriberFirestore;
+import co.com.sofka.infrastructure.FirestoreRepository;
+import co.com.sofka.infrastructure.SubscriberFirestore;
 import co.com.sofka.usecases.IssueCreateUseCase;
 
 public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> {

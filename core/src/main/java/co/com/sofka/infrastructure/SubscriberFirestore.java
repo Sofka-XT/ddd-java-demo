@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.infrastructure;
 
 
 
@@ -11,8 +11,6 @@ import org.slf4j.LoggerFactory;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.Flow;
-
-import static co.com.sofka.infraestructure.BdConnection.closeDatabase;
 
 
 public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
@@ -47,7 +45,7 @@ public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
 
     @Override
     public void onError(final Throwable throwable) {
-        closeDatabase();
+        BdConnection.closeDatabase();
     }
 
     @Override

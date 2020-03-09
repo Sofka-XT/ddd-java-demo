@@ -2,7 +2,7 @@ package co.com.sofka.application.querys;
 
 import co.com.sofka.core.issue.queries.QueryGetIssueById;
 import co.com.sofka.core.issue.values.IssueId;
-import co.com.sofka.infraestructure.IssueEntity;
+import co.com.sofka.infrastructure.IssueEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

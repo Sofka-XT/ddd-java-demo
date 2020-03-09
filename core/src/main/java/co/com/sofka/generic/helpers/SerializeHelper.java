@@ -1,7 +1,7 @@
 package co.com.sofka.generic.helpers;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.infraestructure.EventMapperException;
+import co.com.sofka.infrastructure.EventMapperException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

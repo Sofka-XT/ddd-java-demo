@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.infrastructure;
 
 public class EventMapperException extends RuntimeException {
 

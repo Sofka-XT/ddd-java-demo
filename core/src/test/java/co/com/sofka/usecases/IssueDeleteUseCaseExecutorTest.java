@@ -1,8 +1,4 @@
 package co.com.sofka.usecases;
-;
-import co.com.sofka.generic.values.BasicInformationProperty;
-import co.com.sofka.infraestructure.SubscriberFirestore;
-import org.junit.jupiter.api.Test;
 
 public class IssueDeleteUseCaseExecutorTest {
 

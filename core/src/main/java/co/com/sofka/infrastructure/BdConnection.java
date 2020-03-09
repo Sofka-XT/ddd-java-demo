@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.infrastructure;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;

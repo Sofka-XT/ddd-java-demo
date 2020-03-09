@@ -1,4 +1,4 @@
-package co.com.sofka.infraestructure;
+package co.com.sofka.infrastructure;
 
 
 import org.springframework.amqp.core.*;

@@ -1,7 +1,7 @@
 package co.com.sofka.application.commands;
 
-import co.com.sofka.infraestructure.FirestoreRepository;
-import co.com.sofka.infraestructure.RabbitDomainEventBus;
+import co.com.sofka.infrastructure.FirestoreRepository;
+import co.com.sofka.infrastructure.RabbitDomainEventBus;
 import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
