@@ -1,4 +1,4 @@
-package co.com.sofka.usecases.handlers.quieries;
+package co.com.sofka.handlers.quieries;
 
 public class QueryHandlerException extends RuntimeException {
 

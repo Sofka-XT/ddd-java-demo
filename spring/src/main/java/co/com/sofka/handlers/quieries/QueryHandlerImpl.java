@@ -1,9 +1,9 @@
-package co.com.sofka.usecases.handlers.quieries;
+package co.com.sofka.handlers.quieries;
 
-import co.com.sofka.application.querys.QueryHandler;
 import co.com.sofka.core.issue.values.IssueId;
 import co.com.sofka.infrastructure.IssueEntity;
 import co.com.sofka.infrastructure.IssueEntityRepository;
+import co.com.sofka.usecases.handlers.query.QueryHandler;
 
 import java.util.Collection;
 

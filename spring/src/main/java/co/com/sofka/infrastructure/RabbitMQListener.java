@@ -8,7 +8,12 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 public class RabbitMQListener implements MessageListener {
 
@@ -57,9 +62,8 @@ public class RabbitMQListener implements MessageListener {
     }
 
     private void setType(IssueEntity issue, Update updateIssue) {
-        if (issue.getType() != null) {
-            updateIssue.set("type", issue.getType());
-        }
+
+        Optional.of(issue.getType()).ifPresent(e ->  updateIssue.set("type", e));
     }
 
     private void setLabelList(IssueEntity issue, Update updateIssue) {
