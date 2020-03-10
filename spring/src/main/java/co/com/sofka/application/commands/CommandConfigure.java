@@ -1,5 +1,6 @@
 package co.com.sofka.application.commands;
 
+import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import co.com.sofka.infrastructure.FirestoreRepository;
 import co.com.sofka.infrastructure.RabbitDomainEventBus;
 import co.com.sofka.infraestructure.bus.EventBus;
@@ -22,8 +23,8 @@ public class CommandConfigure {
     }
 
     @Bean
-    public IssueUpdateUseCase issueUpdateUseCase() {
-        return new IssueUpdateUseCase();
+    public IssueUpdateUseCase issueUpdateUseCase(EventStoreRepository repository) {
+        return new IssueUpdateUseCase(repository);
     }
 
     @Bean

@@ -22,12 +22,11 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
 
     @Override
     public void execute(final IssueCreateCommand command) {
-
         UseCaseHandler.getInstance()
-                .asyncExecutor(new IssueCreateUseCase(),
-                        new IssueCreateUseCase.Request(command.getAggregateRootId(),
-                                command.getBasicInformation())
-                ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
+            .asyncExecutor(new IssueCreateUseCase(),
+                    new IssueCreateUseCase.Request(command.getAggregateRootId(),
+                            command.getBasicInformation())
+            ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
     }
 
 }

@@ -24,9 +24,9 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand> 
     public void execute(final IssueUpdateCommand command) {
 
         UseCaseHandler.getInstance()
-                .asyncExecutor(new IssueUpdateUseCase(),
+                .asyncExecutor(new IssueUpdateUseCase(firestoreRepository),
                         new IssueUpdateUseCase.Request(command.getAggregateRootId(),
-                                command.getBasicInformation(), command.getStatus())
+                                command.getIssueId(), command.getStatus())
                 )
                 .subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
 

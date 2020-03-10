@@ -45,7 +45,9 @@ public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
 
     @Override
     public void onError(final Throwable throwable) {
-        BdConnection.closeDatabase();
+        //BdConnection.closeDatabase();
+        String message = throwable.getMessage();
+        LOGGER.error(message);
     }
 
     @Override

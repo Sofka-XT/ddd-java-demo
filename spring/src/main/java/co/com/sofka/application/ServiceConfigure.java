@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ServiceConfigure {
-
     @Bean
     public FirestoreRepository firestoreRepository() {
         return new FirestoreRepository(BdConnection.getDatabaseInstance());
