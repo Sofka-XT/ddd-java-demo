@@ -1,4 +1,4 @@
-package co.com.sofka.application.querys;
+package co.com.sofka.usecases.handlers.query;
 
 import co.com.sofka.core.issue.values.IssueId;
 

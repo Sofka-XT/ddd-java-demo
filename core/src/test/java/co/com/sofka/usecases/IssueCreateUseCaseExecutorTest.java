@@ -2,7 +2,6 @@ package co.com.sofka.usecases;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.generic.values.BasicInformationProperty;
-import org.junit.Test;
 
 import java.util.concurrent.Flow;
 

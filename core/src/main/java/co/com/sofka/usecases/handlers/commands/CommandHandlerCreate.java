@@ -28,8 +28,6 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
                         new IssueCreateUseCase.Request(command.getAggregateRootId(),
                                 command.getBasicInformation())
                 ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
-
     }
-
 
 }

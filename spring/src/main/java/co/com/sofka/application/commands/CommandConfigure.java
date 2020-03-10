@@ -7,6 +7,7 @@ import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
@@ -40,5 +41,10 @@ public class CommandConfigure {
     @Bean
     public EventBus rabbitDomainEventBus(final RabbitTemplate rabbitTemplate, RabbitAdmin rabbitAdmin) {
         return new RabbitDomainEventBus(rabbitTemplate, rabbitAdmin);
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 }
