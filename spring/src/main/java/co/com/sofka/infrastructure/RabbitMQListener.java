@@ -1,6 +1,10 @@
 package co.com.sofka.infrastructure;
 
+import co.com.sofka.core.issue.Issue;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.mongodb.BasicDBObject;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -8,12 +12,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-import javax.swing.text.html.Option;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class RabbitMQListener implements MessageListener {
 
@@ -24,76 +24,31 @@ public class RabbitMQListener implements MessageListener {
     }
 
     public void onMessage(final Message message) {
-        final ObjectMapper mapper = new ObjectMapper();
+        Gson gson = new Gson();
         String body = new String(message.getBody());
-        try {
-            IssueEntity issue = mapper.readValue(body, IssueEntity.class);
-
-            if (issue.getType().contains("update")) {
-                updateIssue(issue);
-            } else {
-                mongoTemplate.save(issue);
-            }
-        } catch (IOException e) {
-          throw new EventMapperException("the structure is incorrect");
+        Map<String, Object> map = gson.fromJson(body, Map.class);
+        IssueEntity issue = gson.fromJson(gson.toJson(map), IssueEntity.class);
+        if (issue.getType().contains("update")) {
+            updateIssue(map);
+        } else {
+            mongoTemplate.save(issue);
         }
-
     }
 
-    private void updateIssue(final IssueEntity issue) {
+    private void updateIssue(Map<String, Object> map) {
         Query queryForUpdateIssue = new Query(Criteria.where("_id")
-                .is(issue.getIssueId()));
+                .is(map.get("issueId")));
 
         Update updateIssue = new Update();
 
-        setAttributesForUpdate(issue, updateIssue);
-
+        for (Map.Entry<String, Object> attribute : map.entrySet()) {
+            if (!attribute.getKey().equals("issueId")) {
+                updateIssue.set(attribute.getKey(), attribute.getValue());
+            }
+        }
         mongoTemplate.updateFirst(queryForUpdateIssue, updateIssue,
                 IssueEntity.class);
-    }
 
-    private void setAttributesForUpdate(final IssueEntity issue, final Update updateIssue) {
-        setBasicInformation(issue, updateIssue);
-        setPerson(issue, updateIssue);
-        setStatus(issue, updateIssue);
-        setPeriod(issue, updateIssue);
-        setLabelList(issue, updateIssue);
-        setType(issue, updateIssue);
-    }
-
-    private void setType(IssueEntity issue, Update updateIssue) {
-
-        Optional.of(issue.getType()).ifPresent(e ->  updateIssue.set("type", e));
-    }
-
-    private void setLabelList(IssueEntity issue, Update updateIssue) {
-        if (issue.getLabelList() != null) {
-            updateIssue.set("labelList", issue.getLabelList());
-        }
-    }
-
-    private void setPeriod(IssueEntity issue, Update updateIssue) {
-        if (issue.getPeriod() != null) {
-            updateIssue.set("period", issue.getPeriod());
-        }
-    }
-
-    private void setStatus(IssueEntity issue, Update updateIssue) {
-        if (issue.getStatusProperty() != null) {
-            updateIssue.set("statusProperty", issue.getStatusProperty());
-        }
-    }
-
-    private void setPerson(IssueEntity issue, Update updateIssue) {
-        if (issue.getPerson() != null) {
-            updateIssue.set("person", issue.getPerson());
-        }
-    }
-
-    private void setBasicInformation(IssueEntity issue, Update updateIssue) {
-        if (issue.getBasicInformation() != null) {
-            updateIssue.set("basicInformation", issue.getBasicInformation());
-        }
     }
 
 }

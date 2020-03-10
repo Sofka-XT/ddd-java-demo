@@ -17,110 +17,89 @@ import java.util.UUID;
 public class IssueEntity {
 
     @Id
-    private IssueId issueId;
-
-    private BasicInformationProperty basicInformation;
-    private PersonProperty person;
-    private StatusProperty statusProperty;
-    private PeriodProperty period;
-    private LabelList labelList;
-
+    private Object issueId;
+    private Object basicInformation;
+    private Object person;
+    private Object statusProperty;
+    private Object period;
+    private Object labelList;
     private  String type;
-
-    @JsonIgnore
     private  UUID uuid;
-
-    @JsonIgnore
     private Long versionType;
-
-    @JsonIgnore
     private Instant when;
 
     public IssueEntity() {
     }
 
-    public IssueEntity(final IssueId issueId, final BasicInformationProperty basicInformation,
-                       final PersonProperty person, final StatusProperty statusProperty,
-                       final PeriodProperty period, final LabelList labelList,
-                       final String type) {
-        this.issueId = issueId;
-        this.basicInformation = basicInformation;
-        this.person = person;
-        this.statusProperty = statusProperty;
-        this.period = period;
-        this.labelList = labelList;
-        this.type = type;
-    }
-
-    public IssueId getIssueId() {
+    public Object getIssueId() {
         return issueId;
     }
 
-    public void setIssueId(final IssueId issueId) {
+    public void setIssueId(Object issueId) {
         this.issueId = issueId;
     }
 
-    public BasicInformationProperty getBasicInformation() {
+    public Object getBasicInformation() {
         return basicInformation;
     }
 
-    public void setBasicInformation(final BasicInformationProperty basicInformation) {
+    public void setBasicInformation(Object basicInformation) {
         this.basicInformation = basicInformation;
     }
 
-    public PersonProperty getPerson() {
+    public Object getPerson() {
         return person;
     }
 
-    public void setPerson(final PersonProperty person) {
+    public void setPerson(Object person) {
         this.person = person;
     }
 
-    public StatusProperty getStatusProperty() {
+    public Object getStatusProperty() {
         return statusProperty;
     }
 
-    public void setStatusProperty(final StatusProperty statusProperty) {
+    public void setStatusProperty(Object statusProperty) {
         this.statusProperty = statusProperty;
     }
 
-    public PeriodProperty getPeriod() {
+    public Object getPeriod() {
         return period;
     }
 
-    public void setPeriod(final PeriodProperty period) {
+    public void setPeriod(Object period) {
         this.period = period;
     }
 
-    public LabelList getLabelList() {
+    public Object getLabelList() {
         return labelList;
     }
 
-    public void setLabelList(final LabelList labelList) {
+    public void setLabelList(Object labelList) {
         this.labelList = labelList;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(final UUID uuid) {
-        this.uuid = uuid;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(final String type) {
+    public void setType(String type) {
         this.type = type;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public Long getVersionType() {
         return versionType;
     }
 
-    public void setVersionType(final Long versionType) {
+    public void setVersionType(Long versionType) {
         this.versionType = versionType;
     }
 
@@ -128,7 +107,7 @@ public class IssueEntity {
         return when;
     }
 
-    public void setWhen(final Instant when) {
+    public void setWhen(Instant when) {
         this.when = when;
     }
 }
