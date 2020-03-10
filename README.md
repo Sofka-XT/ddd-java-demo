@@ -63,14 +63,6 @@ mvn archetype:generate -DgroupId=co.com.sofka  -DartifactId=spring
        <scope>test</scope>
      </dependency>
  ```
-> 4. Jackson Core for abstraction implementation for JSON - https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
-```
-     <dependency>
-       <groupId>com.fasterxml.jackson.core</groupId>
-       <artifactId>jackson-databind</artifactId>
-       <version>2.9.4</version>
-     </dependency>
- ```
 > 5. Firebase for Admin manage with The Firebase Platform - https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
 ```
      <dependency>
@@ -90,6 +82,10 @@ mvn archetype:generate -DgroupId=co.com.sofka  -DartifactId=spring
          <exclusion>
            <groupId>org.springframework.boot</groupId>
            <artifactId>spring-boot-starter-logging</artifactId>
+         </exclusion>
+         <exclusion>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-json</artifactId>
          </exclusion>
        </exclusions>
      </dependency>

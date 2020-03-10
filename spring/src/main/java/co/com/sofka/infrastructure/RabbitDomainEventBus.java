@@ -2,17 +2,12 @@ package co.com.sofka.infrastructure;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.infraestructure.bus.EventBus;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-
 import static co.com.sofka.generic.helpers.Constants.TOPIC_EXCHANGE_NAME;
-import static co.com.sofka.generic.helpers.SerializeHelper.serializeEvent;
-
 
 public class RabbitDomainEventBus implements EventBus {
 
@@ -27,9 +22,8 @@ public class RabbitDomainEventBus implements EventBus {
 
     @Override
     public void publish(final DomainEvent event) {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        final String eventSerialization = serializeEvent(mapper, event);
+        Gson gson = new Gson();
+        final String eventSerialization = gson.toJson(event);
         generateQueue(event);
         generateBinding(event);
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, event.type, eventSerialization);
@@ -44,6 +38,5 @@ public class RabbitDomainEventBus implements EventBus {
         Queue queue = new Queue(event.type, false, false, false);
         rabbitAdmin.declareQueue(queue);
     }
-
 
 }

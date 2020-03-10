@@ -1,12 +1,5 @@
 package co.com.sofka.infrastructure;
 
-import co.com.sofka.core.issue.values.IssueId;
-import co.com.sofka.core.issue.values.PersonProperty;
-import co.com.sofka.core.label.LabelList;
-import co.com.sofka.generic.values.BasicInformationProperty;
-import co.com.sofka.generic.values.PeriodProperty;
-import co.com.sofka.generic.values.StatusProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -23,8 +16,8 @@ public class IssueEntity {
     private Object statusProperty;
     private Object period;
     private Object labelList;
-    private  String type;
-    private  UUID uuid;
+    private String type;
+    private UUID uuid;
     private Long versionType;
     private Instant when;
 

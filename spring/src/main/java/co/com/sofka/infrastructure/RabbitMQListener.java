@@ -1,10 +1,6 @@
 package co.com.sofka.infrastructure;
 
-import co.com.sofka.core.issue.Issue;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.mongodb.BasicDBObject;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -13,7 +9,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
 import java.util.Map;
-import java.util.Optional;
 
 public class RabbitMQListener implements MessageListener {
 

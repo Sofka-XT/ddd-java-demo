@@ -7,7 +7,7 @@ import co.com.sofka.usecases.IssueCreateUseCase;
 import co.com.sofka.usecases.IssueUpdateUseCase;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
 import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
@@ -44,7 +44,7 @@ public class CommandConfigure {
     }
 
     @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
+    public Gson gson() {
+        return new Gson();
     }
 }

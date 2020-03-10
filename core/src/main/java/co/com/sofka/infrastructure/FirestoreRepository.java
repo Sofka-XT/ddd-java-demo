@@ -6,24 +6,18 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generic.StoredEvent;
 import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import co.com.sofka.infraestructure.repository.QueryFaultException;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.CollectionReference;
-
-import java.io.IOException;
+import com.google.gson.Gson;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
-
-import static co.com.sofka.generic.helpers.SerializeHelper.serializeEvent;
 
 public class FirestoreRepository implements EventStoreRepository {
 
@@ -40,12 +34,12 @@ public class FirestoreRepository implements EventStoreRepository {
     }
 
     private DomainEvent getDomainEvent(QueryDocumentSnapshot document) {
-        final ObjectMapper mapper = new ObjectMapper();
-        StoredEvent storedEvent = mapper.convertValue(document.getData(), StoredEvent.class);
+        Gson gson = new Gson();
+        StoredEvent storedEvent = gson.fromJson(gson.toJson(document.getData()), StoredEvent.class);
         try {
             Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
-            return mapper.readValue(storedEvent.getEventBody(), domainEventClass);
-        } catch (IOException | ClassNotFoundException e) {
+            return gson.fromJson(storedEvent.getEventBody(), domainEventClass);
+        } catch (ClassNotFoundException e) {
             throw new EventMapperException(e.getMessage());
         }
     }
@@ -64,9 +58,8 @@ public class FirestoreRepository implements EventStoreRepository {
 
     @Override
     public void saveEvent(final AggregateRootId aggregateRootId, final DomainEvent event) {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        final String eventSerialization = serializeEvent(mapper, event);
+        Gson gson = new Gson();
+        final String eventSerialization = gson.toJson(event);
         StoredEvent storedEvent = wrapEvent(event, eventSerialization);
         setDocumentToCollection(aggregateRootId, event, storedEvent);
 
