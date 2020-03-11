@@ -1,5 +1,6 @@
 package co.com.sofka.application.commands;
 
+import co.com.sofka.core.issue.commands.IssueDeleteCommand;
 import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.core.issue.commands.IssueCreateCommand;
 import co.com.sofka.core.issue.commands.IssueUpdateCommand;
@@ -21,12 +22,15 @@ public class CommandRest {
 
     private CommandHandler<IssueCreateCommand> commandCreated;
     private CommandHandler<IssueUpdateCommand> commandUpdated;
+    private CommandHandler<IssueDeleteCommand> commandUDelete;
 
     @Autowired
     public CommandRest(final CommandHandler<IssueCreateCommand> commandCreated,
-                       final CommandHandler<IssueUpdateCommand> commandUpdated) {
+                       final CommandHandler<IssueUpdateCommand> commandUpdated,
+                       CommandHandler<IssueDeleteCommand> commandUDelete) {
         this.commandCreated = commandCreated;
         this.commandUpdated = commandUpdated;
+        this.commandUDelete = commandUDelete;
     }
 
     @PostMapping("issueCreate")
@@ -39,6 +43,12 @@ public class CommandRest {
     @ResponseStatus(HttpStatus.OK)
     public void setCommandIssueUpdate(@RequestBody final IssueUpdateCommand command) {
         commandUpdated.execute(command);
+    }
+
+    @PostMapping("issueDelete")
+    @ResponseStatus(HttpStatus.OK)
+    public void setCommandIssueDelete(@RequestBody final IssueDeleteCommand command) {
+        commandUDelete.execute(command);
     }
 
 }

@@ -11,15 +11,17 @@ public class IssueEntity {
 
     @Id
     private Object issueId;
+
     private Object basicInformation;
     private Object person;
     private Object statusProperty;
     private Object period;
     private Object labelList;
+
     private String type;
-    private UUID uuid;
     private Long versionType;
     private Instant when;
+    private Object aggregateRootId;
 
     public IssueEntity() {
     }
@@ -80,14 +82,6 @@ public class IssueEntity {
         this.type = type;
     }
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
     public Long getVersionType() {
         return versionType;
     }
@@ -102,5 +96,13 @@ public class IssueEntity {
 
     public void setWhen(Instant when) {
         this.when = when;
+    }
+
+    public Object getAggregateRootId() {
+        return aggregateRootId;
+    }
+
+    public void setAggregateRootId(Object aggregateRootId) {
+        this.aggregateRootId = aggregateRootId;
     }
 }

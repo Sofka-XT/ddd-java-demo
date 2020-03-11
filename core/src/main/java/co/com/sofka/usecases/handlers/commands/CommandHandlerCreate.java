@@ -24,9 +24,10 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
     public void execute(final IssueCreateCommand command) {
         UseCaseHandler.getInstance()
             .asyncExecutor(new IssueCreateUseCase(),
-                    new IssueCreateUseCase.Request(command.getAggregateRootId(),
+                    new IssueCreateUseCase.Request(command.getIssueListId(),
                             command.getBasicInformation())
-            ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
+            )
+                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
     }
 
 }

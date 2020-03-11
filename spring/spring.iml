@@ -26,7 +26,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" />
-    <orderEntry type="library" name="Maven: co.com.sofka:domain-driven-design:0.1.2" level="project" />
+    <orderEntry type="library" name="Maven: co.com.sofka:domain-driven-design:0.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-jdk14:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: com.google.firebase:firebase-admin:6.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.api-client:google-api-client:1.25.0" level="project" />

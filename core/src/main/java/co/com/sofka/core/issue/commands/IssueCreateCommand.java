@@ -4,19 +4,19 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofka.generic.values.BasicInformationProperty;
 
 public class IssueCreateCommand extends Command {
-    private final String aggregateRootId;
+    private final String issueListId;
     private final BasicInformationProperty basicInformation;
 
     public IssueCreateCommand(final String type,
-                              final String aggregateRootId,
+                              final String issueListId,
                               final BasicInformationProperty basicInformation) {
         super(type);
-        this.aggregateRootId = aggregateRootId;
+        this.issueListId = issueListId;
         this.basicInformation = basicInformation;
     }
 
-    public String getAggregateRootId() {
-        return aggregateRootId;
+    public String getIssueListId() {
+        return issueListId;
     }
 
     public BasicInformationProperty getBasicInformation() {

@@ -1,43 +1,51 @@
 package co.com.sofka.usecases;
 
 import co.com.sofka.business.generic.UseCase;
+import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.core.issue.IssueList;
+import co.com.sofka.core.issue.values.IssueId;
+import co.com.sofka.core.issue.values.IssueListId;
 import co.com.sofka.domain.generic.AggregateRootId;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.infraestructure.repository.EventStoreRepository;
+import co.com.sofka.infraestructure.repository.QueryFaultException;
 
 
 import java.util.List;
 
-public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, IssueDeleteUseCase.Response> {
+public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, ResponseEvents> {
+
+    EventStoreRepository<IssueListId> repository;
+
+    public IssueDeleteUseCase(EventStoreRepository<IssueListId> repository) {
+        this.repository = repository;
+    }
+
 
     @Override
     protected void executeUseCase(Request requestValues) {
 
-        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
-        IssueList issueList = new IssueList(anAggregateRootId);
-        //issueList.
-        //issueList.deleteIssueBy();
+        IssueListId issueListId = requestValues.issueListId;
+        try {
+            IssueList issueList = IssueList.from(issueListId, repository.getEventsBy(issueListId));
+            issueList.deleteIssueBy(requestValues.issueId);
+            emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
+            issueList.markChangesAsCommitted();
+        } catch (QueryFaultException e) {
+            emit().onError(new RuntimeException(e.getCause()));
+        }
 
     }
 
     public static class Request implements UseCase.RequestValues {
-        private String uuid;
+        private IssueListId issueListId;
+        private IssueId issueId;
 
-        public Request(final String uuid) {
-            this.uuid = uuid;
+        public Request(IssueListId issueListId, IssueId issueId) {
+            this.issueListId = issueListId;
+            this.issueId = issueId;
         }
     }
 
-    public static class Response implements UseCase.PubEvents {
-        private List<DomainEvent> domainEvents;
 
-        public Response(final List<DomainEvent> domainEvents) {
-            this.domainEvents = List.copyOf(domainEvents);
-        }
-
-        @Override
-        public List<DomainEvent> getDomainEvents() {
-            return domainEvents;
-        }
-    }
 }

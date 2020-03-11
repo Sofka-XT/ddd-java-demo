@@ -25,6 +25,8 @@ public class RabbitMQListener implements MessageListener {
         IssueEntity issue = gson.fromJson(gson.toJson(map), IssueEntity.class);
         if (issue.getType().contains("update")) {
             updateIssue(map);
+        }if (issue.getType().contains("delete")) {
+            mongoTemplate.remove(issue);
         } else {
             mongoTemplate.save(issue);
         }

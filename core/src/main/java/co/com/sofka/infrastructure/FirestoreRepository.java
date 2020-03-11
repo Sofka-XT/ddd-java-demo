@@ -1,25 +1,25 @@
 package co.com.sofka.infrastructure;
 
 
+import co.com.sofka.core.issue.values.IssueListId;
 import co.com.sofka.domain.generic.AggregateRootId;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generic.StoredEvent;
 import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import co.com.sofka.infraestructure.repository.QueryFaultException;
+import co.com.sofka.infraestructure.store.StoredEvent;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.gson.Gson;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-public class FirestoreRepository implements EventStoreRepository {
+public class FirestoreRepository implements EventStoreRepository<IssueListId> {
 
     private final Firestore database;
 
@@ -27,11 +27,14 @@ public class FirestoreRepository implements EventStoreRepository {
         this.database = database;
     }
 
+
+
     @Override
-    public List<DomainEvent> getEventsBy(final AggregateRootId aggregateRootId) {
-        List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(aggregateRootId);
+    public List<DomainEvent> getEventsBy(final IssueListId issueListId) throws QueryFaultException {
+        List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(issueListId);
         return query.stream().map(this::getDomainEvent).collect(Collectors.toList());
     }
+
 
     private DomainEvent getDomainEvent(QueryDocumentSnapshot document) {
         Gson gson = new Gson();
@@ -44,7 +47,7 @@ public class FirestoreRepository implements EventStoreRepository {
         }
     }
 
-    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(final AggregateRootId aggregateRootId) {
+    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(final AggregateRootId aggregateRootId) throws QueryFaultException {
         ApiFuture<QuerySnapshot> query = database.collection(aggregateRootId.toString())
                 .orderBy("occurredOn")
                 .get();
@@ -52,39 +55,37 @@ public class FirestoreRepository implements EventStoreRepository {
             return query.get().getDocuments();
         } catch (InterruptedException | ExecutionException e) {
             Thread.currentThread().interrupt();
-            throw new QueryFaultException();
+            throw new QueryFaultException("Error");
         }
     }
 
-    @Override
-    public void saveEvent(final AggregateRootId aggregateRootId, final DomainEvent event) {
-        Gson gson = new Gson();
-        final String eventSerialization = gson.toJson(event);
-        StoredEvent storedEvent = wrapEvent(event, eventSerialization);
-        setDocumentToCollection(aggregateRootId, event, storedEvent);
 
+    @Override
+    public void saveEvent(IssueListId issueListId, StoredEvent storedEvent) {
+        setDocumentToCollection(issueListId, storedEvent);
     }
 
-    private void setDocumentToCollection(final AggregateRootId aggregateRootId,
-                                         final DomainEvent event,
+    private void setDocumentToCollection(final IssueListId issueListId,
                                          final StoredEvent storedEvent) {
-        try {
-            database.collection(aggregateRootId.toString())
-                    .document(event.uuid.toString())
-                    .set(storedEvent).get();
+        Gson gson = new Gson();
 
-        } catch (InterruptedException | ExecutionException e) {
+        try {
+            Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
+
+            final DomainEvent event = gson.fromJson(storedEvent.getEventBody(), domainEventClass);
+
+            database.collection(issueListId.toString())
+                    .document(event.uuid.toString())
+                    .set(storedEvent)
+                    .get();
+
+        } catch (InterruptedException | ExecutionException | ClassNotFoundException e) {
             Thread.currentThread().interrupt();
             throw new PersistenceResultException();
         }
     }
 
-    private StoredEvent wrapEvent(final DomainEvent domainEvent, final String eventSerialization) {
-        return new StoredEvent(domainEvent.getClass().getCanonicalName(),
-                new Date(domainEvent.when.toEpochMilli()),
-                eventSerialization
-        );
-    }
+
 
     public Map<String, List<DomainEvent>> getDomainEventList() {
 
@@ -92,9 +93,17 @@ public class FirestoreRepository implements EventStoreRepository {
 
         Iterable<CollectionReference> future = database.getCollections();
         future.forEach(collectionReference ->
+        {
+            try {
                 allEventsCollection.put(collectionReference.getPath(),
-                        getEventsBy(new AggregateRootId(collectionReference.getPath()))));
+                        getEventsBy(new IssueListId(collectionReference.getPath())));
+            } catch (QueryFaultException e) {
+                e.printStackTrace();
+            }
+        });
         return allEventsCollection;
     }
+
+
 }
 

@@ -1,6 +1,7 @@
 package co.com.sofka.infrastructure;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.infraestructure.bus.ErrorEvent;
 import co.com.sofka.infraestructure.bus.EventBus;
 import com.google.gson.Gson;
 import org.springframework.amqp.core.Binding;
@@ -27,6 +28,11 @@ public class RabbitDomainEventBus implements EventBus {
         generateQueue(event);
         generateBinding(event);
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, event.type, eventSerialization);
+    }
+
+    @Override
+    public void publishError(ErrorEvent errorEvent) {
+        throw new RabbitDomainException(errorEvent.reason);
     }
 
     private void generateBinding(final DomainEvent event) {

@@ -27,6 +27,12 @@ public class RabbitConfiguration {
         return new Queue("issue_with_basic_information_created", false);
     }
 
+    @Bean
+    @Qualifier("issue_deleted")
+    Queue queueIssueDeleted() {
+        return new Queue("issue_deleted", false);
+    }
+
 
     @Bean
     MessageListenerContainer messageListenerContainer(final ConnectionFactory connectionFactory,
@@ -34,7 +40,9 @@ public class RabbitConfiguration {
 
         SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
-        simpleMessageListenerContainer.setQueues(queueIssueStatusUpdated(), queueIssueWithBasicInformationCreated());
+        simpleMessageListenerContainer.setQueues(queueIssueStatusUpdated(),
+                queueIssueWithBasicInformationCreated(),
+                queueIssueDeleted());
         simpleMessageListenerContainer.setMessageListener(new RabbitMQListener(mongoTemplate));
         return simpleMessageListenerContainer;
     }

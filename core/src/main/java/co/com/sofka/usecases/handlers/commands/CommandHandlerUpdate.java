@@ -1,5 +1,7 @@
 package co.com.sofka.usecases.handlers.commands;
 
+import co.com.sofka.core.issue.values.IssueId;
+import co.com.sofka.core.issue.values.IssueListId;
 import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -25,10 +27,10 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand> 
 
         UseCaseHandler.getInstance()
                 .asyncExecutor(new IssueUpdateUseCase(firestoreRepository),
-                        new IssueUpdateUseCase.Request(command.getAggregateRootId(),
-                                command.getIssueId(), command.getStatus())
+                        new IssueUpdateUseCase.Request(new IssueListId(command.getIssueListId()),
+                        new IssueId(command.getIssueId()), command.getStatus())
                 )
-                .subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
+                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
 
     }
 }
