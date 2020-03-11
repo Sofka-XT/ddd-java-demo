@@ -10,14 +10,12 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Resp
 
     @Override
     protected void executeUseCase(final Request requestValues) {
-
         IssueListId issueListId = new IssueListId(requestValues.uuid);
         IssueList issueList = new IssueList(issueListId);
 
         issueList.createIssueWithBasicInformation(requestValues.basicInformation);
         emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
         issueList.markChangesAsCommitted();
-
     }
 
     public static class Request implements UseCase.RequestValues {
@@ -29,6 +27,5 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Resp
             this.basicInformation = basicInformation;
         }
     }
-
 
 }

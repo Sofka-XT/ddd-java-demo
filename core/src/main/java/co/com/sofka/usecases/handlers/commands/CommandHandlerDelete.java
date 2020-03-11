@@ -1,5 +1,6 @@
 package co.com.sofka.usecases.handlers.commands;
 
+import co.com.sofka.business.asyn.SubscriberEvent;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.core.issue.commands.IssueDeleteCommand;
 import co.com.sofka.core.issue.values.IssueId;
@@ -30,7 +31,7 @@ public class CommandHandlerDelete implements CommandHandler<IssueDeleteCommand> 
                         new IssueDeleteUseCase.Request(new IssueListId(issueDeleteCommand.getIssueListId()),
                                 new IssueId(issueDeleteCommand.getIssueId()))
                 )
-                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
+                .subscribe(new SubscriberEvent<>(firestoreRepository, eventBus));
 
     }
 }

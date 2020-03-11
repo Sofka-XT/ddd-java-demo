@@ -95,19 +95,14 @@ public class IssueList extends AggregateEvent<IssueListId> {
     public void deleteLabelsBy(final IssueId issueId) {
         appendChange(new IssueLabelsDeleted(this.entityId, issueId))
                 .apply();
-
     }
 
     public void deleteIssueBy(final IssueId issueId) {
         appendChange(new IssueDeleted(this.entityId, issueId))
                 .apply();
-
     }
 
     public Collection<Issue> getAllIssues() {
         return this.issueCollection;
     }
-
-
-
 }

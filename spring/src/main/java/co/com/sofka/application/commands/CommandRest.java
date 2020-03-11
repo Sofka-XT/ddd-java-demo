@@ -27,7 +27,7 @@ public class CommandRest {
     @Autowired
     public CommandRest(final CommandHandler<IssueCreateCommand> commandCreated,
                        final CommandHandler<IssueUpdateCommand> commandUpdated,
-                       CommandHandler<IssueDeleteCommand> commandUDelete) {
+                       final CommandHandler<IssueDeleteCommand> commandUDelete) {
         this.commandCreated = commandCreated;
         this.commandUpdated = commandUpdated;
         this.commandUDelete = commandUDelete;

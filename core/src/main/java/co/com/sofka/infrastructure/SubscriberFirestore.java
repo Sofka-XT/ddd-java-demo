@@ -25,7 +25,7 @@ public class SubscriberFirestore<T extends AggregateRootId> implements Flow.Subs
     private EventBus eventBus;
 
     public SubscriberFirestore( final EventStoreRepository<T> repository,
-                               final EventBus eventBus) {
+                                final EventBus eventBus) {
         this.repository = repository;
         this.eventBus = eventBus;
         this.domainEvents = new HashSet<>();
@@ -64,6 +64,4 @@ public class SubscriberFirestore<T extends AggregateRootId> implements Flow.Subs
         String message = domainEvents.size() + " events saved and published";
         LOGGER.info(message);
     }
-
-
 }

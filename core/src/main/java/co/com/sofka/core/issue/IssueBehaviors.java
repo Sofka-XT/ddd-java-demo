@@ -7,7 +7,6 @@ import co.com.sofka.generic.exceptions.IssueException;
 
 
 public class IssueBehaviors extends AggregateEvent.EventBehaviors<IssueList> {
-
     {
        add((IssueWithBasicInformationCreated event) -> {
            var issue = new Issue(event.getIssueId(), event.getBasicInformation());
@@ -64,7 +63,6 @@ public class IssueBehaviors extends AggregateEvent.EventBehaviors<IssueList> {
                 .findFirst()
                 .orElseThrow(() -> new IssueException("the issue with id ".concat(issueId.getUuid()).concat(" doesn't exist")));
     }
-
 
     protected IssueBehaviors(IssueList entity) {
         super(entity);

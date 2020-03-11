@@ -21,7 +21,6 @@ public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, Resp
         this.repository = repository;
     }
 
-
     @Override
     protected void executeUseCase(Request requestValues) {
 

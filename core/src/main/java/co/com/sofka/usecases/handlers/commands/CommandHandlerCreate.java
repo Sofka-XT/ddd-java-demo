@@ -1,5 +1,6 @@
 package co.com.sofka.usecases.handlers.commands;
 
+import co.com.sofka.business.asyn.SubscriberEvent;
 import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.infraestructure.handle.CommandHandler;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -19,7 +20,6 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
         this.eventBus = eventBus;
     }
 
-
     @Override
     public void execute(final IssueCreateCommand command) {
         UseCaseHandler.getInstance()
@@ -27,7 +27,7 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand> 
                     new IssueCreateUseCase.Request(command.getIssueListId(),
                             command.getBasicInformation())
             )
-                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
+                .subscribe(new SubscriberEvent<>(firestoreRepository, eventBus));
     }
 
 }

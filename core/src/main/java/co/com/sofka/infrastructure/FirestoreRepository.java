@@ -27,14 +27,11 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
         this.database = database;
     }
 
-
-
     @Override
     public List<DomainEvent> getEventsBy(final IssueListId issueListId) throws QueryFaultException {
         List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(issueListId);
         return query.stream().map(this::getDomainEvent).collect(Collectors.toList());
     }
-
 
     private DomainEvent getDomainEvent(QueryDocumentSnapshot document) {
         Gson gson = new Gson();
@@ -59,7 +56,6 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
         }
     }
 
-
     @Override
     public void saveEvent(IssueListId issueListId, StoredEvent storedEvent) {
         setDocumentToCollection(issueListId, storedEvent);
@@ -71,9 +67,7 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
 
         try {
             Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
-
             final DomainEvent event = gson.fromJson(storedEvent.getEventBody(), domainEventClass);
-
             database.collection(issueListId.toString())
                     .document(event.uuid.toString())
                     .set(storedEvent)
@@ -84,8 +78,6 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
             throw new PersistenceResultException();
         }
     }
-
-
 
     public Map<String, List<DomainEvent>> getDomainEventList() {
 
@@ -103,7 +95,5 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
         });
         return allEventsCollection;
     }
-
-
 }
 

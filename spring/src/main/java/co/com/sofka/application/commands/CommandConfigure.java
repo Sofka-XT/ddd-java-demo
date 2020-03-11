@@ -41,7 +41,6 @@ public class CommandConfigure {
         return new CommandHandlerUpdate(firestoreRepository, eventBus);
     }
 
-
     @Bean
     public CommandHandlerCreate commandHandlerCreate(final FirestoreRepository firestoreRepository,
                                                      final EventBus eventBus) {
