@@ -1,31 +1,29 @@
 package co.com.sofka.core.issue.commands;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.generic.values.BasicInformationProperty;
 import co.com.sofka.generic.values.StatusProperty;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueUpdateCommand extends Command {
-    private String aggregateRootId;
-    private BasicInformationProperty basicInformation;
-    private StatusProperty status;
+    private final String issueListId;
+    private final String issueId;
+    private final StatusProperty status;
 
-    public IssueUpdateCommand(@JsonProperty("type") final String type,
-                              @JsonProperty("aggregateRootId") final String aggregateRootId,
-                              @JsonProperty("basicInformation") final BasicInformationProperty basicInformation,
-                              @JsonProperty("status") final StatusProperty status) {
+    public IssueUpdateCommand(final String type,
+                              final String issueListId,
+                              final String issueId,
+                              final StatusProperty status) {
         super(type);
-        this.aggregateRootId = aggregateRootId;
-        this.basicInformation = basicInformation;
+        this.issueListId = issueListId;
+        this.issueId = issueId;
         this.status = status;
     }
 
-    public String getAggregateRootId() {
-        return aggregateRootId;
+    public String getIssueListId() {
+        return issueListId;
     }
 
-    public BasicInformationProperty getBasicInformation() {
-        return basicInformation;
+    public String getIssueId() {
+        return issueId;
     }
 
     public StatusProperty getStatus() {

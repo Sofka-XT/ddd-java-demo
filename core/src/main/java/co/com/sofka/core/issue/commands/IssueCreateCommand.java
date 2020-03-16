@@ -2,22 +2,21 @@ package co.com.sofka.core.issue.commands;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.generic.values.BasicInformationProperty;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IssueCreateCommand extends Command {
-    private String aggregateRootId;
-    private BasicInformationProperty basicInformation;
+    private final String issueListId;
+    private final BasicInformationProperty basicInformation;
 
-    public IssueCreateCommand(@JsonProperty("type") final String type,
-                              @JsonProperty("aggregateRootId") final String aggregateRootId,
-                              @JsonProperty("basicInformation") final BasicInformationProperty basicInformation) {
+    public IssueCreateCommand(final String type,
+                              final String issueListId,
+                              final BasicInformationProperty basicInformation) {
         super(type);
-        this.aggregateRootId = aggregateRootId;
+        this.issueListId = issueListId;
         this.basicInformation = basicInformation;
     }
 
-    public String getAggregateRootId() {
-        return aggregateRootId;
+    public String getIssueListId() {
+        return issueListId;
     }
 
     public BasicInformationProperty getBasicInformation() {
