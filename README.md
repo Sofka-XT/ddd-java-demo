@@ -43,7 +43,7 @@ mvn archetype:generate -DgroupId=co.com.sofka  -DartifactId=spring
     <dependency>
        <groupId>co.com.sofka</groupId>
        <artifactId>domain-driven-design</artifactId>
-       <version>0.1.2</version>
+       <version>0.7.0</version>
      </dependency>
 ```
 > 2. SLF4J API dependency for logging facade - https://mvnrepository.com/artifact/org.slf4j/slf4j-api
