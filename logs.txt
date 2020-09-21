@@ -1,0 +1,2017 @@
+commit 3a173d5f76bfbbc066915045c4d5ab9a1750d648
+Author: eXtreme Training <61291067+Sofka-XT@users.noreply.github.com>
+Date:   Thu Mar 19 07:18:34 2020 -0500
+
+    Delete event-sourcing-demo-firebase.json
+
+diff --git a/event-sourcing-demo-firebase.json b/event-sourcing-demo-firebase.json
+deleted file mode 100644
+index f5bebc8..0000000
+--- a/event-sourcing-demo-firebase.json
++++ /dev/null
+@@ -1,12 +0,0 @@
+-{
+-  "type": "service_account",
+-  "project_id": "event-soucing-demo",
+-  "private_key_id": "ff0b4b6e2c179ade6ed6c368e676ae1587163e2a",
+-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDkMUC7YrOV/CQV\nKMjtJRL6AcAsVdRM+gFoqDJcTk8JJMmyMJLy63TRh14pbZtJbvxz5TqLZlW+Qd9U\n61UCT/HFqi7MHDsd9DnQAzVwwLUsOZeTzw07f9qybK1yJjgBwvOqq0OTmomYZpcA\nvllHFPbOs2M+XrRBG1IVndvKbAMT8+NYUUph97NKcWYgyXTdFGPWUBGJvy467Fut\n71f0poxkNUEfwp7lpQs/V5wE6L89/AznVQIRkPuoNCWv2651a0Fr1nrKXS18gtdG\nqhc1VksHCtzReb+u4QDID5f3DGbwXynkXHR9w8K0IZ2YsLCM/txxL+EEe7h4aVP0\nTcQTls6pAgMBAAECggEACVOqCFQEcGuZ3fOIzYiSZKg6/pTo1IHzb3T7JKK0FZ+X\nTt0wDxW99JfKgCRRZd2kxpKRTgP6GoipZC3U5P9M1n4aOOV+f77tDf9+PlmMuNNc\ndVd6fFAW1EF05WbX1dqYswUaV1IdsEj2gGVHU4xxJLRYU22eLdBmuSjL7v4d3MGA\nu8TE/SdZmbudq+JtmVQKf/SWfJd7gGpQ46lghGe3w7YyDE6LKYesmo/SFw/cNBVV\n/XLV8lgZExl4wwBz2WEo1S/2Td35PJAKtMy9npBlGO3qvDeVnUJ9jXNF4kc/S04/\nK75/gKuugQ4vdjtAUq60xwL6lHm/XKxzzqGi5A9IMQKBgQD8j7N2IklQ4riaziCn\nJDbpqZdolWiA5Qtpsdy1zi1+VHGyTqdb2tY7Og9wr0tSYeZVx0fucN0JDT2DLUXr\njE7yqqc6DpxUAb/cZ3hIBbggBkc1EKcQFwrFdHedNJOltY04aGeqpvlaPH9+kkyx\nqpzTYqUR/6f62wVg0wTb4nej8wKBgQDnTJ0/Ow+63PcpqpL/0vVSi50oRK8aKuPA\nWqlcqO9rApQ96qml6w/6fq3LG1Jw8Vhqh9MnxpuqLSIZvHKzkl02EH7QzjQg+nLF\nZlHRKfIsqQ/C0YyNvpCD9yFotT0Yp7/+i9o6b6cwlYM8CdOhzjcETibBDdfVd4/+\nTb8DbS/V8wKBgBkMl5wL4oGnOu//qbVqHhgmveGdj/PYw70D6wQNIu34qh4pNugh\nWEYfiBCBElNlalbvoO7BOur+6S7tepXWIK5oxpU3hcG/Oqw9hux9xLlIZh+ZOziZ\nUHQtDQAGiu5Qh2Uk1cNTNEAC6BJBqGGmrk845W5XkO2Mc4ga5cx5NayJAoGAEh93\npq+rANo1Z4dc8zyFSk10J+aRzbwUkkrIQGFgOQM/uEY9uqlbXCY22dYvNHhElDxG\nODSgl8nnhRq15goO0aCjPxsZDIhzG7JzsK7XsdYhTQN8PtLyodRoQrsIqXjjWz97\n/t4mvHDKkpa2hVQSDX1OHgxGoAw5NRTEZbFVcS8CgYBlM7aPcyJHlddZVpVnG3WS\nVaDiqpQhAKn5BlMaiSYsA0W87ZluL1Z/r5HYTBCgNVvOFjIsRQqkEkd+r1dPgVFs\nsC46yV1CEeJtbukeFFaupOIQP20TTNvBbLfYaiZSQ8ZCxsTCsfkN27/Ls8UjQ2FG\nz5bD3HsA6DVRSfLpm2cMbA==\n-----END PRIVATE KEY-----\n",
+-  "client_email": "firebase-adminsdk-iqrs0@event-soucing-demo.iam.gserviceaccount.com",
+-  "client_id": "101338280814155183468",
+-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+-  "token_uri": "https://oauth2.googleapis.com/token",
+-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-iqrs0%40event-soucing-demo.iam.gserviceaccount.com"
+-}
+
+commit 16700605d0e54633d6250779aec021543a2d1539
+Merge: b4a0b75 35c3934
+Author: Sofka-XT <61291067+Sofka-XT@users.noreply.github.com>
+Date:   Mon Mar 16 13:44:50 2020 -0500
+
+    Merge pull request #17 from Sofka-XT/modules
+    
+    Modules
+
+commit 35c3934613fc3de44041a31dfe3ed966511add74
+Author: Lisbey Urrea <lisbey.urrea@sofka.com.co>
+Date:   Wed Mar 11 14:49:40 2020 -0500
+
+    IssueDeleteUseCase ready
+
+diff --git a/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java b/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java
+index 04963ea..b9cb54e 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java
++++ b/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java
+@@ -7,7 +7,6 @@ import co.com.sofka.generic.exceptions.IssueException;
+ 
+ 
+ public class IssueBehaviors extends AggregateEvent.EventBehaviors<IssueList> {
+-
+     {
+        add((IssueWithBasicInformationCreated event) -> {
+            var issue = new Issue(event.getIssueId(), event.getBasicInformation());
+@@ -65,7 +64,6 @@ public class IssueBehaviors extends AggregateEvent.EventBehaviors<IssueList> {
+                 .orElseThrow(() -> new IssueException("the issue with id ".concat(issueId.getUuid()).concat(" doesn't exist")));
+     }
+ 
+-
+     protected IssueBehaviors(IssueList entity) {
+         super(entity);
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/IssueList.java b/core/src/main/java/co/com/sofka/core/issue/IssueList.java
+index 70f9eca..5f7c9ef 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/IssueList.java
++++ b/core/src/main/java/co/com/sofka/core/issue/IssueList.java
+@@ -95,19 +95,14 @@ public class IssueList extends AggregateEvent<IssueListId> {
+     public void deleteLabelsBy(final IssueId issueId) {
+         appendChange(new IssueLabelsDeleted(this.entityId, issueId))
+                 .apply();
+-
+     }
+ 
+     public void deleteIssueBy(final IssueId issueId) {
+         appendChange(new IssueDeleted(this.entityId, issueId))
+                 .apply();
+-
+     }
+ 
+     public Collection<Issue> getAllIssues() {
+         return this.issueCollection;
+     }
+-
+-
+-
+ }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java b/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java
+index 7ef89c0..20d4e8b 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java
++++ b/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java
+@@ -6,7 +6,6 @@ import java.util.UUID;
+ 
+ public class IssueListId extends AggregateRootId {
+ 
+-
+     public IssueListId(String uuid) {
+         super(uuid);
+     }
+diff --git a/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java b/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
+index eb804fd..1d60b36 100644
+--- a/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
++++ b/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
+@@ -27,15 +27,12 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+         this.database = database;
+     }
+ 
+-
+-
+     @Override
+     public List<DomainEvent> getEventsBy(final IssueListId issueListId) throws QueryFaultException {
+         List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(issueListId);
+         return query.stream().map(this::getDomainEvent).collect(Collectors.toList());
+     }
+ 
+-
+     private DomainEvent getDomainEvent(QueryDocumentSnapshot document) {
+         Gson gson = new Gson();
+         StoredEvent storedEvent = gson.fromJson(gson.toJson(document.getData()), StoredEvent.class);
+@@ -59,7 +56,6 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+         }
+     }
+ 
+-
+     @Override
+     public void saveEvent(IssueListId issueListId, StoredEvent storedEvent) {
+         setDocumentToCollection(issueListId, storedEvent);
+@@ -71,9 +67,7 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+ 
+         try {
+             Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
+-
+             final DomainEvent event = gson.fromJson(storedEvent.getEventBody(), domainEventClass);
+-
+             database.collection(issueListId.toString())
+                     .document(event.uuid.toString())
+                     .set(storedEvent)
+@@ -85,8 +79,6 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+         }
+     }
+ 
+-
+-
+     public Map<String, List<DomainEvent>> getDomainEventList() {
+ 
+         Map<String, List<DomainEvent>> allEventsCollection = new HashMap<>();
+@@ -103,7 +95,5 @@ public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+         });
+         return allEventsCollection;
+     }
+-
+-
+ }
+ 
+diff --git a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+index fddca4b..e6e5cf7 100644
+--- a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
++++ b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+@@ -25,7 +25,7 @@ public class SubscriberFirestore<T extends AggregateRootId> implements Flow.Subs
+     private EventBus eventBus;
+ 
+     public SubscriberFirestore( final EventStoreRepository<T> repository,
+-                               final EventBus eventBus) {
++                                final EventBus eventBus) {
+         this.repository = repository;
+         this.eventBus = eventBus;
+         this.domainEvents = new HashSet<>();
+@@ -64,6 +64,4 @@ public class SubscriberFirestore<T extends AggregateRootId> implements Flow.Subs
+         String message = domainEvents.size() + " events saved and published";
+         LOGGER.info(message);
+     }
+-
+-
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
+index ad217cd..41f4f6b 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
+@@ -10,14 +10,12 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Resp
+ 
+     @Override
+     protected void executeUseCase(final Request requestValues) {
+-
+         IssueListId issueListId = new IssueListId(requestValues.uuid);
+         IssueList issueList = new IssueList(issueListId);
+ 
+         issueList.createIssueWithBasicInformation(requestValues.basicInformation);
+         emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
+         issueList.markChangesAsCommitted();
+-
+     }
+ 
+     public static class Request implements UseCase.RequestValues {
+@@ -30,5 +28,4 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Resp
+         }
+     }
+ 
+-
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+index b0445b1..b4f191b 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+@@ -21,7 +21,6 @@ public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, Resp
+         this.repository = repository;
+     }
+ 
+-
+     @Override
+     protected void executeUseCase(Request requestValues) {
+ 
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+index 93f793a..7e6de0b 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+@@ -1,5 +1,6 @@
+ package co.com.sofka.usecases.handlers.commands;
+ 
++import co.com.sofka.business.asyn.SubscriberEvent;
+ import co.com.sofka.infraestructure.bus.EventBus;
+ import co.com.sofka.infraestructure.handle.CommandHandler;
+ import co.com.sofka.business.generic.UseCaseHandler;
+@@ -19,7 +20,6 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand>
+         this.eventBus = eventBus;
+     }
+ 
+-
+     @Override
+     public void execute(final IssueCreateCommand command) {
+         UseCaseHandler.getInstance()
+@@ -27,7 +27,7 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand>
+                     new IssueCreateUseCase.Request(command.getIssueListId(),
+                             command.getBasicInformation())
+             )
+-                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
++                .subscribe(new SubscriberEvent<>(firestoreRepository, eventBus));
+     }
+ 
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+index d807b64..30839aa 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+@@ -1,5 +1,6 @@
+ package co.com.sofka.usecases.handlers.commands;
+ 
++import co.com.sofka.business.asyn.SubscriberEvent;
+ import co.com.sofka.business.generic.UseCaseHandler;
+ import co.com.sofka.core.issue.commands.IssueDeleteCommand;
+ import co.com.sofka.core.issue.values.IssueId;
+@@ -30,7 +31,7 @@ public class CommandHandlerDelete implements CommandHandler<IssueDeleteCommand>
+                         new IssueDeleteUseCase.Request(new IssueListId(issueDeleteCommand.getIssueListId()),
+                                 new IssueId(issueDeleteCommand.getIssueId()))
+                 )
+-                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
++                .subscribe(new SubscriberEvent<>(firestoreRepository, eventBus));
+ 
+     }
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+index fcd5786..862f4e8 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+@@ -1,5 +1,6 @@
+ package co.com.sofka.usecases.handlers.commands;
+ 
++import co.com.sofka.business.asyn.SubscriberEvent;
+ import co.com.sofka.core.issue.values.IssueId;
+ import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.infraestructure.bus.EventBus;
+@@ -17,7 +18,6 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand>
+ 
+     public CommandHandlerUpdate(final FirestoreRepository firestoreRepository,
+                                 final EventBus eventBus) {
+-
+         this.firestoreRepository = firestoreRepository;
+         this.eventBus = eventBus;
+     }
+@@ -30,7 +30,7 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand>
+                         new IssueUpdateUseCase.Request(new IssueListId(command.getIssueListId()),
+                         new IssueId(command.getIssueId()), command.getStatus())
+                 )
+-                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
++                .subscribe(new SubscriberEvent<>(firestoreRepository, eventBus));
+ 
+     }
+ }
+diff --git a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+index ac55ed3..cfefbbf 100644
+--- a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
++++ b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+@@ -41,7 +41,6 @@ public class CommandConfigure {
+         return new CommandHandlerUpdate(firestoreRepository, eventBus);
+     }
+ 
+-
+     @Bean
+     public CommandHandlerCreate commandHandlerCreate(final FirestoreRepository firestoreRepository,
+                                                      final EventBus eventBus) {
+diff --git a/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java b/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
+index 060be0a..1ae5968 100644
+--- a/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
++++ b/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
+@@ -27,7 +27,7 @@ public class CommandRest {
+     @Autowired
+     public CommandRest(final CommandHandler<IssueCreateCommand> commandCreated,
+                        final CommandHandler<IssueUpdateCommand> commandUpdated,
+-                       CommandHandler<IssueDeleteCommand> commandUDelete) {
++                       final CommandHandler<IssueDeleteCommand> commandUDelete) {
+         this.commandCreated = commandCreated;
+         this.commandUpdated = commandUpdated;
+         this.commandUDelete = commandUDelete;
+
+commit da021a23e8630cb1a0235c30e2ebf6be3d2de789
+Author: Lisbey Urrea <lisbey.urrea@sofka.com.co>
+Date:   Wed Mar 11 12:31:10 2020 -0500
+
+    ready update library ddd-demo and delete use case
+
+diff --git a/core/pom.xml b/core/pom.xml
+index 0ea20c4..bddabb2 100644
+--- a/core/pom.xml
++++ b/core/pom.xml
+@@ -26,7 +26,7 @@
+     <dependency>
+       <groupId>co.com.sofka</groupId>
+       <artifactId>domain-driven-design</artifactId>
+-      <version>0.1.2</version>
++      <version>0.2.0</version>
+     </dependency>
+ 
+     <dependency>
+diff --git a/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java b/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java
+new file mode 100644
+index 0000000..04963ea
+--- /dev/null
++++ b/core/src/main/java/co/com/sofka/core/issue/IssueBehaviors.java
+@@ -0,0 +1,72 @@
++package co.com.sofka.core.issue;
++
++import co.com.sofka.core.issue.events.*;
++import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.domain.generic.AggregateEvent;
++import co.com.sofka.generic.exceptions.IssueException;
++
++
++public class IssueBehaviors extends AggregateEvent.EventBehaviors<IssueList> {
++
++    {
++       add((IssueWithBasicInformationCreated event) -> {
++           var issue = new Issue(event.getIssueId(), event.getBasicInformation());
++           entity.issueCollection.add(issue);
++       });
++
++       add((FullIssueWithoutBasicInformationUpdated event) -> {
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updatePerson(event.getPerson());
++           issue.updatePeriod(event.getPeriod());
++           issue.updateStatus(event.getStatus());
++       });
++       add((IssueBasicInformationUpdated event) -> {
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updateBasicInformation(event.getBasicInformation());
++       });
++
++       add((IssuePersonUpdated event) -> {
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updatePerson(event.getPerson());
++       });
++
++       add((IssuePeriodUpdated event)->{
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updatePeriod(event.getPeriod());
++       });
++
++       add((IssueStatusUpdated event)->{
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updateStatus(event.getStatusProperty());
++       });
++
++       add((IssueLabelsDeleted event)->{
++           var issue = selectIssueBy(event.getIssueId());
++           issue.deleteLabelList();
++       });
++
++       add((IssueLabelUpdated event)->{
++           var issue = selectIssueBy(event.getIssueId());
++           issue.updateLabelList(event.getLabelList());
++       });
++
++        add((IssueDeleted event) -> {
++            var issue = selectIssueBy(event.getIssueId());
++            entity.issueCollection.remove(issue);
++        });
++
++    }
++
++    private Issue selectIssueBy(final IssueId issueId) {
++        return entity.issueCollection
++                .stream()
++                .filter(issue -> issue.issueId().equals(issueId))
++                .findFirst()
++                .orElseThrow(() -> new IssueException("the issue with id ".concat(issueId.getUuid()).concat(" doesn't exist")));
++    }
++
++
++    protected IssueBehaviors(IssueList entity) {
++        super(entity);
++    }
++}
+diff --git a/core/src/main/java/co/com/sofka/core/issue/IssueList.java b/core/src/main/java/co/com/sofka/core/issue/IssueList.java
+index 94074e7..70f9eca 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/IssueList.java
++++ b/core/src/main/java/co/com/sofka/core/issue/IssueList.java
+@@ -12,8 +12,10 @@ import co.com.sofka.core.issue.events.IssueLabelUpdated;
+ import co.com.sofka.core.issue.events.IssueDeleted;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.core.issue.values.PersonProperty;
+ import co.com.sofka.core.label.LabelList;
++import co.com.sofka.domain.generic.AggregateEvent;
+ import co.com.sofka.domain.generic.AggregateRoot;
+ import co.com.sofka.domain.generic.AggregateRootId;
+ import co.com.sofka.domain.generic.DomainEvent;
+@@ -30,58 +32,18 @@ import java.util.UUID;
+ import java.util.Objects;
+ import java.util.function.Consumer;
+ 
+-public class IssueList extends AggregateRoot<AggregateRootId> {
+-
+-    private Collection<Issue> issueCollection;
+-    private final Consumer<IssueWithBasicInformationCreated> createdIssueWithBasicInformation = event -> {
+-        var issue = new Issue(event.getIssueId(), event.getBasicInformation());
+-        issueCollection.add(issue);
+-    };
+-    private final Consumer<FullIssueWithoutBasicInformationUpdated> updatedFullIssueWithoutBasicInformation = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updatePerson(event.getPerson());
+-        issue.updatePeriod(event.getPeriod());
+-        issue.updateStatus(event.getStatus());
+-    };
+-    private final Consumer<IssueBasicInformationUpdated> updatedIssueBasicInformation = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updateBasicInformation(event.getBasicInformation());
+-    };
+-    private final Consumer<IssuePersonUpdated> updatedIssuePerson = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updatePerson(event.getPerson());
+-    };
+-    private final Consumer<IssuePeriodUpdated> updatedIssuePeriod = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updatePeriod(event.getPeriod());
+-    };
+-    private final Consumer<IssueStatusUpdated> updatedIssueStatus = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updateStatus(event.getStatusProperty());
+-    };
+-    private final Consumer<IssueLabelsDeleted> deleteIssueLabels = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.deleteLabelList();
+-    };
+-    private final Consumer<IssueLabelUpdated> updatedIssueLabels = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issue.updateLabelList(event.getLabelList());
+-    };
+-    private final Consumer<IssueDeleted> deleteIssue = event -> {
+-        var issue = selectIssueBy(event.getIssueId());
+-        issueCollection.remove(issue);
+-    };
+-
+-    public IssueList(final AggregateRootId aggregateRootId) {
+-        super(aggregateRootId);
++public class IssueList extends AggregateEvent<IssueListId> {
++
++    protected Collection<Issue> issueCollection;
++
++
++    public IssueList(final IssueListId issueListId) {
++        super(issueListId);
+         issueCollection = new ArrayList<>();
+-        registerActions(createdIssueWithBasicInformation, updatedIssueStatus,
+-                updatedIssuePeriod, updatedFullIssueWithoutBasicInformation,
+-                updatedIssueBasicInformation, updatedIssuePerson,
+-                updatedIssueLabels, deleteIssueLabels);
++        registerEntityBehavior(new IssueBehaviors(this));
+     }
+ 
+-    public static IssueList from(final AggregateRootId id, final List<DomainEvent> history) {
++    public static IssueList from(final IssueListId id, final List<DomainEvent> history) {
+         IssueList entity = new IssueList(id);
+         history.forEach(entity::applyEvent);
+         return entity;
+@@ -89,50 +51,56 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
+ 
+     public void createIssueWithBasicInformation(final BasicInformationProperty basicInformation) {
+         IssueId issueId = new IssueId(UUID.randomUUID().toString());
+-        appendChange(new IssueWithBasicInformationCreated(issueId, basicInformation))
+-                .apply(createdIssueWithBasicInformation);
++        appendChange(new IssueWithBasicInformationCreated(this.entityId, issueId, basicInformation))
++                .apply();
+     }
+ 
+-    public void updateFullIssueWithoutBasicInformation(final IssueId issueId, final PeriodProperty period,
+-                                                       final PersonProperty person, final StatusProperty status) {
+-        appendChange(new FullIssueWithoutBasicInformationUpdated(issueId, period, person, status))
+-                .apply(updatedFullIssueWithoutBasicInformation);
++    public void updateFullIssueWithoutBasicInformation(final IssueId issueId,
++                                                       final PeriodProperty period, final PersonProperty person,
++                                                       final StatusProperty status) {
++        appendChange(new FullIssueWithoutBasicInformationUpdated(this.entityId, issueId, period, person, status))
++                .apply();
+     }
+ 
+-    public void updateIssueBasicInformationBy(final IssueId issueId, final BasicInformationProperty basicInformation) {
+-        appendChange(new IssueBasicInformationUpdated(issueId, basicInformation))
+-                .apply(updatedIssueBasicInformation);
++    public void updateIssueBasicInformationBy(final IssueId issueId,
++                                              final BasicInformationProperty basicInformation) {
++        appendChange(new IssueBasicInformationUpdated(this.entityId, issueId, basicInformation))
++                .apply();
+     }
+ 
+-    public void updateIssuePersonBy(final IssueId issueId, final PersonProperty person) {
+-        appendChange(new IssuePersonUpdated(issueId, person))
+-                .apply(updatedIssuePerson);
++    public void updateIssuePersonBy(final IssueId issueId,
++                                    final PersonProperty person) {
++        appendChange(new IssuePersonUpdated(this.entityId, issueId, person))
++                .apply();
+     }
+ 
+-    public void updateLabelListBy(final IssueId issueId, final LabelList labelList) {
+-        appendChange(new IssueLabelUpdated(issueId, labelList))
+-                .apply(updatedIssueLabels);
++    public void updateLabelListBy(final IssueId issueId,
++                                  final LabelList labelList) {
++        appendChange(new IssueLabelUpdated(this.entityId, issueId, labelList))
++                .apply();
+     }
+ 
+-    public void updateIssuePeriodBy(final IssueId issueId, final PeriodProperty period) {
+-        appendChange(new IssuePeriodUpdated(issueId, period))
+-                .apply(updatedIssuePeriod);
++    public void updateIssuePeriodBy(final IssueId issueId,
++                                    final PeriodProperty period) {
++        appendChange(new IssuePeriodUpdated(this.entityId, issueId, period))
++                .apply();
+     }
+ 
+-    public void updateIssueStatusBy(final IssueId issueId, final StatusProperty status) {
+-        appendChange(new IssueStatusUpdated(issueId, status))
+-                .apply(updatedIssueStatus);
++    public void updateIssueStatusBy(final IssueId issueId,
++                                    final StatusProperty status) {
++        appendChange(new IssueStatusUpdated(this.entityId, issueId, status))
++                .apply();
+     }
+ 
+     public void deleteLabelsBy(final IssueId issueId) {
+-        appendChange(new IssueLabelsDeleted(issueId))
+-                .apply(deleteIssueLabels);
++        appendChange(new IssueLabelsDeleted(this.entityId, issueId))
++                .apply();
+ 
+     }
+ 
+     public void deleteIssueBy(final IssueId issueId) {
+-        appendChange(new IssueDeleted(issueId))
+-                .apply(deleteIssue);
++        appendChange(new IssueDeleted(this.entityId, issueId))
++                .apply();
+ 
+     }
+ 
+@@ -140,34 +108,6 @@ public class IssueList extends AggregateRoot<AggregateRootId> {
+         return this.issueCollection;
+     }
+ 
+-    private Issue selectIssueBy(final IssueId issueId) {
+-        return getAllIssues()
+-                .stream()
+-                .filter(issue -> issue.issueId().equals(issueId))
+-                .findFirst()
+-                .orElseThrow(() -> new IssueException("No existe el issue"));
+-    }
+ 
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o) {
+-            return true;
+-        }
+-        if (o == null || getClass() != o.getClass()) {
+-            return false;
+-        }
+-        if (!super.equals(o)) {
+-            return false;
+-        }
+-        IssueList issueList = (IssueList) o;
+-        return Objects.equals(issueCollection, issueList.issueCollection);
+-    }
+ 
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(super.hashCode(), issueCollection,
+-                createdIssueWithBasicInformation, updatedFullIssueWithoutBasicInformation,
+-                updatedIssueBasicInformation, updatedIssuePerson, updatedIssuePeriod,
+-                updatedIssueStatus, deleteIssueLabels, updatedIssueLabels, deleteIssue);
+-    }
+ }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/commands/IssueCreateCommand.java b/core/src/main/java/co/com/sofka/core/issue/commands/IssueCreateCommand.java
+index c2681a9..474f8b9 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/commands/IssueCreateCommand.java
++++ b/core/src/main/java/co/com/sofka/core/issue/commands/IssueCreateCommand.java
+@@ -4,19 +4,19 @@ import co.com.sofka.domain.generic.Command;
+ import co.com.sofka.generic.values.BasicInformationProperty;
+ 
+ public class IssueCreateCommand extends Command {
+-    private final String aggregateRootId;
++    private final String issueListId;
+     private final BasicInformationProperty basicInformation;
+ 
+     public IssueCreateCommand(final String type,
+-                              final String aggregateRootId,
++                              final String issueListId,
+                               final BasicInformationProperty basicInformation) {
+         super(type);
+-        this.aggregateRootId = aggregateRootId;
++        this.issueListId = issueListId;
+         this.basicInformation = basicInformation;
+     }
+ 
+-    public String getAggregateRootId() {
+-        return aggregateRootId;
++    public String getIssueListId() {
++        return issueListId;
+     }
+ 
+     public BasicInformationProperty getBasicInformation() {
+diff --git a/core/src/main/java/co/com/sofka/core/issue/commands/IssueDeleteCommand.java b/core/src/main/java/co/com/sofka/core/issue/commands/IssueDeleteCommand.java
+new file mode 100644
+index 0000000..4fe4d91
+--- /dev/null
++++ b/core/src/main/java/co/com/sofka/core/issue/commands/IssueDeleteCommand.java
+@@ -0,0 +1,23 @@
++package co.com.sofka.core.issue.commands;
++
++import co.com.sofka.domain.generic.Command;
++
++public class IssueDeleteCommand extends Command  {
++
++    private final String issueListId;
++    private final String issueId;
++
++    public IssueDeleteCommand(String type, String issueListId, String issueId) {
++        super(type);
++        this.issueListId = issueListId;
++        this.issueId = issueId;
++    }
++
++    public String getIssueListId() {
++        return issueListId;
++    }
++
++    public String getIssueId() {
++        return issueId;
++    }
++}
+diff --git a/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java b/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
+index 039659f..271cb3e 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
++++ b/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
+@@ -4,22 +4,22 @@ import co.com.sofka.domain.generic.Command;
+ import co.com.sofka.generic.values.StatusProperty;
+ 
+ public class IssueUpdateCommand extends Command {
+-    private final String aggregateRootId;
++    private final String issueListId;
+     private final String issueId;
+     private final StatusProperty status;
+ 
+     public IssueUpdateCommand(final String type,
+-                              final String aggregateRootId,
++                              final String issueListId,
+                               final String issueId,
+                               final StatusProperty status) {
+         super(type);
+-        this.aggregateRootId = aggregateRootId;
++        this.issueListId = issueListId;
+         this.issueId = issueId;
+         this.status = status;
+     }
+ 
+-    public String getAggregateRootId() {
+-        return aggregateRootId;
++    public String getIssueListId() {
++        return issueListId;
+     }
+ 
+     public String getIssueId() {
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/FullIssueWithoutBasicInformationUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/FullIssueWithoutBasicInformationUpdated.java
+index f0b409d..83ba8af 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/FullIssueWithoutBasicInformationUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/FullIssueWithoutBasicInformationUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.core.issue.values.PersonProperty;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.PeriodProperty;
+@@ -13,11 +14,12 @@ public class FullIssueWithoutBasicInformationUpdated extends DomainEvent {
+     private final PersonProperty person;
+     private final StatusProperty status;
+ 
+-    public FullIssueWithoutBasicInformationUpdated(final IssueId issueId,
++    public FullIssueWithoutBasicInformationUpdated(final IssueListId issueListId,
++                                                   final IssueId issueId,
+                                                    final PeriodProperty period,
+                                                    final PersonProperty person,
+                                                    final StatusProperty status) {
+-        super("full_issue_without_basic_information_updated");
++        super("full_issue_without_basic_information_updated", issueListId);
+         this.issueId = issueId;
+         this.period = period;
+         this.person = person;
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueBasicInformationUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueBasicInformationUpdated.java
+index 437ec0d..933ea42 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueBasicInformationUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueBasicInformationUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.BasicInformationProperty;
+ 
+@@ -10,9 +11,9 @@ public class IssueBasicInformationUpdated extends DomainEvent {
+     private final IssueId issueId;
+     private final BasicInformationProperty basicInformation;
+ 
+-    public IssueBasicInformationUpdated(final IssueId issueId,
++    public IssueBasicInformationUpdated(final IssueListId issueListId,  final IssueId issueId,
+                                         final BasicInformationProperty basicInformation) {
+-        super("issue_basic_information_updated");
++        super("issue_basic_information_updated", issueListId);
+         this.issueId = issueId;
+         this.basicInformation = basicInformation;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueDeleted.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueDeleted.java
+index 3c3317a..edf67a0 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueDeleted.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueDeleted.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ 
+ 
+@@ -8,8 +9,8 @@ public class IssueDeleted extends DomainEvent {
+ 
+     private final IssueId issueId;
+ 
+-    public IssueDeleted(final IssueId issueId) {
+-        super("issue_deleted");
++    public IssueDeleted(final IssueListId issueListId,  final IssueId issueId) {
++        super("issue_deleted", issueListId);
+         this.issueId = issueId;
+     }
+ 
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelUpdated.java
+index f32dc68..b4b4edb 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.core.label.LabelList;
+ import co.com.sofka.domain.generic.DomainEvent;
+ 
+@@ -9,8 +10,8 @@ public class IssueLabelUpdated extends DomainEvent {
+     private final IssueId issueId;
+     private final LabelList labelList;
+ 
+-    public IssueLabelUpdated(final IssueId issueId, final LabelList labelList) {
+-        super("issue_label_updated");
++    public IssueLabelUpdated(final IssueListId issueListId, final IssueId issueId, final LabelList labelList) {
++        super("issue_label_updated", issueListId);
+         this.issueId = issueId;
+         this.labelList = labelList;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelsDeleted.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelsDeleted.java
+index de667ea..802bdba 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelsDeleted.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueLabelsDeleted.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ 
+ 
+@@ -8,8 +9,8 @@ public class IssueLabelsDeleted extends DomainEvent {
+ 
+     private final IssueId issueId;
+ 
+-    public IssueLabelsDeleted(final IssueId issueId) {
+-        super("issue_label_deleted");
++    public IssueLabelsDeleted(final IssueListId issueListId, final IssueId issueId) {
++        super("issue_label_deleted", issueListId);
+         this.issueId = issueId;
+     }
+ 
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssuePeriodUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssuePeriodUpdated.java
+index 0ba5630..275f9e2 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssuePeriodUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssuePeriodUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.PeriodProperty;
+ 
+@@ -9,8 +10,8 @@ public class IssuePeriodUpdated extends DomainEvent {
+     private final IssueId issueId;
+     private final PeriodProperty period;
+ 
+-    public IssuePeriodUpdated(final IssueId issueId, final PeriodProperty period) {
+-        super("issue_period_updated");
++    public IssuePeriodUpdated(final IssueListId issueListId, final IssueId issueId, final PeriodProperty period) {
++        super("issue_period_updated", issueListId);
+         this.issueId = issueId;
+         this.period = period;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssuePersonUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssuePersonUpdated.java
+index 802386b..d8eb0c8 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssuePersonUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssuePersonUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.core.issue.values.PersonProperty;
+ import co.com.sofka.domain.generic.DomainEvent;
+ 
+@@ -10,8 +11,8 @@ public class IssuePersonUpdated extends DomainEvent {
+     private final IssueId issueId;
+     private final PersonProperty person;
+ 
+-    public IssuePersonUpdated(final IssueId issueId, final PersonProperty person) {
+-        super("issue_person_updated");
++    public IssuePersonUpdated(final IssueListId issueListId, final IssueId issueId, final PersonProperty person) {
++        super("issue_person_updated", issueListId);
+         this.issueId = issueId;
+         this.person = person;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueStatusUpdated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueStatusUpdated.java
+index 0d036bb..c305342 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueStatusUpdated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueStatusUpdated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.StatusProperty;
+ 
+@@ -8,9 +9,9 @@ public class IssueStatusUpdated extends DomainEvent {
+     private final IssueId issueId;
+     private final StatusProperty statusProperty;
+ 
+-    public IssueStatusUpdated(final IssueId issueId,
++    public IssueStatusUpdated(final IssueListId issueListId, final IssueId issueId,
+                               final StatusProperty statusProperty) {
+-        super("issue_status_updated");
++        super("issue_status_updated", issueListId);
+         this.issueId = issueId;
+         this.statusProperty = statusProperty;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/events/IssueWithBasicInformationCreated.java b/core/src/main/java/co/com/sofka/core/issue/events/IssueWithBasicInformationCreated.java
+index 46a1d1a..221fc53 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/events/IssueWithBasicInformationCreated.java
++++ b/core/src/main/java/co/com/sofka/core/issue/events/IssueWithBasicInformationCreated.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.core.issue.events;
+ 
+ import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.BasicInformationProperty;
+ 
+@@ -9,9 +10,9 @@ public class IssueWithBasicInformationCreated extends DomainEvent {
+     private final BasicInformationProperty basicInformation;
+     private final IssueId issueId;
+ 
+-    public IssueWithBasicInformationCreated(final IssueId issueId,
++    public IssueWithBasicInformationCreated(final IssueListId issueListId, final IssueId issueId,
+                                             final BasicInformationProperty basicInformation) {
+-        super("issue_with_basic_information_created");
++        super("issue_with_basic_information_created", issueListId);
+         this.issueId = issueId;
+         this.basicInformation = basicInformation;
+     }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/values/IssueId.java b/core/src/main/java/co/com/sofka/core/issue/values/IssueId.java
+index e29a5cf..dc55390 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/values/IssueId.java
++++ b/core/src/main/java/co/com/sofka/core/issue/values/IssueId.java
+@@ -1,5 +1,7 @@
+ package co.com.sofka.core.issue.values;
+ 
++import java.util.Objects;
++
+ import static co.com.sofka.generic.DomainAssertions.checkNonNullForIssue;
+ 
+ public class IssueId {
+@@ -19,5 +21,16 @@ public class IssueId {
+         return uuid;
+     }
+ 
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        IssueId issueId = (IssueId) o;
++        return Objects.equals(uuid, issueId.uuid);
++    }
+ 
++    @Override
++    public int hashCode() {
++        return Objects.hash(uuid);
++    }
+ }
+diff --git a/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java b/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java
+new file mode 100644
+index 0000000..7ef89c0
+--- /dev/null
++++ b/core/src/main/java/co/com/sofka/core/issue/values/IssueListId.java
+@@ -0,0 +1,22 @@
++package co.com.sofka.core.issue.values;
++
++import co.com.sofka.domain.generic.AggregateRootId;
++
++import java.util.UUID;
++
++public class IssueListId extends AggregateRootId {
++
++
++    public IssueListId(String uuid) {
++        super(uuid);
++    }
++
++    public static IssueListId create() {
++        return new IssueListId(UUID.randomUUID().toString());
++    }
++
++    @Override
++    public String toString() {
++        return super.value();
++    }
++}
+diff --git a/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java b/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
+index 44f3910..eb804fd 100644
+--- a/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
++++ b/core/src/main/java/co/com/sofka/infrastructure/FirestoreRepository.java
+@@ -1,25 +1,25 @@
+ package co.com.sofka.infrastructure;
+ 
+ 
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.AggregateRootId;
+ import co.com.sofka.domain.generic.DomainEvent;
+-import co.com.sofka.domain.generic.StoredEvent;
+ import co.com.sofka.infraestructure.repository.EventStoreRepository;
+ import co.com.sofka.infraestructure.repository.QueryFaultException;
++import co.com.sofka.infraestructure.store.StoredEvent;
+ import com.google.api.core.ApiFuture;
+ import com.google.cloud.firestore.Firestore;
+ import com.google.cloud.firestore.QueryDocumentSnapshot;
+ import com.google.cloud.firestore.QuerySnapshot;
+ import com.google.cloud.firestore.CollectionReference;
+ import com.google.gson.Gson;
+-import java.util.Date;
+ import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.concurrent.ExecutionException;
+ import java.util.stream.Collectors;
+ 
+-public class FirestoreRepository implements EventStoreRepository {
++public class FirestoreRepository implements EventStoreRepository<IssueListId> {
+ 
+     private final Firestore database;
+ 
+@@ -27,12 +27,15 @@ public class FirestoreRepository implements EventStoreRepository {
+         this.database = database;
+     }
+ 
++
++
+     @Override
+-    public List<DomainEvent> getEventsBy(final AggregateRootId aggregateRootId) {
+-        List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(aggregateRootId);
++    public List<DomainEvent> getEventsBy(final IssueListId issueListId) throws QueryFaultException {
++        List<QueryDocumentSnapshot> query = getQuerySnapshotApiFuture(issueListId);
+         return query.stream().map(this::getDomainEvent).collect(Collectors.toList());
+     }
+ 
++
+     private DomainEvent getDomainEvent(QueryDocumentSnapshot document) {
+         Gson gson = new Gson();
+         StoredEvent storedEvent = gson.fromJson(gson.toJson(document.getData()), StoredEvent.class);
+@@ -44,7 +47,7 @@ public class FirestoreRepository implements EventStoreRepository {
+         }
+     }
+ 
+-    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(final AggregateRootId aggregateRootId) {
++    private List<QueryDocumentSnapshot> getQuerySnapshotApiFuture(final AggregateRootId aggregateRootId) throws QueryFaultException {
+         ApiFuture<QuerySnapshot> query = database.collection(aggregateRootId.toString())
+                 .orderBy("occurredOn")
+                 .get();
+@@ -52,39 +55,37 @@ public class FirestoreRepository implements EventStoreRepository {
+             return query.get().getDocuments();
+         } catch (InterruptedException | ExecutionException e) {
+             Thread.currentThread().interrupt();
+-            throw new QueryFaultException();
++            throw new QueryFaultException("Error");
+         }
+     }
+ 
+-    @Override
+-    public void saveEvent(final AggregateRootId aggregateRootId, final DomainEvent event) {
+-        Gson gson = new Gson();
+-        final String eventSerialization = gson.toJson(event);
+-        StoredEvent storedEvent = wrapEvent(event, eventSerialization);
+-        setDocumentToCollection(aggregateRootId, event, storedEvent);
+ 
++    @Override
++    public void saveEvent(IssueListId issueListId, StoredEvent storedEvent) {
++        setDocumentToCollection(issueListId, storedEvent);
+     }
+ 
+-    private void setDocumentToCollection(final AggregateRootId aggregateRootId,
+-                                         final DomainEvent event,
++    private void setDocumentToCollection(final IssueListId issueListId,
+                                          final StoredEvent storedEvent) {
++        Gson gson = new Gson();
++
+         try {
+-            database.collection(aggregateRootId.toString())
++            Class<DomainEvent> domainEventClass = (Class<DomainEvent>) Class.forName(storedEvent.getTypeName());
++
++            final DomainEvent event = gson.fromJson(storedEvent.getEventBody(), domainEventClass);
++
++            database.collection(issueListId.toString())
+                     .document(event.uuid.toString())
+-                    .set(storedEvent).get();
++                    .set(storedEvent)
++                    .get();
+ 
+-        } catch (InterruptedException | ExecutionException e) {
++        } catch (InterruptedException | ExecutionException | ClassNotFoundException e) {
+             Thread.currentThread().interrupt();
+             throw new PersistenceResultException();
+         }
+     }
+ 
+-    private StoredEvent wrapEvent(final DomainEvent domainEvent, final String eventSerialization) {
+-        return new StoredEvent(domainEvent.getClass().getCanonicalName(),
+-                new Date(domainEvent.when.toEpochMilli()),
+-                eventSerialization
+-        );
+-    }
++
+ 
+     public Map<String, List<DomainEvent>> getDomainEventList() {
+ 
+@@ -92,9 +93,17 @@ public class FirestoreRepository implements EventStoreRepository {
+ 
+         Iterable<CollectionReference> future = database.getCollections();
+         future.forEach(collectionReference ->
++        {
++            try {
+                 allEventsCollection.put(collectionReference.getPath(),
+-                        getEventsBy(new AggregateRootId(collectionReference.getPath()))));
++                        getEventsBy(new IssueListId(collectionReference.getPath())));
++            } catch (QueryFaultException e) {
++                e.printStackTrace();
++            }
++        });
+         return allEventsCollection;
+     }
++
++
+ }
+ 
+diff --git a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+index ad1fd6c..fddca4b 100644
+--- a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
++++ b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+@@ -1,53 +1,62 @@
+ package co.com.sofka.infrastructure;
+ 
+-
+-
+ import co.com.sofka.domain.generic.AggregateRootId;
+ import co.com.sofka.domain.generic.DomainEvent;
++import co.com.sofka.infraestructure.bus.ErrorEvent;
+ import co.com.sofka.infraestructure.bus.EventBus;
++import co.com.sofka.infraestructure.repository.EventStoreRepository;
++import co.com.sofka.infraestructure.store.StoredEvent;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+ 
+ import java.util.HashSet;
++import java.util.Optional;
+ import java.util.Set;
+ import java.util.concurrent.Flow;
+ 
+ 
+-public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
++public class SubscriberFirestore<T extends AggregateRootId> implements Flow.Subscriber<DomainEvent> {
+ 
+     private static final Logger LOGGER = LoggerFactory.getLogger(SubscriberFirestore.class);
+ 
+-    private FirestoreRepository firestoreRepository;
+-    private String aggregateRootId;
++    private EventStoreRepository<T> repository;
+     private Set<DomainEvent> domainEvents;
++    private Flow.Subscription subscription;
+     private EventBus eventBus;
+ 
+-    public SubscriberFirestore(final String aggregateRootId,
+-                               final FirestoreRepository firestoreRepository,
++    public SubscriberFirestore( final EventStoreRepository<T> repository,
+                                final EventBus eventBus) {
+-        this.aggregateRootId = aggregateRootId;
+-        this.firestoreRepository = firestoreRepository;
++        this.repository = repository;
+         this.eventBus = eventBus;
+         this.domainEvents = new HashSet<>();
+     }
+ 
+     @Override
+     public void onSubscribe(final Flow.Subscription subscription) {
+-        LOGGER.info("onSubscribe");
++        this.subscription = subscription;
++        subscription.request(1);
+     }
+ 
+     @Override
+     public void onNext(final DomainEvent domainEvent) {
+-        eventBus.publish(domainEvent);
+-        firestoreRepository.saveEvent(new AggregateRootId(aggregateRootId), domainEvent);
++        Optional.of(repository).ifPresent(repo -> {
++            StoredEvent storedEvent = StoredEvent.wrapEvent(domainEvent);
++            repo.saveEvent((T) domainEvent.aggregateRootId, storedEvent);
++        });
++        Optional.of(eventBus).ifPresent(bus -> bus.publish(domainEvent));
++        subscription.request(1);
+         domainEvents.add(domainEvent);
+     }
+ 
++
++
+     @Override
+     public void onError(final Throwable throwable) {
+-        //BdConnection.closeDatabase();
+-        String message = throwable.getMessage();
+-        LOGGER.error(message);
++        Optional.of(eventBus).ifPresent(bus -> bus.publishError(new ErrorEvent(
++                504, "There is a problem saving the event",
++                throwable.getMessage())
++        ));
++        subscription.cancel();
+     }
+ 
+     @Override
+@@ -55,4 +64,6 @@ public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
+         String message = domainEvents.size() + " events saved and published";
+         LOGGER.info(message);
+     }
++
++
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
+index dc328c1..ad217cd 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueCreateUseCase.java
+@@ -1,23 +1,21 @@
+ package co.com.sofka.usecases;
+ 
+ import co.com.sofka.business.generic.UseCase;
++import co.com.sofka.business.support.ResponseEvents;
+ import co.com.sofka.core.issue.IssueList;
+-import co.com.sofka.domain.generic.AggregateRootId;
+-import co.com.sofka.domain.generic.DomainEvent;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.generic.values.BasicInformationProperty;
+ 
+-import java.util.List;
+-
+-public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, IssueCreateUseCase.Response> {
++public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, ResponseEvents> {
+ 
+     @Override
+     protected void executeUseCase(final Request requestValues) {
+ 
+-        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
+-        IssueList issueList = new IssueList(anAggregateRootId);
++        IssueListId issueListId = new IssueListId(requestValues.uuid);
++        IssueList issueList = new IssueList(issueListId);
+ 
+         issueList.createIssueWithBasicInformation(requestValues.basicInformation);
+-        emit().onSuccess(new Response(issueList.getUncommittedChanges()));
++        emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
+         issueList.markChangesAsCommitted();
+ 
+     }
+@@ -32,16 +30,5 @@ public class IssueCreateUseCase extends UseCase<IssueCreateUseCase.Request, Issu
+         }
+     }
+ 
+-    public static class Response implements UseCase.PubEvents {
+-        private List<DomainEvent> domainEvents;
+-
+-        public Response(final List<DomainEvent> domainEvents) {
+-            this.domainEvents = List.copyOf(domainEvents);
+-        }
+ 
+-        @Override
+-        public List<DomainEvent> getDomainEvents() {
+-            return domainEvents;
+-        }
+-    }
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+index 9be7c2f..b0445b1 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+@@ -1,43 +1,51 @@
+ package co.com.sofka.usecases;
+ 
+ import co.com.sofka.business.generic.UseCase;
++import co.com.sofka.business.support.ResponseEvents;
+ import co.com.sofka.core.issue.IssueList;
++import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.domain.generic.AggregateRootId;
+ import co.com.sofka.domain.generic.DomainEvent;
++import co.com.sofka.infraestructure.repository.EventStoreRepository;
++import co.com.sofka.infraestructure.repository.QueryFaultException;
+ 
+ 
+ import java.util.List;
+ 
+-public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, IssueDeleteUseCase.Response> {
++public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, ResponseEvents> {
++
++    EventStoreRepository<IssueListId> repository;
++
++    public IssueDeleteUseCase(EventStoreRepository<IssueListId> repository) {
++        this.repository = repository;
++    }
++
+ 
+     @Override
+     protected void executeUseCase(Request requestValues) {
+ 
+-        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
+-        IssueList issueList = new IssueList(anAggregateRootId);
+-        //issueList.
+-        //issueList.deleteIssueBy();
++        IssueListId issueListId = requestValues.issueListId;
++        try {
++            IssueList issueList = IssueList.from(issueListId, repository.getEventsBy(issueListId));
++            issueList.deleteIssueBy(requestValues.issueId);
++            emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
++            issueList.markChangesAsCommitted();
++        } catch (QueryFaultException e) {
++            emit().onError(new RuntimeException(e.getCause()));
++        }
+ 
+     }
+ 
+     public static class Request implements UseCase.RequestValues {
+-        private String uuid;
++        private IssueListId issueListId;
++        private IssueId issueId;
+ 
+-        public Request(final String uuid) {
+-            this.uuid = uuid;
++        public Request(IssueListId issueListId, IssueId issueId) {
++            this.issueListId = issueListId;
++            this.issueId = issueId;
+         }
+     }
+ 
+-    public static class Response implements UseCase.PubEvents {
+-        private List<DomainEvent> domainEvents;
+ 
+-        public Response(final List<DomainEvent> domainEvents) {
+-            this.domainEvents = List.copyOf(domainEvents);
+-        }
+-
+-        @Override
+-        public List<DomainEvent> getDomainEvents() {
+-            return domainEvents;
+-        }
+-    }
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
+index df47252..ad7c4f7 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
+@@ -1,61 +1,50 @@
+ package co.com.sofka.usecases;
+ 
+ import co.com.sofka.business.generic.UseCase;
++import co.com.sofka.business.support.ResponseEvents;
+ import co.com.sofka.core.issue.IssueList;
+-import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
+ import co.com.sofka.core.issue.values.IssueId;
+-import co.com.sofka.domain.generic.AggregateRootId;
+-import co.com.sofka.domain.generic.DomainEvent;
+-import co.com.sofka.generic.values.BasicInformationProperty;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.generic.values.StatusProperty;
+ import co.com.sofka.infraestructure.repository.EventStoreRepository;
++import co.com.sofka.infraestructure.repository.QueryFaultException;
+ 
+-import java.util.List;
++public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, ResponseEvents> {
+ 
+-public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, IssueUpdateUseCase.Response> {
++    EventStoreRepository<IssueListId> repository;
+ 
+-    EventStoreRepository repository;
+-
+-    public IssueUpdateUseCase(EventStoreRepository repository) {
++    public IssueUpdateUseCase(EventStoreRepository<IssueListId> repository) {
+         this.repository = repository;
+     }
+ 
+     @Override
+     protected void executeUseCase(final Request requestValues) {
+-        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
+-        IssueList issueList = IssueList.from(anAggregateRootId, repository.getEventsBy(anAggregateRootId));
+-        issueList.updateIssueStatusBy(new IssueId(requestValues.issueId), requestValues.status);
+-        emit().onSuccess(new IssueUpdateUseCase.Response(issueList.getUncommittedChanges()));
+-        issueList.markChangesAsCommitted();
++        IssueListId issueListId = requestValues.issueListId;
++        try {
++            IssueList issueList = IssueList.from(issueListId, repository.getEventsBy(issueListId));
++            issueList.updateIssueStatusBy(requestValues.issueId, requestValues.status);
++            emit().onSuccess(new ResponseEvents(issueList.getUncommittedChanges()));
++            issueList.markChangesAsCommitted();
++        } catch (QueryFaultException e) {
++            emit().onError(new RuntimeException(e.getCause()));
++        }
+     }
+ 
+     public static class Request implements UseCase.RequestValues {
+-        private String uuid;
+-        private String issueId;
++        private IssueListId issueListId;
++        private IssueId issueId;
+         private StatusProperty status;
+ 
+-        public Request(final String uuid,
+-                       final String issueId,
++        public Request(final IssueListId issueListId,
++                       final IssueId issueId,
+                        final StatusProperty status) {
+ 
+-            this.uuid = uuid;
++            this.issueListId = issueListId;
+             this.issueId = issueId;
+             this.status = status;
+         }
+     }
+ 
+-    public static class Response implements UseCase.PubEvents {
+ 
+-        private List<DomainEvent> domainEvents;
+-
+-        public Response(final List<DomainEvent> domainEvents) {
+-            this.domainEvents = List.copyOf(domainEvents);
+-        }
+-
+-        @Override
+-        public List<DomainEvent> getDomainEvents() {
+-            return domainEvents;
+-        }
+-    }
+ 
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+index 14db8e1..93f793a 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+@@ -24,9 +24,10 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand>
+     public void execute(final IssueCreateCommand command) {
+         UseCaseHandler.getInstance()
+             .asyncExecutor(new IssueCreateUseCase(),
+-                    new IssueCreateUseCase.Request(command.getAggregateRootId(),
++                    new IssueCreateUseCase.Request(command.getIssueListId(),
+                             command.getBasicInformation())
+-            ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
++            )
++                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
+     }
+ 
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+index 34f4480..d807b64 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+@@ -1,5 +1,36 @@
+ package co.com.sofka.usecases.handlers.commands;
+ 
+-public class CommandHandlerDelete  {
++import co.com.sofka.business.generic.UseCaseHandler;
++import co.com.sofka.core.issue.commands.IssueDeleteCommand;
++import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
++import co.com.sofka.infraestructure.bus.EventBus;
++import co.com.sofka.infraestructure.handle.CommandHandler;
++import co.com.sofka.infrastructure.FirestoreRepository;
++import co.com.sofka.infrastructure.SubscriberFirestore;
++import co.com.sofka.usecases.IssueDeleteUseCase;
+ 
++public class CommandHandlerDelete implements CommandHandler<IssueDeleteCommand> {
++
++    private FirestoreRepository firestoreRepository;
++    private EventBus eventBus;
++
++    public CommandHandlerDelete(final FirestoreRepository firestoreRepository,
++                                final EventBus eventBus) {
++
++        this.firestoreRepository = firestoreRepository;
++        this.eventBus = eventBus;
++    }
++
++    @Override
++    public void execute(IssueDeleteCommand issueDeleteCommand) {
++
++        UseCaseHandler.getInstance()
++                .asyncExecutor(new IssueDeleteUseCase(firestoreRepository),
++                        new IssueDeleteUseCase.Request(new IssueListId(issueDeleteCommand.getIssueListId()),
++                                new IssueId(issueDeleteCommand.getIssueId()))
++                )
++                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
++
++    }
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+index 8674596..fcd5786 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+@@ -1,5 +1,7 @@
+ package co.com.sofka.usecases.handlers.commands;
+ 
++import co.com.sofka.core.issue.values.IssueId;
++import co.com.sofka.core.issue.values.IssueListId;
+ import co.com.sofka.infraestructure.bus.EventBus;
+ import co.com.sofka.infraestructure.handle.CommandHandler;
+ import co.com.sofka.business.generic.UseCaseHandler;
+@@ -25,10 +27,10 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand>
+ 
+         UseCaseHandler.getInstance()
+                 .asyncExecutor(new IssueUpdateUseCase(firestoreRepository),
+-                        new IssueUpdateUseCase.Request(command.getAggregateRootId(),
+-                                command.getIssueId(), command.getStatus())
++                        new IssueUpdateUseCase.Request(new IssueListId(command.getIssueListId()),
++                        new IssueId(command.getIssueId()), command.getStatus())
+                 )
+-                .subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
++                .subscribe(new SubscriberFirestore<>(firestoreRepository, eventBus));
+ 
+     }
+ }
+diff --git a/spring/spring.iml b/spring/spring.iml
+index 0ca511a..5c53ade 100644
+--- a/spring/spring.iml
++++ b/spring/spring.iml
+@@ -26,7 +26,7 @@
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+     <orderEntry type="module" module-name="core" />
+-    <orderEntry type="library" name="Maven: co.com.sofka:domain-driven-design:0.1.2" level="project" />
++    <orderEntry type="library" name="Maven: co.com.sofka:domain-driven-design:0.2.0" level="project" />
+     <orderEntry type="library" name="Maven: org.slf4j:slf4j-jdk14:1.7.30" level="project" />
+     <orderEntry type="library" name="Maven: com.google.firebase:firebase-admin:6.8.1" level="project" />
+     <orderEntry type="library" name="Maven: com.google.api-client:google-api-client:1.25.0" level="project" />
+diff --git a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+index 9e41ef1..ac55ed3 100644
+--- a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
++++ b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+@@ -1,12 +1,15 @@
+ package co.com.sofka.application.commands;
+ 
+ import co.com.sofka.infraestructure.repository.EventStoreRepository;
++
+ import co.com.sofka.infrastructure.FirestoreRepository;
+ import co.com.sofka.infrastructure.RabbitDomainEventBus;
+ import co.com.sofka.infraestructure.bus.EventBus;
+ import co.com.sofka.usecases.IssueCreateUseCase;
++import co.com.sofka.usecases.IssueDeleteUseCase;
+ import co.com.sofka.usecases.IssueUpdateUseCase;
+ import co.com.sofka.usecases.handlers.commands.CommandHandlerCreate;
++import co.com.sofka.usecases.handlers.commands.CommandHandlerDelete;
+ import co.com.sofka.usecases.handlers.commands.CommandHandlerUpdate;
+ import com.google.gson.Gson;
+ import org.springframework.amqp.rabbit.core.RabbitAdmin;
+@@ -27,18 +30,30 @@ public class CommandConfigure {
+         return new IssueUpdateUseCase(repository);
+     }
+ 
++    @Bean
++    public IssueDeleteUseCase IssueDeleteUseCase(EventStoreRepository repository) {
++        return new IssueDeleteUseCase(repository);
++    }
++
+     @Bean
+     public CommandHandlerUpdate commandHandlerUpdate(final FirestoreRepository firestoreRepository,
+                                                      final EventBus eventBus) {
+         return new CommandHandlerUpdate(firestoreRepository, eventBus);
+     }
+ 
++
+     @Bean
+     public CommandHandlerCreate commandHandlerCreate(final FirestoreRepository firestoreRepository,
+                                                      final EventBus eventBus) {
+         return new CommandHandlerCreate(firestoreRepository, eventBus);
+     }
+ 
++    @Bean
++    public CommandHandlerDelete CommandHandlerDelete(final FirestoreRepository firestoreRepository,
++                                                     final EventBus eventBus) {
++        return new CommandHandlerDelete(firestoreRepository, eventBus);
++    }
++
+     @Bean
+     public EventBus rabbitDomainEventBus(final RabbitTemplate rabbitTemplate, RabbitAdmin rabbitAdmin) {
+         return new RabbitDomainEventBus(rabbitTemplate, rabbitAdmin);
+diff --git a/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java b/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
+index 8c3655d..060be0a 100644
+--- a/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
++++ b/spring/src/main/java/co/com/sofka/application/commands/CommandRest.java
+@@ -1,5 +1,6 @@
+ package co.com.sofka.application.commands;
+ 
++import co.com.sofka.core.issue.commands.IssueDeleteCommand;
+ import co.com.sofka.infraestructure.handle.CommandHandler;
+ import co.com.sofka.core.issue.commands.IssueCreateCommand;
+ import co.com.sofka.core.issue.commands.IssueUpdateCommand;
+@@ -21,12 +22,15 @@ public class CommandRest {
+ 
+     private CommandHandler<IssueCreateCommand> commandCreated;
+     private CommandHandler<IssueUpdateCommand> commandUpdated;
++    private CommandHandler<IssueDeleteCommand> commandUDelete;
+ 
+     @Autowired
+     public CommandRest(final CommandHandler<IssueCreateCommand> commandCreated,
+-                       final CommandHandler<IssueUpdateCommand> commandUpdated) {
++                       final CommandHandler<IssueUpdateCommand> commandUpdated,
++                       CommandHandler<IssueDeleteCommand> commandUDelete) {
+         this.commandCreated = commandCreated;
+         this.commandUpdated = commandUpdated;
++        this.commandUDelete = commandUDelete;
+     }
+ 
+     @PostMapping("issueCreate")
+@@ -41,4 +45,10 @@ public class CommandRest {
+         commandUpdated.execute(command);
+     }
+ 
++    @PostMapping("issueDelete")
++    @ResponseStatus(HttpStatus.OK)
++    public void setCommandIssueDelete(@RequestBody final IssueDeleteCommand command) {
++        commandUDelete.execute(command);
++    }
++
+ }
+diff --git a/spring/src/main/java/co/com/sofka/infrastructure/IssueEntity.java b/spring/src/main/java/co/com/sofka/infrastructure/IssueEntity.java
+index 3f0e3e3..9652780 100644
+--- a/spring/src/main/java/co/com/sofka/infrastructure/IssueEntity.java
++++ b/spring/src/main/java/co/com/sofka/infrastructure/IssueEntity.java
+@@ -11,15 +11,17 @@ public class IssueEntity {
+ 
+     @Id
+     private Object issueId;
++
+     private Object basicInformation;
+     private Object person;
+     private Object statusProperty;
+     private Object period;
+     private Object labelList;
++
+     private String type;
+-    private UUID uuid;
+     private Long versionType;
+     private Instant when;
++    private Object aggregateRootId;
+ 
+     public IssueEntity() {
+     }
+@@ -80,14 +82,6 @@ public class IssueEntity {
+         this.type = type;
+     }
+ 
+-    public UUID getUuid() {
+-        return uuid;
+-    }
+-
+-    public void setUuid(UUID uuid) {
+-        this.uuid = uuid;
+-    }
+-
+     public Long getVersionType() {
+         return versionType;
+     }
+@@ -103,4 +97,12 @@ public class IssueEntity {
+     public void setWhen(Instant when) {
+         this.when = when;
+     }
++
++    public Object getAggregateRootId() {
++        return aggregateRootId;
++    }
++
++    public void setAggregateRootId(Object aggregateRootId) {
++        this.aggregateRootId = aggregateRootId;
++    }
+ }
+diff --git a/spring/src/main/java/co/com/sofka/infrastructure/RabbitConfiguration.java b/spring/src/main/java/co/com/sofka/infrastructure/RabbitConfiguration.java
+index 4309480..9130eb3 100644
+--- a/spring/src/main/java/co/com/sofka/infrastructure/RabbitConfiguration.java
++++ b/spring/src/main/java/co/com/sofka/infrastructure/RabbitConfiguration.java
+@@ -27,6 +27,12 @@ public class RabbitConfiguration {
+         return new Queue("issue_with_basic_information_created", false);
+     }
+ 
++    @Bean
++    @Qualifier("issue_deleted")
++    Queue queueIssueDeleted() {
++        return new Queue("issue_deleted", false);
++    }
++
+ 
+     @Bean
+     MessageListenerContainer messageListenerContainer(final ConnectionFactory connectionFactory,
+@@ -34,7 +40,9 @@ public class RabbitConfiguration {
+ 
+         SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
+         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
+-        simpleMessageListenerContainer.setQueues(queueIssueStatusUpdated(), queueIssueWithBasicInformationCreated());
++        simpleMessageListenerContainer.setQueues(queueIssueStatusUpdated(),
++                queueIssueWithBasicInformationCreated(),
++                queueIssueDeleted());
+         simpleMessageListenerContainer.setMessageListener(new RabbitMQListener(mongoTemplate));
+         return simpleMessageListenerContainer;
+     }
+diff --git a/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainEventBus.java b/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainEventBus.java
+index a14c5c4..e4a7a3c 100644
+--- a/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainEventBus.java
++++ b/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainEventBus.java
+@@ -1,6 +1,7 @@
+ package co.com.sofka.infrastructure;
+ 
+ import co.com.sofka.domain.generic.DomainEvent;
++import co.com.sofka.infraestructure.bus.ErrorEvent;
+ import co.com.sofka.infraestructure.bus.EventBus;
+ import com.google.gson.Gson;
+ import org.springframework.amqp.core.Binding;
+@@ -29,6 +30,11 @@ public class RabbitDomainEventBus implements EventBus {
+         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, event.type, eventSerialization);
+     }
+ 
++    @Override
++    public void publishError(ErrorEvent errorEvent) {
++        throw new RabbitDomainException(errorEvent.reason);
++    }
++
+     private void generateBinding(final DomainEvent event) {
+         Binding binding = new Binding(event.type, Binding.DestinationType.QUEUE, TOPIC_EXCHANGE_NAME, event.type, null);
+         rabbitAdmin.declareBinding(binding);
+diff --git a/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainException.java b/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainException.java
+new file mode 100644
+index 0000000..f5c1162
+--- /dev/null
++++ b/spring/src/main/java/co/com/sofka/infrastructure/RabbitDomainException.java
+@@ -0,0 +1,8 @@
++package co.com.sofka.infrastructure;
++
++public class RabbitDomainException extends RuntimeException {
++
++    public RabbitDomainException(String message) {
++        super(message);
++    }
++}
+diff --git a/spring/src/main/java/co/com/sofka/infrastructure/RabbitMQListener.java b/spring/src/main/java/co/com/sofka/infrastructure/RabbitMQListener.java
+index 2aa4179..bc87ba2 100644
+--- a/spring/src/main/java/co/com/sofka/infrastructure/RabbitMQListener.java
++++ b/spring/src/main/java/co/com/sofka/infrastructure/RabbitMQListener.java
+@@ -25,6 +25,8 @@ public class RabbitMQListener implements MessageListener {
+         IssueEntity issue = gson.fromJson(gson.toJson(map), IssueEntity.class);
+         if (issue.getType().contains("update")) {
+             updateIssue(map);
++        }if (issue.getType().contains("delete")) {
++            mongoTemplate.remove(issue);
+         } else {
+             mongoTemplate.save(issue);
+         }
+
+commit ffa49b2a6a2fa06c5ee842f1c97ccecc92917539
+Author: JPMS <juanpa96@live.com.mx>
+Date:   Tue Mar 10 16:44:39 2020 -0500
+
+    Refactor UpdateUseCase need debbug
+
+diff --git a/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java b/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
+index 73564e7..039659f 100644
+--- a/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
++++ b/core/src/main/java/co/com/sofka/core/issue/commands/IssueUpdateCommand.java
+@@ -1,21 +1,20 @@
+ package co.com.sofka.core.issue.commands;
+ 
+ import co.com.sofka.domain.generic.Command;
+-import co.com.sofka.generic.values.BasicInformationProperty;
+ import co.com.sofka.generic.values.StatusProperty;
+ 
+ public class IssueUpdateCommand extends Command {
+     private final String aggregateRootId;
+-    private final BasicInformationProperty basicInformation;
++    private final String issueId;
+     private final StatusProperty status;
+ 
+     public IssueUpdateCommand(final String type,
+                               final String aggregateRootId,
+-                              final BasicInformationProperty basicInformation,
++                              final String issueId,
+                               final StatusProperty status) {
+         super(type);
+         this.aggregateRootId = aggregateRootId;
+-        this.basicInformation = basicInformation;
++        this.issueId = issueId;
+         this.status = status;
+     }
+ 
+@@ -23,8 +22,8 @@ public class IssueUpdateCommand extends Command {
+         return aggregateRootId;
+     }
+ 
+-    public BasicInformationProperty getBasicInformation() {
+-        return basicInformation;
++    public String getIssueId() {
++        return issueId;
+     }
+ 
+     public StatusProperty getStatus() {
+diff --git a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+index 2bcbe57..ad1fd6c 100644
+--- a/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
++++ b/core/src/main/java/co/com/sofka/infrastructure/SubscriberFirestore.java
+@@ -45,7 +45,9 @@ public class SubscriberFirestore implements Flow.Subscriber<DomainEvent> {
+ 
+     @Override
+     public void onError(final Throwable throwable) {
+-        BdConnection.closeDatabase();
++        //BdConnection.closeDatabase();
++        String message = throwable.getMessage();
++        LOGGER.error(message);
+     }
+ 
+     @Override
+diff --git a/core/src/main/java/co/com/sofka/usecases/FindByIdUseCase.java b/core/src/main/java/co/com/sofka/usecases/FindByIdUseCase.java
+deleted file mode 100644
+index 37b7192..0000000
+--- a/core/src/main/java/co/com/sofka/usecases/FindByIdUseCase.java
++++ /dev/null
+@@ -1,36 +0,0 @@
+-package co.com.sofka.usecases;
+-
+-import co.com.sofka.business.generic.UseCase;
+-import co.com.sofka.domain.generic.DomainEvent;
+-import co.com.sofka.generic.values.BasicInformationProperty;
+-
+-import java.util.List;
+-
+-public class FindByIdUseCase extends UseCase<FindByIdUseCase.Request, FindByIdUseCase.Response> {
+-
+-
+-
+-
+-    @Override
+-    protected void executeUseCase(Request request) {
+-
+-    }
+-
+-    public static class Request implements UseCase.RequestValues {
+-        private String uuid;
+-        private BasicInformationProperty basicInformation;
+-
+-        public Request(final String uuid, final BasicInformationProperty basicInformation) {
+-            this.uuid = uuid;
+-            this.basicInformation = basicInformation;
+-        }
+-    }
+-
+-    public static class Response implements UseCase.PubEvents {
+-
+-        @Override
+-        public List<DomainEvent> getDomainEvents() {
+-            return null;
+-        }
+-    }
+-}
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+new file mode 100644
+index 0000000..9be7c2f
+--- /dev/null
++++ b/core/src/main/java/co/com/sofka/usecases/IssueDeleteUseCase.java
+@@ -0,0 +1,43 @@
++package co.com.sofka.usecases;
++
++import co.com.sofka.business.generic.UseCase;
++import co.com.sofka.core.issue.IssueList;
++import co.com.sofka.domain.generic.AggregateRootId;
++import co.com.sofka.domain.generic.DomainEvent;
++
++
++import java.util.List;
++
++public class IssueDeleteUseCase extends UseCase<IssueDeleteUseCase.Request, IssueDeleteUseCase.Response> {
++
++    @Override
++    protected void executeUseCase(Request requestValues) {
++
++        AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
++        IssueList issueList = new IssueList(anAggregateRootId);
++        //issueList.
++        //issueList.deleteIssueBy();
++
++    }
++
++    public static class Request implements UseCase.RequestValues {
++        private String uuid;
++
++        public Request(final String uuid) {
++            this.uuid = uuid;
++        }
++    }
++
++    public static class Response implements UseCase.PubEvents {
++        private List<DomainEvent> domainEvents;
++
++        public Response(final List<DomainEvent> domainEvents) {
++            this.domainEvents = List.copyOf(domainEvents);
++        }
++
++        @Override
++        public List<DomainEvent> getDomainEvents() {
++            return domainEvents;
++        }
++    }
++}
+diff --git a/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java b/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
+index 332e3d1..df47252 100644
+--- a/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
++++ b/core/src/main/java/co/com/sofka/usecases/IssueUpdateUseCase.java
+@@ -3,42 +3,43 @@ package co.com.sofka.usecases;
+ import co.com.sofka.business.generic.UseCase;
+ import co.com.sofka.core.issue.IssueList;
+ import co.com.sofka.core.issue.events.IssueWithBasicInformationCreated;
++import co.com.sofka.core.issue.values.IssueId;
+ import co.com.sofka.domain.generic.AggregateRootId;
+ import co.com.sofka.domain.generic.DomainEvent;
+ import co.com.sofka.generic.values.BasicInformationProperty;
+ import co.com.sofka.generic.values.StatusProperty;
++import co.com.sofka.infraestructure.repository.EventStoreRepository;
+ 
+ import java.util.List;
+ 
+ public class IssueUpdateUseCase extends UseCase<IssueUpdateUseCase.Request, IssueUpdateUseCase.Response> {
+ 
++    EventStoreRepository repository;
++
++    public IssueUpdateUseCase(EventStoreRepository repository) {
++        this.repository = repository;
++    }
++
+     @Override
+     protected void executeUseCase(final Request requestValues) {
+-
+         AggregateRootId anAggregateRootId = new AggregateRootId(requestValues.uuid);
+-        IssueList issueList = new IssueList(anAggregateRootId);
+-
+-        issueList.createIssueWithBasicInformation(requestValues.basicInformation);
+-
+-        var uncommittedChanges = issueList.getUncommittedChanges();
+-        var issueId = ((IssueWithBasicInformationCreated) uncommittedChanges.get(0)).getIssueId();
+-        issueList.updateIssueStatusBy(issueId, requestValues.status);
+-
++        IssueList issueList = IssueList.from(anAggregateRootId, repository.getEventsBy(anAggregateRootId));
++        issueList.updateIssueStatusBy(new IssueId(requestValues.issueId), requestValues.status);
+         emit().onSuccess(new IssueUpdateUseCase.Response(issueList.getUncommittedChanges()));
+         issueList.markChangesAsCommitted();
+     }
+ 
+     public static class Request implements UseCase.RequestValues {
+         private String uuid;
+-        private BasicInformationProperty basicInformation;
++        private String issueId;
+         private StatusProperty status;
+ 
+         public Request(final String uuid,
+-                       final BasicInformationProperty basicInformation,
++                       final String issueId,
+                        final StatusProperty status) {
+ 
+             this.uuid = uuid;
+-            this.basicInformation = basicInformation;
++            this.issueId = issueId;
+             this.status = status;
+         }
+     }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+index da685bf..14db8e1 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerCreate.java
+@@ -22,12 +22,11 @@ public class CommandHandlerCreate implements CommandHandler<IssueCreateCommand>
+ 
+     @Override
+     public void execute(final IssueCreateCommand command) {
+-
+         UseCaseHandler.getInstance()
+-                .asyncExecutor(new IssueCreateUseCase(),
+-                        new IssueCreateUseCase.Request(command.getAggregateRootId(),
+-                                command.getBasicInformation())
+-                ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
++            .asyncExecutor(new IssueCreateUseCase(),
++                    new IssueCreateUseCase.Request(command.getAggregateRootId(),
++                            command.getBasicInformation())
++            ).subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
+     }
+ 
+ }
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+new file mode 100644
+index 0000000..34f4480
+--- /dev/null
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerDelete.java
+@@ -0,0 +1,5 @@
++package co.com.sofka.usecases.handlers.commands;
++
++public class CommandHandlerDelete  {
++
++}
+diff --git a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+index 8e19c8a..8674596 100644
+--- a/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
++++ b/core/src/main/java/co/com/sofka/usecases/handlers/commands/CommandHandlerUpdate.java
+@@ -24,9 +24,9 @@ public class CommandHandlerUpdate implements CommandHandler<IssueUpdateCommand>
+     public void execute(final IssueUpdateCommand command) {
+ 
+         UseCaseHandler.getInstance()
+-                .asyncExecutor(new IssueUpdateUseCase(),
++                .asyncExecutor(new IssueUpdateUseCase(firestoreRepository),
+                         new IssueUpdateUseCase.Request(command.getAggregateRootId(),
+-                                command.getBasicInformation(), command.getStatus())
++                                command.getIssueId(), command.getStatus())
+                 )
+                 .subscribe(new SubscriberFirestore(command.getAggregateRootId(), firestoreRepository, eventBus));
+ 
+diff --git a/spring/src/main/java/co/com/sofka/application/ServiceConfigure.java b/spring/src/main/java/co/com/sofka/application/ServiceConfigure.java
+index bdb239b..b7ad0a7 100644
+--- a/spring/src/main/java/co/com/sofka/application/ServiceConfigure.java
++++ b/spring/src/main/java/co/com/sofka/application/ServiceConfigure.java
+@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
+ 
+ @Configuration
+ public class ServiceConfigure {
+-
+     @Bean
+     public FirestoreRepository firestoreRepository() {
+         return new FirestoreRepository(BdConnection.getDatabaseInstance());
+diff --git a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+index c5bb8b1..9e41ef1 100644
+--- a/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
++++ b/spring/src/main/java/co/com/sofka/application/commands/CommandConfigure.java
+@@ -1,5 +1,6 @@
+ package co.com.sofka.application.commands;
+ 
++import co.com.sofka.infraestructure.repository.EventStoreRepository;
+ import co.com.sofka.infrastructure.FirestoreRepository;
+ import co.com.sofka.infrastructure.RabbitDomainEventBus;
+ import co.com.sofka.infraestructure.bus.EventBus;
+@@ -22,8 +23,8 @@ public class CommandConfigure {
+     }
+ 
+     @Bean
+-    public IssueUpdateUseCase issueUpdateUseCase() {
+-        return new IssueUpdateUseCase();
++    public IssueUpdateUseCase issueUpdateUseCase(EventStoreRepository repository) {
++        return new IssueUpdateUseCase(repository);
+     }
+ 
+     @Bean
